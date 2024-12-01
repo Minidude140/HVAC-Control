@@ -10,6 +10,10 @@ Option Strict On
 Imports System.Threading
 
 Public Class HvacControlForm
+    '*****************************************Global Variables******************************************
+    Dim ambientTempSensor As Integer
+    Dim controlSystemTempSensor As Integer
+
     '**********************************************Custom Methods*******************************************
     ''' <summary>
     ''' Fill Combo Box With Available COM Ports
@@ -36,6 +40,8 @@ Public Class HvacControlForm
             If GetQySettings() = True Then
                 'Verified Selected COM as QY@t Board
                 MsgBox("Successfully Connected to Selected COM Port.  Verified QY@ Board Input")
+                'Enable COM Timer
+                COMTimer.Enabled = True
             Else
                 'Not a QY@t Board Close COM
                 MsgBox("Selected COM Port is not a QY@ Board")
@@ -75,6 +81,46 @@ Public Class HvacControlForm
         Return isQY
     End Function
 
+    ''' <summary>
+    ''' Read Analog Input 1.  Return High Byte
+    ''' </summary>
+    Function Qy_AnalogReadA1() As Integer
+        'High and Low Byte Data
+        Dim Result(1) As Byte
+        'command to QY board to read analog data
+        Dim command(0) As Byte
+        command(0) = &B1010001
+        COMSerialPort.Write(command, 0, 1)
+        'Wait for Response
+        Thread.Sleep(5)
+        'create an array of bytes with the length of input data
+        Dim data(COMSerialPort.BytesToRead) As Byte
+        'Populate array with input data
+        COMSerialPort.Read(data, 0, COMSerialPort.BytesToRead)
+        'Return High Byte of Analog Data
+        Return data(0)
+    End Function
+
+    ''' <summary>
+    ''' Read Analog Input 2.  Return High Byte
+    ''' </summary>
+    Function Qy_AnalogReadA2() As Integer
+        'High and Low Byte Data
+        Dim Result(1) As Byte
+        'command to QY board to read analog data
+        Dim command(0) As Byte
+        command(0) = &B1010010
+        COMSerialPort.Write(command, 0, 1)
+        'Wait for Response
+        Thread.Sleep(5)
+        'create an array of bytes with the length of input data
+        Dim data(COMSerialPort.BytesToRead) As Byte
+        'Populate array with input data
+        COMSerialPort.Read(data, 0, COMSerialPort.BytesToRead)
+        'Return High Byte of Analog Data
+        Return data(0)
+    End Function
+
     '**********************************************Event Handlers*******************************************
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Fill Com Select Combo Box Options
@@ -88,5 +134,15 @@ Public Class HvacControlForm
 
     Private Sub ConnectCOMToolStripButton_Click(sender As Object, e As EventArgs) Handles ConnectCOMToolStripButton.Click
         ConnectCOM()
+    End Sub
+
+    Private Sub COMTimer_Tick(sender As Object, e As EventArgs) Handles COMTimer.Tick
+        'Update Ambient Temp Sensor Data
+        ambientTempSensor = Qy_AnalogReadA1()
+        'Update Control System Temp Sensor Data
+        controlSystemTempSensor = Qy_AnalogReadA2()
+        'Update Test Labels
+        AnalogInput1TestLabel.Text = CStr(ambientTempSensor)
+        AnalogInput2TestLabel.Text = CStr(controlSystemTempSensor)
     End Sub
 End Class

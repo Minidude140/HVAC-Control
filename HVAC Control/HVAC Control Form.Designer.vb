@@ -37,6 +37,9 @@ Partial Class HvacControlForm
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.COMSerialPort = New System.IO.Ports.SerialPort(Me.components)
+        Me.COMTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.AnalogInput1TestLabel = New System.Windows.Forms.Label()
+        Me.AnalogInput2TestLabel = New System.Windows.Forms.Label()
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -127,11 +130,35 @@ Partial Class HvacControlForm
         Me.COMSerialPort.ReadTimeout = 250
         Me.COMSerialPort.WriteTimeout = 250
         '
+        'COMTimer
+        '
+        Me.COMTimer.Interval = 500
+        '
+        'AnalogInput1TestLabel
+        '
+        Me.AnalogInput1TestLabel.AutoSize = True
+        Me.AnalogInput1TestLabel.Location = New System.Drawing.Point(120, 150)
+        Me.AnalogInput1TestLabel.Name = "AnalogInput1TestLabel"
+        Me.AnalogInput1TestLabel.Size = New System.Drawing.Size(39, 13)
+        Me.AnalogInput1TestLabel.TabIndex = 1
+        Me.AnalogInput1TestLabel.Text = "Label1"
+        '
+        'AnalogInput2TestLabel
+        '
+        Me.AnalogInput2TestLabel.AutoSize = True
+        Me.AnalogInput2TestLabel.Location = New System.Drawing.Point(260, 150)
+        Me.AnalogInput2TestLabel.Name = "AnalogInput2TestLabel"
+        Me.AnalogInput2TestLabel.Size = New System.Drawing.Size(39, 13)
+        Me.AnalogInput2TestLabel.TabIndex = 2
+        Me.AnalogInput2TestLabel.Text = "Label1"
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.AnalogInput2TestLabel)
+        Me.Controls.Add(Me.AnalogInput1TestLabel)
         Me.Controls.Add(Me.ControlsToolStrip)
         Me.Name = "HvacControlForm"
         Me.Text = "HVAC Control"
@@ -156,4 +183,7 @@ Partial Class HvacControlForm
     Friend WithEvents ToolTip As ToolTip
     Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
     Friend WithEvents COMSerialPort As IO.Ports.SerialPort
+    Friend WithEvents COMTimer As Timer
+    Friend WithEvents AnalogInput1TestLabel As Label
+    Friend WithEvents AnalogInput2TestLabel As Label
 End Class
