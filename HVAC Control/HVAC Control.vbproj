@@ -131,5 +131,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-quit-50.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-disconnect-30.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

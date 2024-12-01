@@ -42,6 +42,10 @@ Public Class HvacControlForm
                 MsgBox("Successfully Connected to Selected COM Port.  Verified QY@ Board Input")
                 'Enable COM Timer
                 COMTimer.Enabled = True
+                'Enable Disconnect button
+                DisconnetToolStripButton.Enabled = True
+                'Disable Connect Button
+                ConnectCOMToolStripButton.Enabled = False
             Else
                 'Not a QY@t Board Close COM
                 MsgBox("Selected COM Port is not a QY@ Board")
@@ -144,5 +148,16 @@ Public Class HvacControlForm
         'Update Test Labels
         AnalogInput1TestLabel.Text = CStr(ambientTempSensor)
         AnalogInput2TestLabel.Text = CStr(controlSystemTempSensor)
+    End Sub
+
+    Private Sub DisconnetToolStripButton_Click(sender As Object, e As EventArgs) Handles DisconnetToolStripButton.Click
+        'Disable COM Timer
+        COMTimer.Enabled = False
+        'Close COM Port
+        COMSerialPort.Close()
+        'Disable Disconnect Button
+        DisconnetToolStripButton.Enabled = False
+        'Enable Connect Button
+        ConnectCOMToolStripButton.Enabled = True
     End Sub
 End Class
