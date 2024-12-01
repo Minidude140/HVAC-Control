@@ -42,6 +42,12 @@ Partial Class HvacControlForm
         Me.DisconnetToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.SaveSettingsToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.QuitProgramToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.AmbientTempFLabel = New System.Windows.Forms.Label()
+        Me.AmbientTempCLabel = New System.Windows.Forms.Label()
+        Me.ControlSytemTempFLabel = New System.Windows.Forms.Label()
+        Me.ControlSystemTempCLabel = New System.Windows.Forms.Label()
+        Me.AmbientTempLabel = New System.Windows.Forms.Label()
+        Me.ControlSystemTempLabel = New System.Windows.Forms.Label()
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -109,7 +115,7 @@ Partial Class HvacControlForm
         'AnalogInput1TestLabel
         '
         Me.AnalogInput1TestLabel.AutoSize = True
-        Me.AnalogInput1TestLabel.Location = New System.Drawing.Point(120, 150)
+        Me.AnalogInput1TestLabel.Location = New System.Drawing.Point(102, 143)
         Me.AnalogInput1TestLabel.Name = "AnalogInput1TestLabel"
         Me.AnalogInput1TestLabel.Size = New System.Drawing.Size(39, 13)
         Me.AnalogInput1TestLabel.TabIndex = 1
@@ -118,7 +124,7 @@ Partial Class HvacControlForm
         'AnalogInput2TestLabel
         '
         Me.AnalogInput2TestLabel.AutoSize = True
-        Me.AnalogInput2TestLabel.Location = New System.Drawing.Point(260, 150)
+        Me.AnalogInput2TestLabel.Location = New System.Drawing.Point(252, 143)
         Me.AnalogInput2TestLabel.Name = "AnalogInput2TestLabel"
         Me.AnalogInput2TestLabel.Size = New System.Drawing.Size(39, 13)
         Me.AnalogInput2TestLabel.TabIndex = 2
@@ -170,11 +176,73 @@ Partial Class HvacControlForm
         Me.QuitProgramToolStripButton.Text = "ToolStripButton1"
         Me.QuitProgramToolStripButton.ToolTipText = "Quit the Program"
         '
+        'AmbientTempFLabel
+        '
+        Me.AmbientTempFLabel.AutoSize = True
+        Me.AmbientTempFLabel.Location = New System.Drawing.Point(106, 172)
+        Me.AmbientTempFLabel.Name = "AmbientTempFLabel"
+        Me.AmbientTempFLabel.Size = New System.Drawing.Size(29, 13)
+        Me.AmbientTempFLabel.TabIndex = 3
+        Me.AmbientTempFLabel.Text = "0 ° F"
+        '
+        'AmbientTempCLabel
+        '
+        Me.AmbientTempCLabel.AutoSize = True
+        Me.AmbientTempCLabel.Location = New System.Drawing.Point(106, 198)
+        Me.AmbientTempCLabel.Name = "AmbientTempCLabel"
+        Me.AmbientTempCLabel.Size = New System.Drawing.Size(30, 13)
+        Me.AmbientTempCLabel.TabIndex = 4
+        Me.AmbientTempCLabel.Text = "0 ° C"
+        '
+        'ControlSytemTempFLabel
+        '
+        Me.ControlSytemTempFLabel.AutoSize = True
+        Me.ControlSytemTempFLabel.Location = New System.Drawing.Point(257, 172)
+        Me.ControlSytemTempFLabel.Name = "ControlSytemTempFLabel"
+        Me.ControlSytemTempFLabel.Size = New System.Drawing.Size(29, 13)
+        Me.ControlSytemTempFLabel.TabIndex = 5
+        Me.ControlSytemTempFLabel.Text = "0 ° F"
+        '
+        'ControlSystemTempCLabel
+        '
+        Me.ControlSystemTempCLabel.AutoSize = True
+        Me.ControlSystemTempCLabel.Location = New System.Drawing.Point(256, 198)
+        Me.ControlSystemTempCLabel.Name = "ControlSystemTempCLabel"
+        Me.ControlSystemTempCLabel.Size = New System.Drawing.Size(30, 13)
+        Me.ControlSystemTempCLabel.TabIndex = 6
+        Me.ControlSystemTempCLabel.Text = "0 ° C"
+        '
+        'AmbientTempLabel
+        '
+        Me.AmbientTempLabel.AutoSize = True
+        Me.AmbientTempLabel.Location = New System.Drawing.Point(80, 108)
+        Me.AmbientTempLabel.Name = "AmbientTempLabel"
+        Me.AmbientTempLabel.Size = New System.Drawing.Size(82, 26)
+        Me.AmbientTempLabel.TabIndex = 7
+        Me.AmbientTempLabel.Text = "Ambient Temp" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Analog Input 1)"
+        Me.AmbientTempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ControlSystemTempLabel
+        '
+        Me.ControlSystemTempLabel.AutoSize = True
+        Me.ControlSystemTempLabel.Location = New System.Drawing.Point(218, 108)
+        Me.ControlSystemTempLabel.Name = "ControlSystemTempLabel"
+        Me.ControlSystemTempLabel.Size = New System.Drawing.Size(107, 26)
+        Me.ControlSystemTempLabel.TabIndex = 8
+        Me.ControlSystemTempLabel.Text = "Control System Temp" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Analog Input 2)"
+        Me.ControlSystemTempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.ControlSystemTempLabel)
+        Me.Controls.Add(Me.AmbientTempLabel)
+        Me.Controls.Add(Me.ControlSystemTempCLabel)
+        Me.Controls.Add(Me.ControlSytemTempFLabel)
+        Me.Controls.Add(Me.AmbientTempCLabel)
+        Me.Controls.Add(Me.AmbientTempFLabel)
         Me.Controls.Add(Me.AnalogInput2TestLabel)
         Me.Controls.Add(Me.AnalogInput1TestLabel)
         Me.Controls.Add(Me.ControlsToolStrip)
@@ -206,4 +274,10 @@ Partial Class HvacControlForm
     Friend WithEvents AnalogInput2TestLabel As Label
     Friend WithEvents DisconnetToolStripButton As ToolStripButton
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
+    Friend WithEvents AmbientTempFLabel As Label
+    Friend WithEvents AmbientTempCLabel As Label
+    Friend WithEvents ControlSytemTempFLabel As Label
+    Friend WithEvents ControlSystemTempCLabel As Label
+    Friend WithEvents AmbientTempLabel As Label
+    Friend WithEvents ControlSystemTempLabel As Label
 End Class

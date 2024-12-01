@@ -86,11 +86,11 @@ Public Class HvacControlForm
     End Function
 
     ''' <summary>
-    ''' Read Analog Input 1.  Return High Byte
+    ''' Read Analog Input 1.  Return 9 Bit Count
     ''' </summary>
     Function Qy_AnalogReadA1() As Integer
         'High and Low Byte Data
-        Dim Result(1) As Byte
+        Dim Result As Integer
         'command to QY board to read analog data
         Dim command(0) As Byte
         command(0) = &B1010001
@@ -101,16 +101,35 @@ Public Class HvacControlForm
         Dim data(COMSerialPort.BytesToRead) As Byte
         'Populate array with input data
         COMSerialPort.Read(data, 0, COMSerialPort.BytesToRead)
-        'Return High Byte of Analog Data
-        Return data(0)
+        'Add the First 8 high bytes
+        Result = data(0)
+        'Shift Result Left for incoming bit
+        Result = Result * 2
+        'Test if bit 7 of the low byte is high
+        If data(1) >= 128 Then
+            'Shift in a 1
+            Result = Result + 1
+        Else
+            'Shift in a 0 (do nothing)
+        End If
+        'Shift Result Left for incoming bit
+        Result = Result * 2
+        If data(1) >= 64 Then
+            'Shift in a 1
+            Result = Result + 1
+        Else
+            'Shift in a 0 (do nothing)
+        End If
+        'Return 10 bits of Analog Data
+        Return Result
     End Function
 
     ''' <summary>
-    ''' Read Analog Input 2.  Return High Byte
+    ''' Read Analog Input 2.  Return 10 Bit Count 
     ''' </summary>
     Function Qy_AnalogReadA2() As Integer
         'High and Low Byte Data
-        Dim Result(1) As Byte
+        Dim Result As Integer
         'command to QY board to read analog data
         Dim command(0) As Byte
         command(0) = &B1010010
@@ -121,9 +140,73 @@ Public Class HvacControlForm
         Dim data(COMSerialPort.BytesToRead) As Byte
         'Populate array with input data
         COMSerialPort.Read(data, 0, COMSerialPort.BytesToRead)
-        'Return High Byte of Analog Data
-        Return data(0)
+        'Add the First 8 high bytes
+        Result = data(0)
+        'Shift Result Left for incoming bit
+        Result = Result * 2
+        'Test if bit 7 of the low byte is high
+        If data(1) >= 128 Then
+            'Shift in a 1
+            Result = Result + 1
+        Else
+            'Shift in a 0 (do nothing)
+        End If
+        'Shift Result Left for incoming bit
+        Result = Result * 2
+        If data(1) >= 64 Then
+            'Shift in a 1
+            Result = Result + 1
+        Else
+            'Shift in a 0 (do nothing)
+        End If
+        'Return 10 bits of Analog Data
+        Return Result
     End Function
+
+    ''' <summary>
+    ''' Convert the Input Data to Degrees F
+    ''' </summary>
+    ''' <param name="inputData"></param>
+    ''' <returns></returns>
+    Function ConvertToTempF(inputData As Integer) As Double
+        Dim degreeF As Double
+        'Convert Input of ____ to degrees F
+        'LM34 : 10mV/°F
+        '* 0.66 Gain : 6.6mV/°F
+        'Analog Input of 10 bits:
+        ' 3.3V/((2^10)-1) = VResolution:3.2mv/Count (1 Count ~= 0.5°) 
+        degreeF = inputData * 0.5
+        'Return Degrees F
+        Return degreeF
+    End Function
+
+    ''' <summary>
+    ''' Conters Degrees F Returns Degrees C
+    ''' </summary>
+    ''' <param name="tempF"></param>
+    ''' <returns></returns>
+    Function ConvertToTempC(tempF As Double) As Double
+        Dim degreeC As Double
+        'Convert F to C
+        degreeC = ((tempF - 32) * (5 / 9))
+        'Return Degrees C
+        Return degreeC
+    End Function
+
+    ''' <summary>
+    ''' Updates the Form Labels with current Data
+    ''' </summary>
+    Sub UpdateLabels()
+        'Update Test Labels
+        AnalogInput1TestLabel.Text = CStr(ambientTempSensor)
+        AnalogInput2TestLabel.Text = CStr(controlSystemTempSensor)
+        'Update Ambient Temp Labels
+        AmbientTempFLabel.Text = $"{CStr(ConvertToTempF(ambientTempSensor))}°F"
+        AmbientTempCLabel.Text = $"{CStr(ConvertToTempC(ConvertToTempF(ambientTempSensor)))}°C"
+        'Update Control System Temp Labels
+        ControlSytemTempFLabel.Text = $"{CStr(ConvertToTempF(controlSystemTempSensor))}°F"
+        ControlSystemTempCLabel.Text = $"{CStr(ConvertToTempC(ConvertToTempF(controlSystemTempSensor)))}°C"
+    End Sub
 
     '**********************************************Event Handlers*******************************************
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -145,9 +228,8 @@ Public Class HvacControlForm
         ambientTempSensor = Qy_AnalogReadA1()
         'Update Control System Temp Sensor Data
         controlSystemTempSensor = Qy_AnalogReadA2()
-        'Update Test Labels
-        AnalogInput1TestLabel.Text = CStr(ambientTempSensor)
-        AnalogInput2TestLabel.Text = CStr(controlSystemTempSensor)
+        'Update Form Output Labels
+        UpdateLabels()
     End Sub
 
     Private Sub DisconnetToolStripButton_Click(sender As Object, e As EventArgs) Handles DisconnetToolStripButton.Click
