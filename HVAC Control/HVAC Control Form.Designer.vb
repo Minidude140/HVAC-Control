@@ -22,24 +22,25 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Me.components = New System.ComponentModel.Container()
         Me.ControlsToolStrip = New System.Windows.Forms.ToolStrip()
         Me.COMSelectToolStripComboBox = New System.Windows.Forms.ToolStripComboBox()
-        Me.ConnectCOMToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BlankToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SaveSettingsToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.BlankToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ExitProgramToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ConnectCOMToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.SaveSettingsToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.QuitProgramToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'ControlsToolStrip
         '
-        Me.ControlsToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.COMSelectToolStripComboBox, Me.ConnectCOMToolStripButton, Me.ToolStripSeparator1, Me.BlankToolStripLabel1, Me.ToolStripSeparator2, Me.SaveSettingsToolStripButton, Me.ToolStripSeparator3, Me.BlankToolStripLabel2, Me.ToolStripSeparator4, Me.ExitProgramToolStripButton})
+        Me.ControlsToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.COMSelectToolStripComboBox, Me.ConnectCOMToolStripButton, Me.ToolStripSeparator1, Me.BlankToolStripLabel1, Me.ToolStripSeparator2, Me.SaveSettingsToolStripButton, Me.ToolStripSeparator3, Me.BlankToolStripLabel2, Me.ToolStripSeparator4, Me.QuitProgramToolStripButton})
         Me.ControlsToolStrip.Location = New System.Drawing.Point(0, 0)
         Me.ControlsToolStrip.Name = "ControlsToolStrip"
         Me.ControlsToolStrip.Size = New System.Drawing.Size(800, 25)
@@ -50,15 +51,6 @@ Partial Class Form1
         '
         Me.COMSelectToolStripComboBox.Name = "COMSelectToolStripComboBox"
         Me.COMSelectToolStripComboBox.Size = New System.Drawing.Size(121, 25)
-        '
-        'ConnectCOMToolStripButton
-        '
-        Me.ConnectCOMToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ConnectCOMToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_usb_connector_30
-        Me.ConnectCOMToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ConnectCOMToolStripButton.Name = "ConnectCOMToolStripButton"
-        Me.ConnectCOMToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.ConnectCOMToolStripButton.Text = "ToolStripButton1"
         '
         'ToolStripSeparator1
         '
@@ -76,15 +68,6 @@ Partial Class Form1
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
         '
-        'SaveSettingsToolStripButton
-        '
-        Me.SaveSettingsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.SaveSettingsToolStripButton.Image = CType(resources.GetObject("SaveSettingsToolStripButton.Image"), System.Drawing.Image)
-        Me.SaveSettingsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.SaveSettingsToolStripButton.Name = "SaveSettingsToolStripButton"
-        Me.SaveSettingsToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.SaveSettingsToolStripButton.Text = "ToolStripButton1"
-        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
@@ -101,14 +84,35 @@ Partial Class Form1
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 25)
         '
-        'ExitProgramToolStripButton
+        'ConnectCOMToolStripButton
         '
-        Me.ExitProgramToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ExitProgramToolStripButton.Image = CType(resources.GetObject("ExitProgramToolStripButton.Image"), System.Drawing.Image)
-        Me.ExitProgramToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ExitProgramToolStripButton.Name = "ExitProgramToolStripButton"
-        Me.ExitProgramToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.ExitProgramToolStripButton.Text = "ToolStripButton1"
+        Me.ConnectCOMToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ConnectCOMToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_usb_connector_30
+        Me.ConnectCOMToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ConnectCOMToolStripButton.Name = "ConnectCOMToolStripButton"
+        Me.ConnectCOMToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.ConnectCOMToolStripButton.Text = "ToolStripButton1"
+        Me.ConnectCOMToolStripButton.ToolTipText = "Attempt Connection to Device"
+        '
+        'SaveSettingsToolStripButton
+        '
+        Me.SaveSettingsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.SaveSettingsToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_save_30
+        Me.SaveSettingsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.SaveSettingsToolStripButton.Name = "SaveSettingsToolStripButton"
+        Me.SaveSettingsToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.SaveSettingsToolStripButton.Text = "ToolStripButton1"
+        Me.SaveSettingsToolStripButton.ToolTipText = "Save Current Temp Settings"
+        '
+        'QuitProgramToolStripButton
+        '
+        Me.QuitProgramToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.QuitProgramToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_quit_50
+        Me.QuitProgramToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.QuitProgramToolStripButton.Name = "QuitProgramToolStripButton"
+        Me.QuitProgramToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.QuitProgramToolStripButton.Text = "ToolStripButton1"
+        Me.QuitProgramToolStripButton.ToolTipText = "Quit the Program"
         '
         'Form1
         '
@@ -117,7 +121,7 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.ControlsToolStrip)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "HVAC Control"
         Me.ControlsToolStrip.ResumeLayout(False)
         Me.ControlsToolStrip.PerformLayout()
         Me.ResumeLayout(False)
@@ -135,5 +139,6 @@ Partial Class Form1
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents BlankToolStripLabel2 As ToolStripLabel
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
-    Friend WithEvents ExitProgramToolStripButton As ToolStripButton
+    Friend WithEvents QuitProgramToolStripButton As ToolStripButton
+    Friend WithEvents ToolTip As ToolTip
 End Class
