@@ -34,8 +34,9 @@ Partial Class HvacControlForm
         Me.BlankToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.QuitProgramToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.COMSerialPort = New System.IO.Ports.SerialPort(Me.components)
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -121,6 +122,11 @@ Partial Class HvacControlForm
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
         Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 25)
         '
+        'COMSerialPort
+        '
+        Me.COMSerialPort.ReadTimeout = 250
+        Me.COMSerialPort.WriteTimeout = 250
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -149,4 +155,5 @@ Partial Class HvacControlForm
     Friend WithEvents QuitProgramToolStripButton As ToolStripButton
     Friend WithEvents ToolTip As ToolTip
     Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
+    Friend WithEvents COMSerialPort As IO.Ports.SerialPort
 End Class
