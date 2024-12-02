@@ -67,6 +67,7 @@ Partial Class HvacControlForm
         Me.FanShutDownTimer = New System.Windows.Forms.Timer(Me.components)
         Me.TempCheckTimer = New System.Windows.Forms.Timer(Me.components)
         Me.FanProgressBar = New System.Windows.Forms.ProgressBar()
+        Me.PowerUpTimer = New System.Windows.Forms.Timer(Me.components)
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -81,6 +82,7 @@ Partial Class HvacControlForm
         '
         'COMSelectToolStripComboBox
         '
+        Me.COMSelectToolStripComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.COMSelectToolStripComboBox.Name = "COMSelectToolStripComboBox"
         Me.COMSelectToolStripComboBox.Size = New System.Drawing.Size(121, 25)
         '
@@ -421,6 +423,10 @@ Partial Class HvacControlForm
         Me.FanProgressBar.Size = New System.Drawing.Size(20, 14)
         Me.FanProgressBar.TabIndex = 26
         '
+        'PowerUpTimer
+        '
+        Me.PowerUpTimer.Interval = 5000
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -505,4 +511,5 @@ Partial Class HvacControlForm
     Friend WithEvents FanShutDownTimer As Timer
     Friend WithEvents TempCheckTimer As Timer
     Friend WithEvents FanProgressBar As ProgressBar
+    Friend WithEvents PowerUpTimer As Timer
 End Class

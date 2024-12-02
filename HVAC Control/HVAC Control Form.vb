@@ -239,7 +239,7 @@ Public Class HvacControlForm
             'Turn on Fan
             'turn on GUI indicator
             FanProgressBar.Value = 1
-            Thread.Sleep(5000)
+            PowerUpTimer.Enabled = True
             '***********Send Digital Output Signal Fan ON Here***************
         ElseIf turnOn = False Then
             'Begin Fan ShutDown (Wait 5s before Shutting Off)
@@ -423,8 +423,7 @@ Public Class HvacControlForm
                     AcControl(False)
                     'Turn on Fan
                     FanControl(True)
-                    'Turn on Heater
-                    HeaterControl(True)
+                    'When Fan Control Turns On it Enables a 5s Timer that will enable Heater
                 End If
 
             Case = "C"
@@ -434,11 +433,22 @@ Public Class HvacControlForm
                     HeaterControl(False)
                     'Turn on Fan
                     FanControl(True)
-                    'Turn on Ac
-                    AcControl(True)
+                    'When Fan Control Turns On it Enables a 5s Timer that will enable Ac
                 End If
             Case Else
                 'Should Not Happen
+        End Select
+    End Sub
+
+    Private Sub PowerUpTimer_Tick(sender As Object, e As EventArgs) Handles PowerUpTimer.Tick
+        PowerUpTimer.Enabled = False
+        Select Case modeSelect
+            Case = "H"
+                'Turn on Heater
+                HeaterControl(True)
+            Case = "C"
+                'Turn on Ac
+                AcControl(True)
         End Select
     End Sub
 End Class
