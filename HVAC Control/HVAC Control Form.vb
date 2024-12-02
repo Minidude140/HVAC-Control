@@ -267,39 +267,52 @@ Public Class HvacControlForm
         'Create Variable For Current Value
         Dim currentSetPoint As Double
         currentSetPoint = CDbl(LowTempTextBox.Text)
-        'Increment Current Value by 0.5
-        currentSetPoint = Increment(currentSetPoint)
-        'Update Text Box With Incremented Value
-        LowTempTextBox.Text = CStr(currentSetPoint)
+        'Only Increment is Less Than 90
+        If currentSetPoint < 90 Then
+            'Increment Current Value by 0.5
+            currentSetPoint = Increment(currentSetPoint)
+            'Update Text Box With Incremented Value
+            LowTempTextBox.Text = CStr(currentSetPoint)
+        End If
+
     End Sub
 
     Private Sub LowTempDownButton_Click(sender As Object, e As EventArgs) Handles LowTempDownButton.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
         currentSetPoint = CDbl(LowTempTextBox.Text)
-        'Decrement Current Value by 0.5
-        currentSetPoint = Decrement(currentSetPoint)
-        'Update Text Box With Decremented Value
-        LowTempTextBox.Text = CStr(currentSetPoint)
+        'Only Decrement if More than 50
+        If currentSetPoint > 50 Then
+            'Decrement Current Value by 0.5
+            currentSetPoint = Decrement(currentSetPoint)
+            'Update Text Box With Decremented Value
+            LowTempTextBox.Text = CStr(currentSetPoint)
+        End If
     End Sub
 
     Private Sub HighTempUpButton_Click(sender As Object, e As EventArgs) Handles HighTempUpButton.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
         currentSetPoint = CDbl(HighTempTextBox.Text)
-        'Increment Current Value by 0.5
-        currentSetPoint = Increment(currentSetPoint)
-        'Update Text Box With Incremented Value
-        HighTempTextBox.Text = CStr(currentSetPoint)
+        'Only Increment is Less Than 90
+        If currentSetPoint < 90 Then
+            'Increment Current Value by 0.5
+            currentSetPoint = Increment(currentSetPoint)
+            'Update Text Box With Incremented Value
+            HighTempTextBox.Text = CStr(currentSetPoint)
+        End If
     End Sub
 
     Private Sub HighTempDownButton_Click(sender As Object, e As EventArgs) Handles HighTempDownButton.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
         currentSetPoint = CDbl(HighTempTextBox.Text)
-        'Decrement Current Value by 0.5
-        currentSetPoint = Decrement(currentSetPoint)
-        'Update Text Box With Decremented Value
-        HighTempTextBox.Text = CStr(currentSetPoint)
+        'Only Decrement if More than 50
+        If currentSetPoint > 50 Then
+            'Decrement Current Value by 0.5
+            currentSetPoint = Decrement(currentSetPoint)
+            'Update Text Box With Decremented Value
+            HighTempTextBox.Text = CStr(currentSetPoint)
+        End If
     End Sub
 End Class
