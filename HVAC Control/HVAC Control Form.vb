@@ -242,4 +242,5 @@ Public Class HvacControlForm
         'Enable Connect Button
         ConnectCOMToolStripButton.Enabled = True
     End Sub
+
 End Class

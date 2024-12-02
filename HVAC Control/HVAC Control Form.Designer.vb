@@ -25,29 +25,46 @@ Partial Class HvacControlForm
         Me.components = New System.ComponentModel.Container()
         Me.ControlsToolStrip = New System.Windows.Forms.ToolStrip()
         Me.COMSelectToolStripComboBox = New System.Windows.Forms.ToolStripComboBox()
+        Me.ConnectCOMToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.DisconnetToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.BlankToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SaveSettingsToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.BlankToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.QuitProgramToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.COMSerialPort = New System.IO.Ports.SerialPort(Me.components)
         Me.COMTimer = New System.Windows.Forms.Timer(Me.components)
         Me.AnalogInput1TestLabel = New System.Windows.Forms.Label()
         Me.AnalogInput2TestLabel = New System.Windows.Forms.Label()
-        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ConnectCOMToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.DisconnetToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.SaveSettingsToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.QuitProgramToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.AmbientTempFLabel = New System.Windows.Forms.Label()
         Me.AmbientTempCLabel = New System.Windows.Forms.Label()
         Me.ControlSytemTempFLabel = New System.Windows.Forms.Label()
         Me.ControlSystemTempCLabel = New System.Windows.Forms.Label()
         Me.AmbientTempLabel = New System.Windows.Forms.Label()
         Me.ControlSystemTempLabel = New System.Windows.Forms.Label()
+        Me.OffRadioButton = New System.Windows.Forms.RadioButton()
+        Me.HeatRadioButton = New System.Windows.Forms.RadioButton()
+        Me.CoolRadioButton = New System.Windows.Forms.RadioButton()
+        Me.HeaterProgressBar = New System.Windows.Forms.ProgressBar()
+        Me.HeatOnLabel = New System.Windows.Forms.Label()
+        Me.FanOnLabel = New System.Windows.Forms.Label()
+        Me.FanProgressBar = New System.Windows.Forms.ProgressBar()
+        Me.AcOnLabel = New System.Windows.Forms.Label()
+        Me.AcProgressBar = New System.Windows.Forms.ProgressBar()
+        Me.SetLowLabel = New System.Windows.Forms.Label()
+        Me.SetHighLabel = New System.Windows.Forms.Label()
+        Me.v = New System.Windows.Forms.TextBox()
+        Me.HighTempTextBox = New System.Windows.Forms.TextBox()
+        Me.LowTempUpButton = New System.Windows.Forms.Button()
+        Me.LowTempDownButton = New System.Windows.Forms.Button()
+        Me.HighTempDownButton = New System.Windows.Forms.Button()
+        Me.HighTempUpButton = New System.Windows.Forms.Button()
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -65,10 +82,36 @@ Partial Class HvacControlForm
         Me.COMSelectToolStripComboBox.Name = "COMSelectToolStripComboBox"
         Me.COMSelectToolStripComboBox.Size = New System.Drawing.Size(121, 25)
         '
+        'ConnectCOMToolStripButton
+        '
+        Me.ConnectCOMToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ConnectCOMToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_usb_connector_30
+        Me.ConnectCOMToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ConnectCOMToolStripButton.Name = "ConnectCOMToolStripButton"
+        Me.ConnectCOMToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.ConnectCOMToolStripButton.Text = "ToolStripButton1"
+        Me.ConnectCOMToolStripButton.ToolTipText = "Attempt Connection to Device"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'DisconnetToolStripButton
+        '
+        Me.DisconnetToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.DisconnetToolStripButton.Enabled = False
+        Me.DisconnetToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_disconnect_30
+        Me.DisconnetToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.DisconnetToolStripButton.Name = "DisconnetToolStripButton"
+        Me.DisconnetToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.DisconnetToolStripButton.Text = "Disconnect"
+        Me.DisconnetToolStripButton.ToolTipText = "Disconnect Current Connection"
+        '
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 25)
         '
         'BlankToolStripLabel1
         '
@@ -80,6 +123,16 @@ Partial Class HvacControlForm
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
+        'SaveSettingsToolStripButton
+        '
+        Me.SaveSettingsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.SaveSettingsToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_save_30
+        Me.SaveSettingsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.SaveSettingsToolStripButton.Name = "SaveSettingsToolStripButton"
+        Me.SaveSettingsToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.SaveSettingsToolStripButton.Text = "ToolStripButton1"
+        Me.SaveSettingsToolStripButton.ToolTipText = "Save Current Temp Settings"
         '
         'ToolStripSeparator3
         '
@@ -97,6 +150,16 @@ Partial Class HvacControlForm
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 25)
+        '
+        'QuitProgramToolStripButton
+        '
+        Me.QuitProgramToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.QuitProgramToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_quit_50
+        Me.QuitProgramToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.QuitProgramToolStripButton.Name = "QuitProgramToolStripButton"
+        Me.QuitProgramToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.QuitProgramToolStripButton.Text = "ToolStripButton1"
+        Me.QuitProgramToolStripButton.ToolTipText = "Quit the Program"
         '
         'ToolStripSeparator5
         '
@@ -129,52 +192,6 @@ Partial Class HvacControlForm
         Me.AnalogInput2TestLabel.Size = New System.Drawing.Size(39, 13)
         Me.AnalogInput2TestLabel.TabIndex = 2
         Me.AnalogInput2TestLabel.Text = "Label1"
-        '
-        'ToolStripSeparator6
-        '
-        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 25)
-        '
-        'ConnectCOMToolStripButton
-        '
-        Me.ConnectCOMToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ConnectCOMToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_usb_connector_30
-        Me.ConnectCOMToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ConnectCOMToolStripButton.Name = "ConnectCOMToolStripButton"
-        Me.ConnectCOMToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.ConnectCOMToolStripButton.Text = "ToolStripButton1"
-        Me.ConnectCOMToolStripButton.ToolTipText = "Attempt Connection to Device"
-        '
-        'DisconnetToolStripButton
-        '
-        Me.DisconnetToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.DisconnetToolStripButton.Enabled = False
-        Me.DisconnetToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_disconnect_30
-        Me.DisconnetToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.DisconnetToolStripButton.Name = "DisconnetToolStripButton"
-        Me.DisconnetToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.DisconnetToolStripButton.Text = "Disconnect"
-        Me.DisconnetToolStripButton.ToolTipText = "Disconnect Current Connection"
-        '
-        'SaveSettingsToolStripButton
-        '
-        Me.SaveSettingsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.SaveSettingsToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_save_30
-        Me.SaveSettingsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.SaveSettingsToolStripButton.Name = "SaveSettingsToolStripButton"
-        Me.SaveSettingsToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.SaveSettingsToolStripButton.Text = "ToolStripButton1"
-        Me.SaveSettingsToolStripButton.ToolTipText = "Save Current Temp Settings"
-        '
-        'QuitProgramToolStripButton
-        '
-        Me.QuitProgramToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.QuitProgramToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_quit_50
-        Me.QuitProgramToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.QuitProgramToolStripButton.Name = "QuitProgramToolStripButton"
-        Me.QuitProgramToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.QuitProgramToolStripButton.Text = "ToolStripButton1"
-        Me.QuitProgramToolStripButton.ToolTipText = "Quit the Program"
         '
         'AmbientTempFLabel
         '
@@ -232,11 +249,190 @@ Partial Class HvacControlForm
         Me.ControlSystemTempLabel.Text = "Control System Temp" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Analog Input 2)"
         Me.ControlSystemTempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'OffRadioButton
+        '
+        Me.OffRadioButton.AutoSize = True
+        Me.OffRadioButton.Checked = True
+        Me.OffRadioButton.Location = New System.Drawing.Point(188, 267)
+        Me.OffRadioButton.Name = "OffRadioButton"
+        Me.OffRadioButton.Size = New System.Drawing.Size(39, 17)
+        Me.OffRadioButton.TabIndex = 9
+        Me.OffRadioButton.TabStop = True
+        Me.OffRadioButton.Text = "Off"
+        Me.OffRadioButton.UseVisualStyleBackColor = True
+        '
+        'HeatRadioButton
+        '
+        Me.HeatRadioButton.AutoSize = True
+        Me.HeatRadioButton.Location = New System.Drawing.Point(106, 267)
+        Me.HeatRadioButton.Name = "HeatRadioButton"
+        Me.HeatRadioButton.Size = New System.Drawing.Size(48, 17)
+        Me.HeatRadioButton.TabIndex = 10
+        Me.HeatRadioButton.Text = "Heat"
+        Me.HeatRadioButton.UseVisualStyleBackColor = True
+        '
+        'CoolRadioButton
+        '
+        Me.CoolRadioButton.AutoSize = True
+        Me.CoolRadioButton.Location = New System.Drawing.Point(250, 267)
+        Me.CoolRadioButton.Name = "CoolRadioButton"
+        Me.CoolRadioButton.Size = New System.Drawing.Size(46, 17)
+        Me.CoolRadioButton.TabIndex = 11
+        Me.CoolRadioButton.Text = "Cool"
+        Me.CoolRadioButton.UseVisualStyleBackColor = True
+        '
+        'HeaterProgressBar
+        '
+        Me.HeaterProgressBar.Location = New System.Drawing.Point(467, 126)
+        Me.HeaterProgressBar.Maximum = 1
+        Me.HeaterProgressBar.Name = "HeaterProgressBar"
+        Me.HeaterProgressBar.Size = New System.Drawing.Size(20, 14)
+        Me.HeaterProgressBar.TabIndex = 12
+        '
+        'HeatOnLabel
+        '
+        Me.HeatOnLabel.AutoSize = True
+        Me.HeatOnLabel.Location = New System.Drawing.Point(459, 95)
+        Me.HeatOnLabel.Name = "HeatOnLabel"
+        Me.HeatOnLabel.Size = New System.Drawing.Size(39, 26)
+        Me.HeatOnLabel.TabIndex = 13
+        Me.HeatOnLabel.Text = "Heater" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Status" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.HeatOnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'FanOnLabel
+        '
+        Me.FanOnLabel.AutoSize = True
+        Me.FanOnLabel.Location = New System.Drawing.Point(517, 95)
+        Me.FanOnLabel.Name = "FanOnLabel"
+        Me.FanOnLabel.Size = New System.Drawing.Size(37, 26)
+        Me.FanOnLabel.TabIndex = 15
+        Me.FanOnLabel.Text = "Fan" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Status" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.FanOnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'FanProgressBar
+        '
+        Me.FanProgressBar.Location = New System.Drawing.Point(525, 126)
+        Me.FanProgressBar.Maximum = 1
+        Me.FanProgressBar.Name = "FanProgressBar"
+        Me.FanProgressBar.Size = New System.Drawing.Size(20, 14)
+        Me.FanProgressBar.TabIndex = 14
+        '
+        'AcOnLabel
+        '
+        Me.AcOnLabel.AutoSize = True
+        Me.AcOnLabel.Location = New System.Drawing.Point(573, 95)
+        Me.AcOnLabel.Name = "AcOnLabel"
+        Me.AcOnLabel.Size = New System.Drawing.Size(37, 26)
+        Me.AcOnLabel.TabIndex = 17
+        Me.AcOnLabel.Text = "AC " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Status" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.AcOnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'AcProgressBar
+        '
+        Me.AcProgressBar.Location = New System.Drawing.Point(581, 126)
+        Me.AcProgressBar.Maximum = 1
+        Me.AcProgressBar.Name = "AcProgressBar"
+        Me.AcProgressBar.Size = New System.Drawing.Size(20, 14)
+        Me.AcProgressBar.TabIndex = 16
+        '
+        'SetLowLabel
+        '
+        Me.SetLowLabel.AutoSize = True
+        Me.SetLowLabel.Location = New System.Drawing.Point(411, 252)
+        Me.SetLowLabel.Name = "SetLowLabel"
+        Me.SetLowLabel.Size = New System.Drawing.Size(76, 13)
+        Me.SetLowLabel.TabIndex = 18
+        Me.SetLowLabel.Text = "Set Low Temp"
+        '
+        'SetHighLabel
+        '
+        Me.SetHighLabel.AutoSize = True
+        Me.SetHighLabel.Location = New System.Drawing.Point(589, 252)
+        Me.SetHighLabel.Name = "SetHighLabel"
+        Me.SetHighLabel.Size = New System.Drawing.Size(78, 13)
+        Me.SetHighLabel.TabIndex = 19
+        Me.SetHighLabel.Text = "Set High Temp"
+        '
+        'v
+        '
+        Me.v.Location = New System.Drawing.Point(403, 291)
+        Me.v.Name = "v"
+        Me.v.Size = New System.Drawing.Size(84, 20)
+        Me.v.TabIndex = 20
+        Me.v.Text = "65"
+        Me.v.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'HighTempTextBox
+        '
+        Me.HighTempTextBox.Location = New System.Drawing.Point(592, 291)
+        Me.HighTempTextBox.Name = "HighTempTextBox"
+        Me.HighTempTextBox.Size = New System.Drawing.Size(84, 20)
+        Me.HighTempTextBox.TabIndex = 21
+        Me.HighTempTextBox.Text = "70"
+        Me.HighTempTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'LowTempUpButton
+        '
+        Me.LowTempUpButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LowTempUpButton.Location = New System.Drawing.Point(493, 267)
+        Me.LowTempUpButton.Name = "LowTempUpButton"
+        Me.LowTempUpButton.Size = New System.Drawing.Size(14, 33)
+        Me.LowTempUpButton.TabIndex = 22
+        Me.LowTempUpButton.Text = "↑"
+        Me.LowTempUpButton.UseVisualStyleBackColor = True
+        '
+        'LowTempDownButton
+        '
+        Me.LowTempDownButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LowTempDownButton.Location = New System.Drawing.Point(493, 306)
+        Me.LowTempDownButton.Name = "LowTempDownButton"
+        Me.LowTempDownButton.Size = New System.Drawing.Size(14, 33)
+        Me.LowTempDownButton.TabIndex = 23
+        Me.LowTempDownButton.Text = "↓"
+        Me.LowTempDownButton.UseVisualStyleBackColor = True
+        '
+        'HighTempDownButton
+        '
+        Me.HighTempDownButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HighTempDownButton.Location = New System.Drawing.Point(682, 306)
+        Me.HighTempDownButton.Name = "HighTempDownButton"
+        Me.HighTempDownButton.Size = New System.Drawing.Size(14, 33)
+        Me.HighTempDownButton.TabIndex = 25
+        Me.HighTempDownButton.Text = "↓"
+        Me.HighTempDownButton.UseVisualStyleBackColor = True
+        '
+        'HighTempUpButton
+        '
+        Me.HighTempUpButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HighTempUpButton.Location = New System.Drawing.Point(682, 267)
+        Me.HighTempUpButton.Name = "HighTempUpButton"
+        Me.HighTempUpButton.Size = New System.Drawing.Size(14, 33)
+        Me.HighTempUpButton.TabIndex = 24
+        Me.HighTempUpButton.Text = "↑"
+        Me.HighTempUpButton.UseVisualStyleBackColor = True
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.HighTempDownButton)
+        Me.Controls.Add(Me.HighTempUpButton)
+        Me.Controls.Add(Me.LowTempDownButton)
+        Me.Controls.Add(Me.LowTempUpButton)
+        Me.Controls.Add(Me.HighTempTextBox)
+        Me.Controls.Add(Me.v)
+        Me.Controls.Add(Me.SetHighLabel)
+        Me.Controls.Add(Me.SetLowLabel)
+        Me.Controls.Add(Me.AcOnLabel)
+        Me.Controls.Add(Me.AcProgressBar)
+        Me.Controls.Add(Me.FanOnLabel)
+        Me.Controls.Add(Me.FanProgressBar)
+        Me.Controls.Add(Me.HeatOnLabel)
+        Me.Controls.Add(Me.HeaterProgressBar)
+        Me.Controls.Add(Me.CoolRadioButton)
+        Me.Controls.Add(Me.HeatRadioButton)
+        Me.Controls.Add(Me.OffRadioButton)
         Me.Controls.Add(Me.ControlSystemTempLabel)
         Me.Controls.Add(Me.AmbientTempLabel)
         Me.Controls.Add(Me.ControlSystemTempCLabel)
@@ -280,4 +476,21 @@ Partial Class HvacControlForm
     Friend WithEvents ControlSystemTempCLabel As Label
     Friend WithEvents AmbientTempLabel As Label
     Friend WithEvents ControlSystemTempLabel As Label
+    Friend WithEvents OffRadioButton As RadioButton
+    Friend WithEvents HeatRadioButton As RadioButton
+    Friend WithEvents CoolRadioButton As RadioButton
+    Friend WithEvents HeaterProgressBar As ProgressBar
+    Friend WithEvents HeatOnLabel As Label
+    Friend WithEvents FanOnLabel As Label
+    Friend WithEvents FanProgressBar As ProgressBar
+    Friend WithEvents AcOnLabel As Label
+    Friend WithEvents AcProgressBar As ProgressBar
+    Friend WithEvents SetLowLabel As Label
+    Friend WithEvents SetHighLabel As Label
+    Friend WithEvents v As TextBox
+    Friend WithEvents HighTempTextBox As TextBox
+    Friend WithEvents LowTempUpButton As Button
+    Friend WithEvents LowTempDownButton As Button
+    Friend WithEvents HighTempDownButton As Button
+    Friend WithEvents HighTempUpButton As Button
 End Class
