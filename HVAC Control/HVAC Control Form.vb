@@ -228,6 +228,53 @@ Public Class HvacControlForm
         Return value
     End Function
 
+    ''' <summary>
+    ''' Controls the Status of the Fan Argument true to turn on, argument false to turn off (Includes Shut Down Timer)
+    ''' </summary>
+    ''' <param name="turnOn"></param>
+    Sub FanControl(turnOn As Boolean)
+        If turnOn = True Then
+            'Turn on Fan
+            'turn on GUI indicator
+            FanProgressBar.Value = 1
+        ElseIf turnOn = False Then
+            'Begin Fan ShutDown (Wait 5s before Shutting Off)
+            FanShutDownTimer.Enabled = True
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Controls the Status of the Heater Argument true to turn on, argument false to turn off
+    ''' </summary>
+    ''' <param name="turnOn"></param>
+    Sub HeaterControl(turnOn As Boolean)
+        If turnOn = True Then
+            'Turn on Heater
+            'turn on GUI indicator
+            HeaterProgressBar.Value = 1
+        ElseIf turnOn = False Then
+            'Turn off Heater
+            'turn on GUI indicator
+            HeaterProgressBar.Value = 0
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Controls the Status of the AC Argument true to turn on, argument false to turn off
+    ''' </summary>
+    ''' <param name="turnOn"></param>
+    Sub AcControl(turnOn As Boolean)
+        If turnOn = True Then
+            'Turn on AC
+            'turn on GUI indicator
+            AcProgressBar.Value = 1
+        ElseIf turnOn = False Then
+            'Turn off AC
+            'turn on GUI indicator
+            AcProgressBar.Value = 0
+        End If
+    End Sub
+
     '**********************************************Event Handlers*******************************************
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Fill Com Select Combo Box Options
@@ -314,5 +361,12 @@ Public Class HvacControlForm
             'Update Text Box With Decremented Value
             HighTempTextBox.Text = CStr(currentSetPoint)
         End If
+    End Sub
+
+    Private Sub FanShutDownTimer_Tick(sender As Object, e As EventArgs) Handles FanShutDownTimer.Tick
+        'Turn off Fan Shutdown Timer
+        FanShutDownTimer.Enabled = False
+        'turn off GUI indicator
+        FanProgressBar.Value = 0
     End Sub
 End Class

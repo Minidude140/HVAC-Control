@@ -65,6 +65,7 @@ Partial Class HvacControlForm
         Me.LowTempDownButton = New System.Windows.Forms.Button()
         Me.HighTempDownButton = New System.Windows.Forms.Button()
         Me.HighTempUpButton = New System.Windows.Forms.Button()
+        Me.FanShutDownTimer = New System.Windows.Forms.Timer(Me.components)
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -411,6 +412,10 @@ Partial Class HvacControlForm
         Me.HighTempUpButton.Text = "↑"
         Me.HighTempUpButton.UseVisualStyleBackColor = True
         '
+        'FanShutDownTimer
+        '
+        Me.FanShutDownTimer.Interval = 5000
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -493,4 +498,5 @@ Partial Class HvacControlForm
     Friend WithEvents LowTempDownButton As Button
     Friend WithEvents HighTempDownButton As Button
     Friend WithEvents HighTempUpButton As Button
+    Friend WithEvents FanShutDownTimer As Timer
 End Class
