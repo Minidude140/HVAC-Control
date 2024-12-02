@@ -54,7 +54,6 @@ Partial Class HvacControlForm
         Me.HeaterProgressBar = New System.Windows.Forms.ProgressBar()
         Me.HeatOnLabel = New System.Windows.Forms.Label()
         Me.FanOnLabel = New System.Windows.Forms.Label()
-        Me.FanProgressBar = New System.Windows.Forms.ProgressBar()
         Me.AcOnLabel = New System.Windows.Forms.Label()
         Me.AcProgressBar = New System.Windows.Forms.ProgressBar()
         Me.SetLowLabel = New System.Windows.Forms.Label()
@@ -67,6 +66,7 @@ Partial Class HvacControlForm
         Me.HighTempUpButton = New System.Windows.Forms.Button()
         Me.FanShutDownTimer = New System.Windows.Forms.Timer(Me.components)
         Me.TempCheckTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.FanProgressBar = New System.Windows.Forms.ProgressBar()
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -311,14 +311,6 @@ Partial Class HvacControlForm
         Me.FanOnLabel.Text = "Fan" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Status" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.FanOnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'FanProgressBar
-        '
-        Me.FanProgressBar.Location = New System.Drawing.Point(525, 126)
-        Me.FanProgressBar.Maximum = 1
-        Me.FanProgressBar.Name = "FanProgressBar"
-        Me.FanProgressBar.Size = New System.Drawing.Size(20, 14)
-        Me.FanProgressBar.TabIndex = 14
-        '
         'AcOnLabel
         '
         Me.AcOnLabel.AutoSize = True
@@ -419,14 +411,22 @@ Partial Class HvacControlForm
         '
         'TempCheckTimer
         '
-        Me.TempCheckTimer.Enabled = True
         Me.TempCheckTimer.Interval = 500
+        '
+        'FanProgressBar
+        '
+        Me.FanProgressBar.Location = New System.Drawing.Point(524, 126)
+        Me.FanProgressBar.Maximum = 1
+        Me.FanProgressBar.Name = "FanProgressBar"
+        Me.FanProgressBar.Size = New System.Drawing.Size(20, 14)
+        Me.FanProgressBar.TabIndex = 26
         '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.FanProgressBar)
         Me.Controls.Add(Me.HighTempDownButton)
         Me.Controls.Add(Me.HighTempUpButton)
         Me.Controls.Add(Me.LowTempDownButton)
@@ -438,7 +438,6 @@ Partial Class HvacControlForm
         Me.Controls.Add(Me.AcOnLabel)
         Me.Controls.Add(Me.AcProgressBar)
         Me.Controls.Add(Me.FanOnLabel)
-        Me.Controls.Add(Me.FanProgressBar)
         Me.Controls.Add(Me.HeatOnLabel)
         Me.Controls.Add(Me.HeaterProgressBar)
         Me.Controls.Add(Me.CoolRadioButton)
@@ -493,7 +492,6 @@ Partial Class HvacControlForm
     Friend WithEvents HeaterProgressBar As ProgressBar
     Friend WithEvents HeatOnLabel As Label
     Friend WithEvents FanOnLabel As Label
-    Friend WithEvents FanProgressBar As ProgressBar
     Friend WithEvents AcOnLabel As Label
     Friend WithEvents AcProgressBar As ProgressBar
     Friend WithEvents SetLowLabel As Label
@@ -506,4 +504,5 @@ Partial Class HvacControlForm
     Friend WithEvents HighTempUpButton As Button
     Friend WithEvents FanShutDownTimer As Timer
     Friend WithEvents TempCheckTimer As Timer
+    Friend WithEvents FanProgressBar As ProgressBar
 End Class

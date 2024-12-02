@@ -239,6 +239,7 @@ Public Class HvacControlForm
             'Turn on Fan
             'turn on GUI indicator
             FanProgressBar.Value = 1
+            Thread.Sleep(5000)
             '***********Send Digital Output Signal Fan ON Here***************
         ElseIf turnOn = False Then
             'Begin Fan ShutDown (Wait 5s before Shutting Off)
@@ -381,6 +382,8 @@ Public Class HvacControlForm
         If HeatRadioButton.Checked = True Then
             'turn on heat mode
             modeSelect = "H"
+            'Enable Temp Check Timer
+            TempCheckTimer.Enabled = True
         End If
     End Sub
 
@@ -395,6 +398,8 @@ Public Class HvacControlForm
         If CoolRadioButton.Checked = True Then
             'turn on Ac mode
             modeSelect = "C"
+            'Enable Temp Check Timer
+            TempCheckTimer.Enabled = True
         End If
     End Sub
 
@@ -408,14 +413,16 @@ Public Class HvacControlForm
                 HeaterControl(False)
                 'Begin Fan Shut Down
                 FanControl(False)
+                'Disable Temp Check Timer
+                TempCheckTimer.Enabled = False
             Case = "H"
                 'Mode is Heat
                 'Only Enable is not already on
                 If HeaterProgressBar.Value = 0 Then
+                    'Shut Down AC
+                    AcControl(False)
                     'Turn on Fan
                     FanControl(True)
-                    'Wait 5S
-                    Thread.Sleep(5000)
                     'Turn on Heater
                     HeaterControl(True)
                 End If
@@ -423,10 +430,10 @@ Public Class HvacControlForm
             Case = "C"
                 'Mode is Cool
                 If AcProgressBar.Value = 0 Then
+                    'Shut Down Heater
+                    HeaterControl(False)
                     'Turn on Fan
                     FanControl(True)
-                    'Wait 5S
-                    Thread.Sleep(5000)
                     'Turn on Ac
                     AcControl(True)
                 End If
