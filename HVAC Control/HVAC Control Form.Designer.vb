@@ -66,6 +66,7 @@ Partial Class HvacControlForm
         Me.HighTempDownButton = New System.Windows.Forms.Button()
         Me.HighTempUpButton = New System.Windows.Forms.Button()
         Me.FanShutDownTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.TempCheckTimer = New System.Windows.Forms.Timer(Me.components)
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -416,6 +417,11 @@ Partial Class HvacControlForm
         '
         Me.FanShutDownTimer.Interval = 5000
         '
+        'TempCheckTimer
+        '
+        Me.TempCheckTimer.Enabled = True
+        Me.TempCheckTimer.Interval = 500
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -499,4 +505,5 @@ Partial Class HvacControlForm
     Friend WithEvents HighTempDownButton As Button
     Friend WithEvents HighTempUpButton As Button
     Friend WithEvents FanShutDownTimer As Timer
+    Friend WithEvents TempCheckTimer As Timer
 End Class

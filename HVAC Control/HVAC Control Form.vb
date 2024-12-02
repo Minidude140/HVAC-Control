@@ -13,6 +13,8 @@ Public Class HvacControlForm
     '*****************************************Global Variables******************************************
     Dim ambientTempSensor As Integer
     Dim controlSystemTempSensor As Integer
+    'Used to check Mode Selection.  O is off, H is Heat, C is Cool
+    Dim modeSelect As String = "O"
 
     '**********************************************Custom Methods*******************************************
     ''' <summary>
@@ -237,6 +239,7 @@ Public Class HvacControlForm
             'Turn on Fan
             'turn on GUI indicator
             FanProgressBar.Value = 1
+            '***********Send Digital Output Signal Fan ON Here***************
         ElseIf turnOn = False Then
             'Begin Fan ShutDown (Wait 5s before Shutting Off)
             FanShutDownTimer.Enabled = True
@@ -252,10 +255,12 @@ Public Class HvacControlForm
             'Turn on Heater
             'turn on GUI indicator
             HeaterProgressBar.Value = 1
+            '***********Send Digital Output Signal Heater ON Here***************
         ElseIf turnOn = False Then
             'Turn off Heater
             'turn on GUI indicator
             HeaterProgressBar.Value = 0
+            '***********Send Digital Output Signal Heater OFF Here***************
         End If
     End Sub
 
@@ -268,10 +273,12 @@ Public Class HvacControlForm
             'Turn on AC
             'turn on GUI indicator
             AcProgressBar.Value = 1
+            '***********Send Digital Output Signal Ac ON Here***************
         ElseIf turnOn = False Then
             'Turn off AC
             'turn on GUI indicator
             AcProgressBar.Value = 0
+            '***********Send Digital Output Signal Ac OFF Here***************
         End If
     End Sub
 
@@ -321,7 +328,6 @@ Public Class HvacControlForm
             'Update Text Box With Incremented Value
             LowTempTextBox.Text = CStr(currentSetPoint)
         End If
-
     End Sub
 
     Private Sub LowTempDownButton_Click(sender As Object, e As EventArgs) Handles LowTempDownButton.Click
@@ -368,5 +374,64 @@ Public Class HvacControlForm
         FanShutDownTimer.Enabled = False
         'turn off GUI indicator
         FanProgressBar.Value = 0
+        '***********Send Digital Output Signal Fan OFF Here***************
+    End Sub
+
+    Private Sub HeatRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles HeatRadioButton.CheckedChanged
+        If HeatRadioButton.Checked = True Then
+            'turn on heat mode
+            modeSelect = "H"
+        End If
+    End Sub
+
+    Private Sub OffRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles OffRadioButton.CheckedChanged
+        If OffRadioButton.Checked = True Then
+            'turn off heat and Ac mode
+            modeSelect = "O"
+        End If
+    End Sub
+
+    Private Sub CoolRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles CoolRadioButton.CheckedChanged
+        If CoolRadioButton.Checked = True Then
+            'turn on Ac mode
+            modeSelect = "C"
+        End If
+    End Sub
+
+    Private Sub TempCheckTimer_Tick(sender As Object, e As EventArgs) Handles TempCheckTimer.Tick
+        Select Case modeSelect
+            Case = "O"
+                'Mode is Off
+                'Shut Down AC
+                AcControl(False)
+                'Shut Down Heater
+                HeaterControl(False)
+                'Begin Fan Shut Down
+                FanControl(False)
+            Case = "H"
+                'Mode is Heat
+                'Only Enable is not already on
+                If HeaterProgressBar.Value = 0 Then
+                    'Turn on Fan
+                    FanControl(True)
+                    'Wait 5S
+                    Thread.Sleep(5000)
+                    'Turn on Heater
+                    HeaterControl(True)
+                End If
+
+            Case = "C"
+                'Mode is Cool
+                If AcProgressBar.Value = 0 Then
+                    'Turn on Fan
+                    FanControl(True)
+                    'Wait 5S
+                    Thread.Sleep(5000)
+                    'Turn on Ac
+                    AcControl(True)
+                End If
+            Case Else
+                'Should Not Happen
+        End Select
     End Sub
 End Class
