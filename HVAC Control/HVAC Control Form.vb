@@ -188,7 +188,7 @@ Public Class HvacControlForm
     Function ConvertToTempC(tempF As Double) As Double
         Dim degreeC As Double
         'Convert F to C
-        degreeC = ((tempF - 32) * (5 / 9))
+        degreeC = Math.Round(((tempF - 32) * (5 / 9)), 1)
         'Return Degrees C
         Return degreeC
     End Function
@@ -207,6 +207,26 @@ Public Class HvacControlForm
         ControlSytemTempFLabel.Text = $"{CStr(ConvertToTempF(controlSystemTempSensor))}°F"
         ControlSystemTempCLabel.Text = $"{CStr(ConvertToTempC(ConvertToTempF(controlSystemTempSensor)))}°C"
     End Sub
+
+    ''' <summary>
+    ''' Increment the given value by 0.5
+    ''' </summary>
+    ''' <param name="value"></param>
+    ''' <returns></returns>
+    Function Increment(value As Double) As Double
+        value = value + 0.5
+        Return value
+    End Function
+
+    ''' <summary>
+    ''' Decrement given value by 0.5
+    ''' </summary>
+    ''' <param name="value"></param>
+    ''' <returns></returns>
+    Function Decrement(value As Double) As Double
+        value = value - 0.5
+        Return value
+    End Function
 
     '**********************************************Event Handlers*******************************************
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -243,4 +263,43 @@ Public Class HvacControlForm
         ConnectCOMToolStripButton.Enabled = True
     End Sub
 
+    Private Sub LowTempUpButton_Click(sender As Object, e As EventArgs) Handles LowTempUpButton.Click
+        'Create Variable For Current Value
+        Dim currentSetPoint As Double
+        currentSetPoint = CDbl(LowTempTextBox.Text)
+        'Increment Current Value by 0.5
+        currentSetPoint = Increment(currentSetPoint)
+        'Update Text Box With Incremented Value
+        LowTempTextBox.Text = CStr(currentSetPoint)
+    End Sub
+
+    Private Sub LowTempDownButton_Click(sender As Object, e As EventArgs) Handles LowTempDownButton.Click
+        'Create Variable For Current Value
+        Dim currentSetPoint As Double
+        currentSetPoint = CDbl(LowTempTextBox.Text)
+        'Decrement Current Value by 0.5
+        currentSetPoint = Decrement(currentSetPoint)
+        'Update Text Box With Decremented Value
+        LowTempTextBox.Text = CStr(currentSetPoint)
+    End Sub
+
+    Private Sub HighTempUpButton_Click(sender As Object, e As EventArgs) Handles HighTempUpButton.Click
+        'Create Variable For Current Value
+        Dim currentSetPoint As Double
+        currentSetPoint = CDbl(HighTempTextBox.Text)
+        'Increment Current Value by 0.5
+        currentSetPoint = Increment(currentSetPoint)
+        'Update Text Box With Incremented Value
+        HighTempTextBox.Text = CStr(currentSetPoint)
+    End Sub
+
+    Private Sub HighTempDownButton_Click(sender As Object, e As EventArgs) Handles HighTempDownButton.Click
+        'Create Variable For Current Value
+        Dim currentSetPoint As Double
+        currentSetPoint = CDbl(HighTempTextBox.Text)
+        'Decrement Current Value by 0.5
+        currentSetPoint = Decrement(currentSetPoint)
+        'Update Text Box With Decremented Value
+        HighTempTextBox.Text = CStr(currentSetPoint)
+    End Sub
 End Class

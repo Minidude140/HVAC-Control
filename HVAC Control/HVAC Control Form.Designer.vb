@@ -59,7 +59,7 @@ Partial Class HvacControlForm
         Me.AcProgressBar = New System.Windows.Forms.ProgressBar()
         Me.SetLowLabel = New System.Windows.Forms.Label()
         Me.SetHighLabel = New System.Windows.Forms.Label()
-        Me.v = New System.Windows.Forms.TextBox()
+        Me.LowTempTextBox = New System.Windows.Forms.TextBox()
         Me.HighTempTextBox = New System.Windows.Forms.TextBox()
         Me.LowTempUpButton = New System.Windows.Forms.Button()
         Me.LowTempDownButton = New System.Windows.Forms.Button()
@@ -353,14 +353,14 @@ Partial Class HvacControlForm
         Me.SetHighLabel.TabIndex = 19
         Me.SetHighLabel.Text = "Set High Temp"
         '
-        'v
+        'LowTempTextBox
         '
-        Me.v.Location = New System.Drawing.Point(403, 291)
-        Me.v.Name = "v"
-        Me.v.Size = New System.Drawing.Size(84, 20)
-        Me.v.TabIndex = 20
-        Me.v.Text = "65"
-        Me.v.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.LowTempTextBox.Location = New System.Drawing.Point(403, 291)
+        Me.LowTempTextBox.Name = "LowTempTextBox"
+        Me.LowTempTextBox.Size = New System.Drawing.Size(84, 20)
+        Me.LowTempTextBox.TabIndex = 20
+        Me.LowTempTextBox.Text = "65"
+        Me.LowTempTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'HighTempTextBox
         '
@@ -421,7 +421,7 @@ Partial Class HvacControlForm
         Me.Controls.Add(Me.LowTempDownButton)
         Me.Controls.Add(Me.LowTempUpButton)
         Me.Controls.Add(Me.HighTempTextBox)
-        Me.Controls.Add(Me.v)
+        Me.Controls.Add(Me.LowTempTextBox)
         Me.Controls.Add(Me.SetHighLabel)
         Me.Controls.Add(Me.SetLowLabel)
         Me.Controls.Add(Me.AcOnLabel)
@@ -487,7 +487,7 @@ Partial Class HvacControlForm
     Friend WithEvents AcProgressBar As ProgressBar
     Friend WithEvents SetLowLabel As Label
     Friend WithEvents SetHighLabel As Label
-    Friend WithEvents v As TextBox
+    Friend WithEvents LowTempTextBox As TextBox
     Friend WithEvents HighTempTextBox As TextBox
     Friend WithEvents LowTempUpButton As Button
     Friend WithEvents LowTempDownButton As Button
