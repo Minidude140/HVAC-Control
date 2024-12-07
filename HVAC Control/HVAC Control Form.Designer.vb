@@ -68,14 +68,14 @@ Partial Class HvacControlForm
         Me.TempCheckTimer = New System.Windows.Forms.Timer(Me.components)
         Me.FanProgressBar = New System.Windows.Forms.ProgressBar()
         Me.PowerUpTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.Bit0CheckBox = New System.Windows.Forms.CheckBox()
-        Me.Bit1CheckBox = New System.Windows.Forms.CheckBox()
-        Me.Bit2CheckBox = New System.Windows.Forms.CheckBox()
-        Me.Bit3CheckBox = New System.Windows.Forms.CheckBox()
-        Me.Bit4CheckBox = New System.Windows.Forms.CheckBox()
-        Me.Bit5CheckBox = New System.Windows.Forms.CheckBox()
-        Me.Bit6CheckBox = New System.Windows.Forms.CheckBox()
-        Me.Bit7CheckBox = New System.Windows.Forms.CheckBox()
+        Me.InterlockLabel = New System.Windows.Forms.Label()
+        Me.SafetyInterlockButton = New System.Windows.Forms.Button()
+        Me.HeaterOverrideButton = New System.Windows.Forms.Button()
+        Me.HeaterOverrideLabel = New System.Windows.Forms.Label()
+        Me.FanOverrideButton = New System.Windows.Forms.Button()
+        Me.FanOverrideLabel = New System.Windows.Forms.Label()
+        Me.DifferentialButton = New System.Windows.Forms.Button()
+        Me.DifferentialLabel = New System.Windows.Forms.Label()
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -434,99 +434,95 @@ Partial Class HvacControlForm
         '
         Me.PowerUpTimer.Interval = 5000
         '
-        'Bit0CheckBox
+        'InterlockLabel
         '
-        Me.Bit0CheckBox.AutoSize = True
-        Me.Bit0CheckBox.Location = New System.Drawing.Point(39, 384)
-        Me.Bit0CheckBox.Name = "Bit0CheckBox"
-        Me.Bit0CheckBox.Size = New System.Drawing.Size(47, 17)
-        Me.Bit0CheckBox.TabIndex = 27
-        Me.Bit0CheckBox.Text = "Bit 0"
-        Me.Bit0CheckBox.UseVisualStyleBackColor = True
+        Me.InterlockLabel.AutoSize = True
+        Me.InterlockLabel.Location = New System.Drawing.Point(26, 379)
+        Me.InterlockLabel.Name = "InterlockLabel"
+        Me.InterlockLabel.Size = New System.Drawing.Size(48, 26)
+        Me.InterlockLabel.TabIndex = 28
+        Me.InterlockLabel.Text = "Safety" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Interlock" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.InterlockLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Bit1CheckBox
+        'SafetyInterlockButton
         '
-        Me.Bit1CheckBox.AutoSize = True
-        Me.Bit1CheckBox.Location = New System.Drawing.Point(89, 384)
-        Me.Bit1CheckBox.Name = "Bit1CheckBox"
-        Me.Bit1CheckBox.Size = New System.Drawing.Size(47, 17)
-        Me.Bit1CheckBox.TabIndex = 28
-        Me.Bit1CheckBox.Text = "Bit 1"
-        Me.Bit1CheckBox.UseVisualStyleBackColor = True
+        Me.SafetyInterlockButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.SafetyInterlockButton.Location = New System.Drawing.Point(39, 408)
+        Me.SafetyInterlockButton.Name = "SafetyInterlockButton"
+        Me.SafetyInterlockButton.Size = New System.Drawing.Size(20, 20)
+        Me.SafetyInterlockButton.TabIndex = 29
+        Me.SafetyInterlockButton.UseVisualStyleBackColor = False
         '
-        'Bit2CheckBox
+        'HeaterOverrideButton
         '
-        Me.Bit2CheckBox.AutoSize = True
-        Me.Bit2CheckBox.Location = New System.Drawing.Point(142, 384)
-        Me.Bit2CheckBox.Name = "Bit2CheckBox"
-        Me.Bit2CheckBox.Size = New System.Drawing.Size(47, 17)
-        Me.Bit2CheckBox.TabIndex = 29
-        Me.Bit2CheckBox.Text = "Bit 2"
-        Me.Bit2CheckBox.UseVisualStyleBackColor = True
+        Me.HeaterOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.HeaterOverrideButton.Location = New System.Drawing.Point(93, 408)
+        Me.HeaterOverrideButton.Name = "HeaterOverrideButton"
+        Me.HeaterOverrideButton.Size = New System.Drawing.Size(20, 20)
+        Me.HeaterOverrideButton.TabIndex = 31
+        Me.HeaterOverrideButton.UseVisualStyleBackColor = False
         '
-        'Bit3CheckBox
+        'HeaterOverrideLabel
         '
-        Me.Bit3CheckBox.AutoSize = True
-        Me.Bit3CheckBox.Location = New System.Drawing.Point(188, 384)
-        Me.Bit3CheckBox.Name = "Bit3CheckBox"
-        Me.Bit3CheckBox.Size = New System.Drawing.Size(47, 17)
-        Me.Bit3CheckBox.TabIndex = 30
-        Me.Bit3CheckBox.Text = "Bit 3"
-        Me.Bit3CheckBox.UseVisualStyleBackColor = True
+        Me.HeaterOverrideLabel.AutoSize = True
+        Me.HeaterOverrideLabel.Location = New System.Drawing.Point(80, 379)
+        Me.HeaterOverrideLabel.Name = "HeaterOverrideLabel"
+        Me.HeaterOverrideLabel.Size = New System.Drawing.Size(47, 26)
+        Me.HeaterOverrideLabel.TabIndex = 30
+        Me.HeaterOverrideLabel.Text = "Heater" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Override" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.HeaterOverrideLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Bit4CheckBox
+        'FanOverrideButton
         '
-        Me.Bit4CheckBox.AutoSize = True
-        Me.Bit4CheckBox.Location = New System.Drawing.Point(239, 384)
-        Me.Bit4CheckBox.Name = "Bit4CheckBox"
-        Me.Bit4CheckBox.Size = New System.Drawing.Size(47, 17)
-        Me.Bit4CheckBox.TabIndex = 31
-        Me.Bit4CheckBox.Text = "Bit 4"
-        Me.Bit4CheckBox.UseVisualStyleBackColor = True
+        Me.FanOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FanOverrideButton.Location = New System.Drawing.Point(146, 408)
+        Me.FanOverrideButton.Name = "FanOverrideButton"
+        Me.FanOverrideButton.Size = New System.Drawing.Size(20, 20)
+        Me.FanOverrideButton.TabIndex = 33
+        Me.FanOverrideButton.UseVisualStyleBackColor = False
         '
-        'Bit5CheckBox
+        'FanOverrideLabel
         '
-        Me.Bit5CheckBox.AutoSize = True
-        Me.Bit5CheckBox.Location = New System.Drawing.Point(292, 384)
-        Me.Bit5CheckBox.Name = "Bit5CheckBox"
-        Me.Bit5CheckBox.Size = New System.Drawing.Size(47, 17)
-        Me.Bit5CheckBox.TabIndex = 32
-        Me.Bit5CheckBox.Text = "Bit 5"
-        Me.Bit5CheckBox.UseVisualStyleBackColor = True
+        Me.FanOverrideLabel.AutoSize = True
+        Me.FanOverrideLabel.Location = New System.Drawing.Point(133, 379)
+        Me.FanOverrideLabel.Name = "FanOverrideLabel"
+        Me.FanOverrideLabel.Size = New System.Drawing.Size(47, 26)
+        Me.FanOverrideLabel.TabIndex = 32
+        Me.FanOverrideLabel.Text = "Fan" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Override" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.FanOverrideLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Bit6CheckBox
+        'DifferentialButton
         '
-        Me.Bit6CheckBox.AutoSize = True
-        Me.Bit6CheckBox.Location = New System.Drawing.Point(345, 384)
-        Me.Bit6CheckBox.Name = "Bit6CheckBox"
-        Me.Bit6CheckBox.Size = New System.Drawing.Size(47, 17)
-        Me.Bit6CheckBox.TabIndex = 33
-        Me.Bit6CheckBox.Text = "Bit 6"
-        Me.Bit6CheckBox.UseVisualStyleBackColor = True
+        Me.DifferentialButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.DifferentialButton.Location = New System.Drawing.Point(207, 408)
+        Me.DifferentialButton.Name = "DifferentialButton"
+        Me.DifferentialButton.Size = New System.Drawing.Size(20, 20)
+        Me.DifferentialButton.TabIndex = 35
+        Me.DifferentialButton.UseVisualStyleBackColor = False
         '
-        'Bit7CheckBox
+        'DifferentialLabel
         '
-        Me.Bit7CheckBox.AutoSize = True
-        Me.Bit7CheckBox.Location = New System.Drawing.Point(398, 384)
-        Me.Bit7CheckBox.Name = "Bit7CheckBox"
-        Me.Bit7CheckBox.Size = New System.Drawing.Size(47, 17)
-        Me.Bit7CheckBox.TabIndex = 34
-        Me.Bit7CheckBox.Text = "Bit 7"
-        Me.Bit7CheckBox.UseVisualStyleBackColor = True
+        Me.DifferentialLabel.AutoSize = True
+        Me.DifferentialLabel.Location = New System.Drawing.Point(185, 379)
+        Me.DifferentialLabel.Name = "DifferentialLabel"
+        Me.DifferentialLabel.Size = New System.Drawing.Size(73, 26)
+        Me.DifferentialLabel.TabIndex = 34
+        Me.DifferentialLabel.Text = "Differential" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Pressure Error" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.DifferentialLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Bit7CheckBox)
-        Me.Controls.Add(Me.Bit6CheckBox)
-        Me.Controls.Add(Me.Bit5CheckBox)
-        Me.Controls.Add(Me.Bit4CheckBox)
-        Me.Controls.Add(Me.Bit3CheckBox)
-        Me.Controls.Add(Me.Bit2CheckBox)
-        Me.Controls.Add(Me.Bit1CheckBox)
-        Me.Controls.Add(Me.Bit0CheckBox)
+        Me.Controls.Add(Me.DifferentialButton)
+        Me.Controls.Add(Me.DifferentialLabel)
+        Me.Controls.Add(Me.FanOverrideButton)
+        Me.Controls.Add(Me.FanOverrideLabel)
+        Me.Controls.Add(Me.HeaterOverrideButton)
+        Me.Controls.Add(Me.HeaterOverrideLabel)
+        Me.Controls.Add(Me.SafetyInterlockButton)
+        Me.Controls.Add(Me.InterlockLabel)
         Me.Controls.Add(Me.FanProgressBar)
         Me.Controls.Add(Me.HighTempDownButton)
         Me.Controls.Add(Me.HighTempUpButton)
@@ -607,12 +603,12 @@ Partial Class HvacControlForm
     Friend WithEvents TempCheckTimer As Timer
     Friend WithEvents FanProgressBar As ProgressBar
     Friend WithEvents PowerUpTimer As Timer
-    Friend WithEvents Bit0CheckBox As CheckBox
-    Friend WithEvents Bit1CheckBox As CheckBox
-    Friend WithEvents Bit2CheckBox As CheckBox
-    Friend WithEvents Bit3CheckBox As CheckBox
-    Friend WithEvents Bit4CheckBox As CheckBox
-    Friend WithEvents Bit5CheckBox As CheckBox
-    Friend WithEvents Bit6CheckBox As CheckBox
-    Friend WithEvents Bit7CheckBox As CheckBox
+    Friend WithEvents InterlockLabel As Label
+    Friend WithEvents SafetyInterlockButton As Button
+    Friend WithEvents HeaterOverrideButton As Button
+    Friend WithEvents HeaterOverrideLabel As Label
+    Friend WithEvents FanOverrideButton As Button
+    Friend WithEvents FanOverrideLabel As Label
+    Friend WithEvents DifferentialButton As Button
+    Friend WithEvents DifferentialLabel As Label
 End Class

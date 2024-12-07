@@ -14,6 +14,10 @@ Public Class HvacControlForm
     Dim ambientTempSensor As Integer
     Dim controlSystemTempSensor As Integer
     Dim digitalinputs As Byte
+    Dim shutdownInterlock As Boolean = False
+    Dim heaterOveride As Boolean = False
+    Dim fanOverride As Boolean = False
+    Dim differentialSensor As Boolean = False
     'Used to check Mode Selection.  O is off, H is Heat, C is Cool
     Dim modeSelect As String = "O"
 
@@ -234,7 +238,7 @@ Public Class HvacControlForm
         'Update Control System Temp Labels
         ControlSytemTempFLabel.Text = $"{CStr(ConvertToTempF(controlSystemTempSensor))}°F"
         ControlSystemTempCLabel.Text = $"{CStr(ConvertToTempC(ConvertToTempF(controlSystemTempSensor)))}°C"
-        UpdateTestBits()
+
     End Sub
 
     ''' <summary>
@@ -325,46 +329,37 @@ Public Class HvacControlForm
         End If
     End Function
 
-    Sub UpdateTestBits()
-        If TestBit(digitalinputs, 0) = True Then
-            Bit0CheckBox.Checked = True
-        Else
-            Bit0CheckBox.Checked = False
-        End If
+    ''' <summary>
+    ''' Test Bits of Digital Inputs and Update Interlocks, Overrides, and Sensor Booleans and indicators
+    ''' </summary>
+    Sub TestDigitalInputs()
         If TestBit(digitalinputs, 1) = True Then
-            Bit1CheckBox.Checked = True
+            shutdownInterlock = True
+            SafetyInterlockButton.BackColor = Roarange
         Else
-            Bit1CheckBox.Checked = False
+            shutdownInterlock = False
+            SafetyInterlockButton.BackColor = GrowlGreyLight
         End If
         If TestBit(digitalinputs, 2) = True Then
-            Bit2CheckBox.Checked = True
+            heaterOveride = True
+            HeaterOverrideButton.BackColor = Roarange
         Else
-            Bit2CheckBox.Checked = False
+            heaterOveride = False
+            HeaterOverrideButton.BackColor = GrowlGreyLight
         End If
         If TestBit(digitalinputs, 3) = True Then
-            Bit3CheckBox.Checked = True
+            fanOverride = True
+            FanOverrideButton.BackColor = Roarange
         Else
-            Bit3CheckBox.Checked = False
+            fanOverride = False
+            FanOverrideButton.BackColor = GrowlGreyLight
         End If
         If TestBit(digitalinputs, 4) = True Then
-            Bit4CheckBox.Checked = True
+            differentialSensor = True
+            DifferentialButton.BackColor = Roarange
         Else
-            Bit4CheckBox.Checked = False
-        End If
-        If TestBit(digitalinputs, 5) = True Then
-            Bit5CheckBox.Checked = True
-        Else
-            Bit5CheckBox.Checked = False
-        End If
-        If TestBit(digitalinputs, 6) = True Then
-            Bit6CheckBox.Checked = True
-        Else
-            Bit6CheckBox.Checked = False
-        End If
-        If TestBit(digitalinputs, 7) = True Then
-            Bit7CheckBox.Checked = True
-        Else
-            Bit7CheckBox.Checked = False
+            differentialSensor = False
+            DifferentialButton.BackColor = GrowlGreyLight
         End If
     End Sub
 
@@ -390,6 +385,8 @@ Public Class HvacControlForm
         controlSystemTempSensor = Qy_AnalogReadA2()
         'Update Digital Input States
         digitalinputs = Qy_DigitalRead()
+        'Update Booleans From Input Buttons
+        TestDigitalInputs()
         'Update Form Output Labels
         UpdateLabels()
     End Sub
