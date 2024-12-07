@@ -78,6 +78,8 @@ Partial Class HvacControlForm
         Me.RefreshCOMToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.SaveSettingsToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.QuitProgramToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.AcOverrideButton = New System.Windows.Forms.Button()
+        Me.AcOverideLabel = New System.Windows.Forms.Label()
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -456,7 +458,7 @@ Partial Class HvacControlForm
         'DifferentialButton
         '
         Me.DifferentialButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.DifferentialButton.Location = New System.Drawing.Point(207, 408)
+        Me.DifferentialButton.Location = New System.Drawing.Point(266, 408)
         Me.DifferentialButton.Name = "DifferentialButton"
         Me.DifferentialButton.Size = New System.Drawing.Size(20, 20)
         Me.DifferentialButton.TabIndex = 35
@@ -465,7 +467,7 @@ Partial Class HvacControlForm
         'DifferentialLabel
         '
         Me.DifferentialLabel.AutoSize = True
-        Me.DifferentialLabel.Location = New System.Drawing.Point(185, 379)
+        Me.DifferentialLabel.Location = New System.Drawing.Point(244, 379)
         Me.DifferentialLabel.Name = "DifferentialLabel"
         Me.DifferentialLabel.Size = New System.Drawing.Size(73, 26)
         Me.DifferentialLabel.TabIndex = 34
@@ -528,11 +530,32 @@ Partial Class HvacControlForm
         Me.QuitProgramToolStripButton.Text = "ToolStripButton1"
         Me.QuitProgramToolStripButton.ToolTipText = "Quit the Program"
         '
+        'AcOverrideButton
+        '
+        Me.AcOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.AcOverrideButton.Location = New System.Drawing.Point(198, 408)
+        Me.AcOverrideButton.Name = "AcOverrideButton"
+        Me.AcOverrideButton.Size = New System.Drawing.Size(20, 20)
+        Me.AcOverrideButton.TabIndex = 37
+        Me.AcOverrideButton.UseVisualStyleBackColor = False
+        '
+        'AcOverideLabel
+        '
+        Me.AcOverideLabel.AutoSize = True
+        Me.AcOverideLabel.Location = New System.Drawing.Point(186, 379)
+        Me.AcOverideLabel.Name = "AcOverideLabel"
+        Me.AcOverideLabel.Size = New System.Drawing.Size(47, 26)
+        Me.AcOverideLabel.TabIndex = 36
+        Me.AcOverideLabel.Text = "AC" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Override" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.AcOverideLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.AcOverrideButton)
+        Me.Controls.Add(Me.AcOverideLabel)
         Me.Controls.Add(Me.DifferentialButton)
         Me.Controls.Add(Me.DifferentialLabel)
         Me.Controls.Add(Me.FanOverrideButton)
@@ -631,4 +654,6 @@ Partial Class HvacControlForm
     Friend WithEvents DifferentialLabel As Label
     Friend WithEvents RefreshCOMToolStripButton As ToolStripButton
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
+    Friend WithEvents AcOverrideButton As Button
+    Friend WithEvents AcOverideLabel As Label
 End Class

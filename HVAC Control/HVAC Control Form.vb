@@ -17,6 +17,7 @@ Public Class HvacControlForm
     Dim shutdownInterlock As Boolean = False
     Dim heaterOveride As Boolean = False
     Dim fanOverride As Boolean = False
+    Dim acOverride As Boolean = False
     Dim differentialSensor As Boolean = False
     Dim modeSelect As String
     Dim modeSelectSave As String
@@ -335,26 +336,33 @@ Public Class HvacControlForm
     ''' Test Bits of Digital Inputs and Update Interlocks, Overrides, and Sensor Booleans and indicators
     ''' </summary>
     Sub TestDigitalInputs()
-        If TestBit(digitalinputs, 1) = True Then
+        If TestBit(digitalinputs, 0) = True Then
             shutdownInterlock = True
             SafetyInterlockButton.BackColor = Roarange
         Else
             shutdownInterlock = False
             SafetyInterlockButton.BackColor = GrowlGreyLight
         End If
-        If TestBit(digitalinputs, 2) = True Then
+        If TestBit(digitalinputs, 1) = True Then
             heaterOveride = True
             HeaterOverrideButton.BackColor = Roarange
         Else
             heaterOveride = False
             HeaterOverrideButton.BackColor = GrowlGreyLight
         End If
-        If TestBit(digitalinputs, 3) = True Then
+        If TestBit(digitalinputs, 2) = True Then
             fanOverride = True
             FanOverrideButton.BackColor = Roarange
         Else
             fanOverride = False
             FanOverrideButton.BackColor = GrowlGreyLight
+        End If
+        If TestBit(digitalinputs, 3) = True Then
+            acOverride = True
+            AcOverrideButton.backcolor = Roarange
+        Else
+            acOverride = False
+            AcOverrideButton.backcolor = GrowlGreyLight
         End If
         If TestBit(digitalinputs, 4) = True Then
             differentialSensor = True
@@ -435,6 +443,13 @@ Public Class HvacControlForm
         ElseIf fanOverride = True Then
             'Fan override Turn on Only Fan Mode
             ChangeMode("F")
+            'Disable Normal Operation
+            TempCheckTimer.Enabled = False
+        ElseIf acOverride = True Then
+            'AC Override Turn on Cool Mode
+            modeSelect = "C"
+            'Mode Select is changed and used to keep the Heater On Delay After the Fan turns on
+            ChangeMode(modeSelect)
             'Disable Normal Operation
             TempCheckTimer.Enabled = False
         Else
