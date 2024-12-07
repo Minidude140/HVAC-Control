@@ -363,6 +363,46 @@ Public Class HvacControlForm
         End If
     End Sub
 
+    ''' <summary>
+    ''' Check mode select and Enable Heat, AC, Or Off modes with Fan delay
+    ''' </summary>
+    Sub ChangeMode()
+        Select Case modeSelect
+            Case = "O"
+                'Mode is Off
+                'Shut Down AC
+                AcControl(False)
+                'Shut Down Heater
+                HeaterControl(False)
+                'Begin Fan Shut Down
+                FanControl(False)
+            Case = "H"
+                'Mode is Heat
+                'Only Enable is not already on
+                If HeaterProgressBar.Value = 0 Then
+                    'Shut Down AC
+                    AcControl(False)
+                    'Turn on Fan
+                    FanControl(True)
+                    'Disable any previous shut down routine
+                    FanShutDownTimer.Enabled = False
+                End If
+
+            Case = "C"
+                'Mode is Cool
+                If AcProgressBar.Value = 0 Then
+                    'Shut Down Heater
+                    HeaterControl(False)
+                    'Turn on Fan
+                    FanControl(True)
+                    'Disable any previous shut down routine
+                    FanShutDownTimer.Enabled = False
+                End If
+            Case Else
+                'Should Not Happen
+        End Select
+    End Sub
+
     '**********************************************Event Handlers*******************************************
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Fill Com Select Combo Box Options
@@ -466,8 +506,6 @@ Public Class HvacControlForm
         If HeatRadioButton.Checked = True Then
             'turn on heat mode
             modeSelect = "H"
-            'Enable Temp Check Timer
-            TempCheckTimer.Enabled = True
         End If
     End Sub
 
@@ -482,46 +520,10 @@ Public Class HvacControlForm
         If CoolRadioButton.Checked = True Then
             'turn on Ac mode
             modeSelect = "C"
-            'Enable Temp Check Timer
-            TempCheckTimer.Enabled = True
         End If
     End Sub
 
     Private Sub TempCheckTimer_Tick(sender As Object, e As EventArgs) Handles TempCheckTimer.Tick
-        Select Case modeSelect
-            Case = "O"
-                'Mode is Off
-                'Shut Down AC
-                AcControl(False)
-                'Shut Down Heater
-                HeaterControl(False)
-                'Begin Fan Shut Down
-                FanControl(False)
-                'Disable Temp Check Timer
-                TempCheckTimer.Enabled = False
-            Case = "H"
-                'Mode is Heat
-                'Only Enable is not already on
-                If HeaterProgressBar.Value = 0 Then
-                    'Shut Down AC
-                    AcControl(False)
-                    'Turn on Fan
-                    FanControl(True)
-                    'When Fan Control Turns On it Enables a 5s Timer that will enable Heater
-                End If
-
-            Case = "C"
-                'Mode is Cool
-                If AcProgressBar.Value = 0 Then
-                    'Shut Down Heater
-                    HeaterControl(False)
-                    'Turn on Fan
-                    FanControl(True)
-                    'When Fan Control Turns On it Enables a 5s Timer that will enable Ac
-                End If
-            Case Else
-                'Should Not Happen
-        End Select
     End Sub
 
     Private Sub PowerUpTimer_Tick(sender As Object, e As EventArgs) Handles PowerUpTimer.Tick
