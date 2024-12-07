@@ -19,6 +19,7 @@ Public Class HvacControlForm
     Dim fanOverride As Boolean = False
     Dim differentialSensor As Boolean = False
     Dim modeSelect As String
+    Dim modeSelectSave As String
 
     'ISU Color Pallet
     Public GrowlGreyLight As Color = Color.FromArgb(230, 231, 232)
@@ -367,8 +368,8 @@ Public Class HvacControlForm
     ''' <summary>
     ''' Change Mode Based On input Argument O is off, H is Heat, C is Cool
     ''' </summary>
-    Sub ChangeMode(modeselect As String)
-        Select Case modeselect
+    Sub ChangeMode(currentMode As String)
+        Select Case currentMode
             Case = "O"
                 'Mode is Off
                 'Shut Down AC
@@ -393,6 +394,7 @@ Public Class HvacControlForm
                 'Mode is Cool
                 'Disable any previous shut down routine
                 FanShutDownTimer.Enabled = False
+                'Only Enable is not already on
                 If AcProgressBar.Value = 0 Then
                     'Shut Down Heater
                     HeaterControl(False)
@@ -418,14 +420,24 @@ Public Class HvacControlForm
         If shutdownInterlock = True Then
             'Safety Interlock enable shut down operation **First Priority**
             ChangeMode("O")
+            'Disable Normal Operation
+            TempCheckTimer.Enabled = False
+        ElseIf heaterOveride = True Then
+            'Heater Override Turn on Heater Mode
+            modeSelect = "H"
+            ChangeMode(modeSelect)
+            'Disable Normal Operation
             TempCheckTimer.Enabled = False
         ElseIf fanOverride = True Then
             'Fan override Turn on Only Fan Mode
             ChangeMode("F")
+            'Disable Normal Operation
             TempCheckTimer.Enabled = False
         Else
             'No Interlocks enabled return to normal operation
             TempCheckTimer.Enabled = True
+            'Return Mode Select to Previous State
+            modeSelect = modeSelectSave
         End If
     End Sub
 
@@ -434,7 +446,6 @@ Public Class HvacControlForm
         'Fill Com Select Combo Box Options
         PopulateCOMSelect()
     End Sub
-
     Private Sub QuitProgramToolStripButton_Click(sender As Object, e As EventArgs) Handles QuitProgramToolStripButton.Click
         'Exit the program
         Me.Close()
@@ -443,8 +454,6 @@ Public Class HvacControlForm
     Private Sub ConnectCOMToolStripButton_Click(sender As Object, e As EventArgs) Handles ConnectCOMToolStripButton.Click
         ConnectCOM()
     End Sub
-
-
     Private Sub DisconnetToolStripButton_Click(sender As Object, e As EventArgs) Handles DisconnetToolStripButton.Click
         'Disable COM Timer
         COMTimer.Enabled = False
@@ -524,14 +533,6 @@ Public Class HvacControlForm
         End If
     End Sub
 
-    Private Sub FanShutDownTimer_Tick(sender As Object, e As EventArgs) Handles FanShutDownTimer.Tick
-        'Turn off Fan Shutdown Timer
-        FanShutDownTimer.Enabled = False
-        'turn off GUI indicator
-        FanProgressBar.Value = 0
-        '***********Send Digital Output Signal Fan OFF Here***************
-    End Sub
-
     Private Sub PowerUpTimer_Tick(sender As Object, e As EventArgs) Handles PowerUpTimer.Tick
         PowerUpTimer.Enabled = False
         Select Case modeSelect
@@ -543,12 +544,21 @@ Public Class HvacControlForm
                 AcControl(True)
         End Select
     End Sub
+    Private Sub FanShutDownTimer_Tick(sender As Object, e As EventArgs) Handles FanShutDownTimer.Tick
+        'Turn off Fan Shutdown Timer
+        FanShutDownTimer.Enabled = False
+        'turn off GUI indicator
+        FanProgressBar.Value = 0
+        '***********Send Digital Output Signal Fan OFF Here***************
+    End Sub
 
     Private Sub HeatRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles HeatRadioButton.CheckedChanged
         If HeatRadioButton.Checked = True Then
             'turn on heat mode
             modeSelect = "H"
         End If
+        'Save Mode Select sate for When we change mode Select in Override
+        modeSelectSave = modeSelect
     End Sub
 
     Private Sub OffRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles OffRadioButton.CheckedChanged
@@ -556,6 +566,8 @@ Public Class HvacControlForm
             'turn off heat and Ac mode
             modeSelect = "O"
         End If
+        'Save Mode Select sate for When we change mode Select in Override
+        modeSelectSave = modeSelect
     End Sub
 
     Private Sub CoolRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles CoolRadioButton.CheckedChanged
@@ -563,14 +575,13 @@ Public Class HvacControlForm
             'turn on Ac mode
             modeSelect = "C"
         End If
+        'Save Mode Select sate for When we change mode Select in Override
+        modeSelectSave = modeSelect
     End Sub
 
     Private Sub TempCheckTimer_Tick(sender As Object, e As EventArgs) Handles TempCheckTimer.Tick
-        If fanOverride = True Then
-            ChangeMode("F")
-        Else
-            ChangeMode(modeSelect)
-        End If
+        'Check State of Radio Buttons and Turn on Selected Mode
+        ChangeMode(modeSelect)
     End Sub
 
 
