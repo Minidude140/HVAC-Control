@@ -416,6 +416,9 @@ Public Class HvacControlForm
         End Select
     End Sub
 
+    ''' <summary>
+    ''' Test Interlocks and Override Booleans and enable corresponding mode
+    ''' </summary>
     Sub OverrideMode()
         If shutdownInterlock = True Then
             'Safety Interlock enable shut down operation **First Priority**
@@ -425,6 +428,7 @@ Public Class HvacControlForm
         ElseIf heaterOveride = True Then
             'Heater Override Turn on Heater Mode
             modeSelect = "H"
+            'Mode Select is changed and used to keep the Heater On Delay After the Fan turns on
             ChangeMode(modeSelect)
             'Disable Normal Operation
             TempCheckTimer.Enabled = False
@@ -436,7 +440,7 @@ Public Class HvacControlForm
         Else
             'No Interlocks enabled return to normal operation
             TempCheckTimer.Enabled = True
-            'Return Mode Select to Previous State
+            'Return Mode Select to Previous State (Radio buttons only Update mode select on change)
             modeSelect = modeSelectSave
         End If
     End Sub
