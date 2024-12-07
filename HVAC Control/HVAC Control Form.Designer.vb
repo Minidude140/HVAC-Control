@@ -439,7 +439,7 @@ Partial Class HvacControlForm
         '
         'TempCheckTimer
         '
-        Me.TempCheckTimer.Interval = 5000
+        Me.TempCheckTimer.Interval = 10000
         '
         'FanProgressBar
         '

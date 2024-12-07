@@ -480,6 +480,39 @@ Public Class HvacControlForm
         End If
     End Sub
 
+    ''' <summary>
+    ''' Checks the system and ambient temperatures base on current mode. 
+    ''' <br/>
+    ''' True if in Heat Mode System Hotter than ambient
+    ''' <br/>
+    ''' True if in Cool Mode System Cooler than ambient
+    ''' <br/>
+    ''' Default Return False
+    ''' </summary>
+    ''' <returns></returns>
+    Function CheckTempSensors() As Boolean
+        Dim Valid As Boolean
+        If modeSelect = "H" Then
+            'Heat Mode Test if System temp is greater than Room temp
+            If controlSystemTempSensor >= ambientTempSensor Then
+                Valid = True
+            Else
+                Valid = False
+            End If
+        ElseIf modeSelect = "C" Then
+            'Cool Mode Test if System Temp is Less than Cool Temp
+            If controlSystemTempSensor <= ambientTempSensor Then
+                Valid = True
+            Else
+                Valid = False
+            End If
+        Else
+            'if not in heat or cool mode this check will fail
+            Valid = False
+        End If
+        Return Valid
+    End Function
+
     '**********************************************Event Handlers*******************************************
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Fill Com Select Combo Box Options
@@ -626,6 +659,17 @@ Public Class HvacControlForm
     End Sub
 
     Private Sub TempCheckTimer_Tick(sender As Object, e As EventArgs) Handles TempCheckTimer.Tick
+        If CheckTempSensors() = True Then
+            'System/Ambient Temp Check Pass Continue to Activate System
+
+        Else
+            'System/Ambient Temp Check Fail Do not Turn on System
+            MsgBox("There is a Temperature Difference Error")
+            '***************LOG Error HERE***************************
+        End If
+
+
+
         'Check State of Radio Buttons and Turn on Selected Mode
         ChangeMode(modeSelect)
         'Check test differential pressure sensor and report to user
