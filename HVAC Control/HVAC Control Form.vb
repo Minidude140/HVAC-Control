@@ -414,6 +414,21 @@ Public Class HvacControlForm
         End Select
     End Sub
 
+    Sub OverrideMode()
+        If shutdownInterlock = True Then
+            'Safety Interlock enable shut down operation **First Priority**
+            ChangeMode("O")
+            TempCheckTimer.Enabled = False
+        ElseIf fanOverride = True Then
+            'Fan override Turn on Only Fan Mode
+            ChangeMode("F")
+            TempCheckTimer.Enabled = False
+        Else
+            'No Interlocks enabled return to normal operation
+            TempCheckTimer.Enabled = True
+        End If
+    End Sub
+
     '**********************************************Event Handlers*******************************************
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Fill Com Select Combo Box Options
@@ -452,6 +467,8 @@ Public Class HvacControlForm
         digitalinputs = Qy_DigitalRead()
         'Update Booleans From Input Buttons
         TestDigitalInputs()
+        'Test any Overrides/Interlocks
+        OverrideMode()
         'Update Form Output Labels
         UpdateLabels()
     End Sub
