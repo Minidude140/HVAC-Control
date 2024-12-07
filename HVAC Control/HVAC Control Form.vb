@@ -21,7 +21,6 @@ Public Class HvacControlForm
     Dim differentialSensorError As Boolean = False
     Dim modeSelect As String
     Dim modeSelectSave As String
-    Dim errorHandled As Integer = 1
 
     'ISU Color Pallet
     Public GrowlGreyLight As Color = Color.FromArgb(230, 231, 232)
@@ -434,6 +433,7 @@ Public Class HvacControlForm
             ChangeMode("O")
             'Disable Normal Operation
             TempCheckTimer.Enabled = False
+            '***************Log Error Here*********************************
         ElseIf heaterOveride = True Then
             'Heater Override Turn on Heater Mode
             modeSelect = "H"
@@ -454,25 +454,29 @@ Public Class HvacControlForm
             'Disable Normal Operation
             TempCheckTimer.Enabled = False
         ElseIf differentialSensorError = True Then
-            'Differential Sensor Error Occurred Turn of System and Log Error
-            'Turn off System
-            ChangeMode("O")
-            'Disable Normal Operation
-            TempCheckTimer.Enabled = False
-
-            '***************************Only want to Run this Code once Until the Message Box is Clicked**************************************
-            If errorHandled = 1 Then
-                'Report to User the Error
-                errorHandled = MsgBox("There is an air deferential Error.  Check Fan or Sensor.", MsgBoxStyle.DefaultButton1)
-                '*********Log Error Here**********************
-            End If
-            '*********************************************************************************************************************************
-
+            'Disable Heater and AC
+            AcControl(False)
+            HeaterControl(False)
         Else
             'No Interlocks enabled return to normal operation
-            TempCheckTimer.Enabled = True
             'Return Mode Select to Previous State (Radio buttons only Update mode select on change)
             modeSelect = modeSelectSave
+            'Unless Currently OFF Turn on Temp check Timer
+            If modeSelect = "O" Then
+            Else
+                TempCheckTimer.Enabled = True
+            End If
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Check if a Differential Error Has Occurred.  If it has message user and LOG Error
+    ''' </summary>
+    Sub CheckDifferentialStatus()
+        If differentialSensorError = True Then
+            'Report to User the Error
+            MsgBox("There is an air deferential Error.  Check Fan or Sensor.")
+            '*********Log Error Here**********************
         End If
     End Sub
 
@@ -516,6 +520,7 @@ Public Class HvacControlForm
         'Update Form Output Labels
         UpdateLabels()
     End Sub
+
     Private Sub LowTempUpButton_Click(sender As Object, e As EventArgs) Handles LowTempUpButton.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
@@ -528,7 +533,6 @@ Public Class HvacControlForm
             LowTempTextBox.Text = CStr(currentSetPoint)
         End If
     End Sub
-
     Private Sub LowTempDownButton_Click(sender As Object, e As EventArgs) Handles LowTempDownButton.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
@@ -541,7 +545,6 @@ Public Class HvacControlForm
             LowTempTextBox.Text = CStr(currentSetPoint)
         End If
     End Sub
-
     Private Sub HighTempUpButton_Click(sender As Object, e As EventArgs) Handles HighTempUpButton.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
@@ -554,7 +557,6 @@ Public Class HvacControlForm
             HighTempTextBox.Text = CStr(currentSetPoint)
         End If
     End Sub
-
     Private Sub HighTempDownButton_Click(sender As Object, e As EventArgs) Handles HighTempDownButton.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
@@ -574,9 +576,13 @@ Public Class HvacControlForm
             Case = "H"
                 'Turn on Heater
                 HeaterControl(True)
+                'Check test differential pressure sensor and report to user
+                CheckDifferentialStatus()
             Case = "C"
                 'Turn on Ac
                 AcControl(True)
+                'Check test differential pressure sensor and report to user
+                CheckDifferentialStatus()
         End Select
     End Sub
     Private Sub FanShutDownTimer_Tick(sender As Object, e As EventArgs) Handles FanShutDownTimer.Tick
@@ -591,24 +597,29 @@ Public Class HvacControlForm
         If HeatRadioButton.Checked = True Then
             'turn on heat mode
             modeSelect = "H"
+            'Enable Temp Checking
+            TempCheckTimer.Enabled = True
         End If
         'Save Mode Select sate for When we change mode Select in Override
         modeSelectSave = modeSelect
     End Sub
-
     Private Sub OffRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles OffRadioButton.CheckedChanged
         If OffRadioButton.Checked = True Then
             'turn off heat and Ac mode
             modeSelect = "O"
+            ChangeMode(modeSelect)
+            'Disable Temp Checking
+            TempCheckTimer.Enabled = False
         End If
         'Save Mode Select sate for When we change mode Select in Override
         modeSelectSave = modeSelect
     End Sub
-
     Private Sub CoolRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles CoolRadioButton.CheckedChanged
         If CoolRadioButton.Checked = True Then
             'turn on Ac mode
             modeSelect = "C"
+            'Enable Temp Checking
+            TempCheckTimer.Enabled = True
         End If
         'Save Mode Select sate for When we change mode Select in Override
         modeSelectSave = modeSelect
@@ -617,6 +628,8 @@ Public Class HvacControlForm
     Private Sub TempCheckTimer_Tick(sender As Object, e As EventArgs) Handles TempCheckTimer.Tick
         'Check State of Radio Buttons and Turn on Selected Mode
         ChangeMode(modeSelect)
+        'Check test differential pressure sensor and report to user
+        CheckDifferentialStatus()
     End Sub
 
 
