@@ -68,6 +68,14 @@ Partial Class HvacControlForm
         Me.TempCheckTimer = New System.Windows.Forms.Timer(Me.components)
         Me.FanProgressBar = New System.Windows.Forms.ProgressBar()
         Me.PowerUpTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.Bit0CheckBox = New System.Windows.Forms.CheckBox()
+        Me.Bit1CheckBox = New System.Windows.Forms.CheckBox()
+        Me.Bit2CheckBox = New System.Windows.Forms.CheckBox()
+        Me.Bit3CheckBox = New System.Windows.Forms.CheckBox()
+        Me.Bit4CheckBox = New System.Windows.Forms.CheckBox()
+        Me.Bit5CheckBox = New System.Windows.Forms.CheckBox()
+        Me.Bit6CheckBox = New System.Windows.Forms.CheckBox()
+        Me.Bit7CheckBox = New System.Windows.Forms.CheckBox()
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -82,7 +90,6 @@ Partial Class HvacControlForm
         '
         'COMSelectToolStripComboBox
         '
-        Me.COMSelectToolStripComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.COMSelectToolStripComboBox.Name = "COMSelectToolStripComboBox"
         Me.COMSelectToolStripComboBox.Size = New System.Drawing.Size(121, 25)
         '
@@ -427,11 +434,99 @@ Partial Class HvacControlForm
         '
         Me.PowerUpTimer.Interval = 5000
         '
+        'Bit0CheckBox
+        '
+        Me.Bit0CheckBox.AutoSize = True
+        Me.Bit0CheckBox.Location = New System.Drawing.Point(39, 384)
+        Me.Bit0CheckBox.Name = "Bit0CheckBox"
+        Me.Bit0CheckBox.Size = New System.Drawing.Size(47, 17)
+        Me.Bit0CheckBox.TabIndex = 27
+        Me.Bit0CheckBox.Text = "Bit 0"
+        Me.Bit0CheckBox.UseVisualStyleBackColor = True
+        '
+        'Bit1CheckBox
+        '
+        Me.Bit1CheckBox.AutoSize = True
+        Me.Bit1CheckBox.Location = New System.Drawing.Point(89, 384)
+        Me.Bit1CheckBox.Name = "Bit1CheckBox"
+        Me.Bit1CheckBox.Size = New System.Drawing.Size(47, 17)
+        Me.Bit1CheckBox.TabIndex = 28
+        Me.Bit1CheckBox.Text = "Bit 1"
+        Me.Bit1CheckBox.UseVisualStyleBackColor = True
+        '
+        'Bit2CheckBox
+        '
+        Me.Bit2CheckBox.AutoSize = True
+        Me.Bit2CheckBox.Location = New System.Drawing.Point(142, 384)
+        Me.Bit2CheckBox.Name = "Bit2CheckBox"
+        Me.Bit2CheckBox.Size = New System.Drawing.Size(47, 17)
+        Me.Bit2CheckBox.TabIndex = 29
+        Me.Bit2CheckBox.Text = "Bit 2"
+        Me.Bit2CheckBox.UseVisualStyleBackColor = True
+        '
+        'Bit3CheckBox
+        '
+        Me.Bit3CheckBox.AutoSize = True
+        Me.Bit3CheckBox.Location = New System.Drawing.Point(188, 384)
+        Me.Bit3CheckBox.Name = "Bit3CheckBox"
+        Me.Bit3CheckBox.Size = New System.Drawing.Size(47, 17)
+        Me.Bit3CheckBox.TabIndex = 30
+        Me.Bit3CheckBox.Text = "Bit 3"
+        Me.Bit3CheckBox.UseVisualStyleBackColor = True
+        '
+        'Bit4CheckBox
+        '
+        Me.Bit4CheckBox.AutoSize = True
+        Me.Bit4CheckBox.Location = New System.Drawing.Point(239, 384)
+        Me.Bit4CheckBox.Name = "Bit4CheckBox"
+        Me.Bit4CheckBox.Size = New System.Drawing.Size(47, 17)
+        Me.Bit4CheckBox.TabIndex = 31
+        Me.Bit4CheckBox.Text = "Bit 4"
+        Me.Bit4CheckBox.UseVisualStyleBackColor = True
+        '
+        'Bit5CheckBox
+        '
+        Me.Bit5CheckBox.AutoSize = True
+        Me.Bit5CheckBox.Location = New System.Drawing.Point(292, 384)
+        Me.Bit5CheckBox.Name = "Bit5CheckBox"
+        Me.Bit5CheckBox.Size = New System.Drawing.Size(47, 17)
+        Me.Bit5CheckBox.TabIndex = 32
+        Me.Bit5CheckBox.Text = "Bit 5"
+        Me.Bit5CheckBox.UseVisualStyleBackColor = True
+        '
+        'Bit6CheckBox
+        '
+        Me.Bit6CheckBox.AutoSize = True
+        Me.Bit6CheckBox.Location = New System.Drawing.Point(345, 384)
+        Me.Bit6CheckBox.Name = "Bit6CheckBox"
+        Me.Bit6CheckBox.Size = New System.Drawing.Size(47, 17)
+        Me.Bit6CheckBox.TabIndex = 33
+        Me.Bit6CheckBox.Text = "Bit 6"
+        Me.Bit6CheckBox.UseVisualStyleBackColor = True
+        '
+        'Bit7CheckBox
+        '
+        Me.Bit7CheckBox.AutoSize = True
+        Me.Bit7CheckBox.Location = New System.Drawing.Point(398, 384)
+        Me.Bit7CheckBox.Name = "Bit7CheckBox"
+        Me.Bit7CheckBox.Size = New System.Drawing.Size(47, 17)
+        Me.Bit7CheckBox.TabIndex = 34
+        Me.Bit7CheckBox.Text = "Bit 7"
+        Me.Bit7CheckBox.UseVisualStyleBackColor = True
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Bit7CheckBox)
+        Me.Controls.Add(Me.Bit6CheckBox)
+        Me.Controls.Add(Me.Bit5CheckBox)
+        Me.Controls.Add(Me.Bit4CheckBox)
+        Me.Controls.Add(Me.Bit3CheckBox)
+        Me.Controls.Add(Me.Bit2CheckBox)
+        Me.Controls.Add(Me.Bit1CheckBox)
+        Me.Controls.Add(Me.Bit0CheckBox)
         Me.Controls.Add(Me.FanProgressBar)
         Me.Controls.Add(Me.HighTempDownButton)
         Me.Controls.Add(Me.HighTempUpButton)
@@ -512,4 +607,12 @@ Partial Class HvacControlForm
     Friend WithEvents TempCheckTimer As Timer
     Friend WithEvents FanProgressBar As ProgressBar
     Friend WithEvents PowerUpTimer As Timer
+    Friend WithEvents Bit0CheckBox As CheckBox
+    Friend WithEvents Bit1CheckBox As CheckBox
+    Friend WithEvents Bit2CheckBox As CheckBox
+    Friend WithEvents Bit3CheckBox As CheckBox
+    Friend WithEvents Bit4CheckBox As CheckBox
+    Friend WithEvents Bit5CheckBox As CheckBox
+    Friend WithEvents Bit6CheckBox As CheckBox
+    Friend WithEvents Bit7CheckBox As CheckBox
 End Class

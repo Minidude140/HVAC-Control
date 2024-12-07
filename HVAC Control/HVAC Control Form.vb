@@ -234,6 +234,7 @@ Public Class HvacControlForm
         'Update Control System Temp Labels
         ControlSytemTempFLabel.Text = $"{CStr(ConvertToTempF(controlSystemTempSensor))}°F"
         ControlSystemTempCLabel.Text = $"{CStr(ConvertToTempC(ConvertToTempF(controlSystemTempSensor)))}°C"
+        UpdateTestBits()
     End Sub
 
     ''' <summary>
@@ -306,6 +307,64 @@ Public Class HvacControlForm
             'turn on GUI indicator
             AcProgressBar.Value = 0
             '***********Send Digital Output Signal Ac OFF Here***************
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Test a given byte at a given index return true if high.  Return False if low.
+    ''' </summary>
+    ''' <param name="data"></param>
+    ''' <param name="index"></param>
+    ''' <returns></returns>
+    Function TestBit(data As Byte, index As Integer) As Boolean
+        Dim testArray As New BitArray({data})
+        If testArray(index) = True Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    Sub UpdateTestBits()
+        If TestBit(digitalinputs, 0) = True Then
+            Bit0CheckBox.Checked = True
+        Else
+            Bit0CheckBox.Checked = False
+        End If
+        If TestBit(digitalinputs, 1) = True Then
+            Bit1CheckBox.Checked = True
+        Else
+            Bit1CheckBox.Checked = False
+        End If
+        If TestBit(digitalinputs, 2) = True Then
+            Bit2CheckBox.Checked = True
+        Else
+            Bit2CheckBox.Checked = False
+        End If
+        If TestBit(digitalinputs, 3) = True Then
+            Bit3CheckBox.Checked = True
+        Else
+            Bit3CheckBox.Checked = False
+        End If
+        If TestBit(digitalinputs, 4) = True Then
+            Bit4CheckBox.Checked = True
+        Else
+            Bit4CheckBox.Checked = False
+        End If
+        If TestBit(digitalinputs, 5) = True Then
+            Bit5CheckBox.Checked = True
+        Else
+            Bit5CheckBox.Checked = False
+        End If
+        If TestBit(digitalinputs, 6) = True Then
+            Bit6CheckBox.Checked = True
+        Else
+            Bit6CheckBox.Checked = False
+        End If
+        If TestBit(digitalinputs, 7) = True Then
+            Bit7CheckBox.Checked = True
+        Else
+            Bit7CheckBox.Checked = False
         End If
     End Sub
 
