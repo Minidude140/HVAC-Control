@@ -18,6 +18,7 @@ Public Class HvacControlForm
     Dim heaterOveride As Boolean = False
     Dim fanOverride As Boolean = False
     Dim differentialSensor As Boolean = False
+    Dim modeSelect As String
 
     'ISU Color Pallet
     Public GrowlGreyLight As Color = Color.FromArgb(230, 231, 232)
@@ -376,26 +377,36 @@ Public Class HvacControlForm
                 FanControl(False)
             Case = "H"
                 'Mode is Heat
+                'Disable any previous shut down routine
+                FanShutDownTimer.Enabled = False
                 'Only Enable is not already on
                 If HeaterProgressBar.Value = 0 Then
                     'Shut Down AC
                     AcControl(False)
                     'Turn on Fan
                     FanControl(True)
-                    'Disable any previous shut down routine
-                    FanShutDownTimer.Enabled = False
                 End If
 
             Case = "C"
                 'Mode is Cool
+                'Disable any previous shut down routine
+                FanShutDownTimer.Enabled = False
                 If AcProgressBar.Value = 0 Then
                     'Shut Down Heater
                     HeaterControl(False)
                     'Turn on Fan
                     FanControl(True)
-                    'Disable any previous shut down routine
-                    FanShutDownTimer.Enabled = False
                 End If
+            Case = "F"
+                'Only Fan Mode
+                'Disable any previous shut down routine
+                FanShutDownTimer.Enabled = False
+                'Shut Down Heater
+                HeaterControl(False)
+                'Shut Down AC
+                AcControl(False)
+                'Turn On Fan
+                FanControl(True)
             Case Else
                 'Should Not Happen
         End Select
@@ -534,7 +545,11 @@ Public Class HvacControlForm
     End Sub
 
     Private Sub TempCheckTimer_Tick(sender As Object, e As EventArgs) Handles TempCheckTimer.Tick
-
+        If fanOverride = True Then
+            ChangeMode("F")
+        Else
+            ChangeMode(modeSelect)
+        End If
     End Sub
 
 End Class
