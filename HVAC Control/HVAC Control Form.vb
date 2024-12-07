@@ -564,6 +564,36 @@ Public Class HvacControlForm
         Return turnOn
     End Function
 
+    ''' <summary>
+    ''' Will Toggle the bit number (0-7) from the given byte
+    ''' <br/>
+    ''' Returns the new byte With the Selected Bit Toggled
+    ''' </summary>
+    ''' <param name="currentData"></param>
+    ''' <param name="bitNumber"></param>
+    ''' <returns></returns>
+    Function FlipBit(currentData As Byte, bitNumber As Integer) As Byte
+        Select Case bitNumber
+            Case = 0
+                currentData = currentData Xor CByte(&H1)
+            Case = 1
+                currentData = currentData Xor CByte(&H2)
+            Case = 2
+                currentData = currentData Xor CByte(&H4)
+            Case = 3
+                currentData = currentData Xor CByte(&H8)
+            Case = 4
+                currentData = currentData Xor CByte(&H10)
+            Case = 5
+                currentData = currentData Xor CByte(&H20)
+            Case = 6
+                currentData = currentData Xor CByte(&H40)
+            Case = 7
+                currentData = currentData Xor CByte(&H80)
+        End Select
+        Return currentData
+    End Function
+
     '**********************************************Event Handlers*******************************************
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Fill Com Select Combo Box Options
