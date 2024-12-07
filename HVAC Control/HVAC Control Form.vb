@@ -513,6 +513,42 @@ Public Class HvacControlForm
         Return Valid
     End Function
 
+    ''' <summary>
+    ''' Checks Ambient temp against Set temp.
+    ''' <br/>
+    ''' If In Heat Mode Will Return True When Under Threshold
+    ''' <br/>
+    ''' If in Cool Mode Will Return True if Over Threshold
+    ''' <br/>
+    ''' Default Return is False
+    ''' </summary>
+    ''' <returns></returns>
+    Function TestSetTemp() As Boolean
+        Dim turnOn As Boolean
+        Select Case modeSelect
+            Case = "H"
+                If ConvertToTempF(ambientTempSensor) < (CDbl(HighTempTextBox.Text) + 2) Then
+                    'Ambient is Cooler than Set Temp plus 2 degrees
+                    turnOn = True
+                ElseIf ConvertToTempF(ambientTempSensor) >= (CDbl(HighTempTextBox.Text) + 2) Then
+                    'Ambient Temp is at or Above Set Temp Plus 2 Degrees
+                    turnOn = False
+                End If
+            Case = "C"
+                If ConvertToTempF(ambientTempSensor) > (CDbl(LowTempTextBox.Text) - 2) Then
+                    'Ambient is Hotter than Set Temp Minus 2 Degrees
+                    turnOn = True
+                ElseIf ConvertToTempF(ambientTempSensor) <= (CDbl(LowTempTextBox.Text) - 2) Then
+                    'Ambient is at or Below Set temp Minus 2 degrees
+                    turnOn = False
+                End If
+            Case Else
+                'Should NOt Occur
+                turnOn = False
+        End Select
+        Return turnOn
+    End Function
+
     '**********************************************Event Handlers*******************************************
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Fill Com Select Combo Box Options
@@ -661,17 +697,18 @@ Public Class HvacControlForm
     Private Sub TempCheckTimer_Tick(sender As Object, e As EventArgs) Handles TempCheckTimer.Tick
         If CheckTempSensors() = True Then
             'System/Ambient Temp Check Pass Continue to Activate System
-
+            If TestSetTemp() = True Then
+                'Ambient Outside Set Range Turn ON System
+                ChangeMode(modeSelect)
+            Else
+                'Ambient inside the Range Turn Off System
+                ChangeMode("O")
+            End If
         Else
             'System/Ambient Temp Check Fail Do not Turn on System
             MsgBox("There is a Temperature Difference Error")
             '***************LOG Error HERE***************************
         End If
-
-
-
-        'Check State of Radio Buttons and Turn on Selected Mode
-        ChangeMode(modeSelect)
         'Check test differential pressure sensor and report to user
         CheckDifferentialStatus()
     End Sub
