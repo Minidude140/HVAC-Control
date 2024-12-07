@@ -13,6 +13,7 @@ Public Class HvacControlForm
     '*****************************************Global Variables******************************************
     Dim ambientTempSensor As Integer
     Dim controlSystemTempSensor As Integer
+    Dim digitalinputs As Byte
     'Used to check Mode Selection.  O is off, H is Heat, C is Cool
     Dim modeSelect As String = "O"
 
@@ -173,6 +174,24 @@ Public Class HvacControlForm
     End Function
 
     ''' <summary>
+    ''' Read Digital Inputs.  Return Byte of current input status
+    ''' </summary>
+    ''' <returns></returns>
+    Function Qy_DigitalRead() As Byte
+        'command to QY board to read Digital Inputs
+        Dim command(0) As Byte
+        command(0) = &B110000
+        COMSerialPort.Write(command, 0, 1)
+        'Wait for Response
+        Thread.Sleep(5)
+        'create an array of bytes with the length of input data
+        Dim data(COMSerialPort.BytesToRead) As Byte
+        'Populate array with input data
+        COMSerialPort.Read(data, 0, COMSerialPort.BytesToRead)
+        Return data(0)
+    End Function
+
+    ''' <summary>
     ''' Convert the Input Data to Degrees F
     ''' </summary>
     ''' <param name="inputData"></param>
@@ -310,6 +329,8 @@ Public Class HvacControlForm
         ambientTempSensor = Qy_AnalogReadA1()
         'Update Control System Temp Sensor Data
         controlSystemTempSensor = Qy_AnalogReadA2()
+        'Update Digital Input States
+        digitalinputs = Qy_DigitalRead()
         'Update Form Output Labels
         UpdateLabels()
     End Sub
