@@ -18,9 +18,10 @@ Public Class HvacControlForm
     Dim heaterOveride As Boolean = False
     Dim fanOverride As Boolean = False
     Dim acOverride As Boolean = False
-    Dim differentialSensor As Boolean = False
+    Dim differentialSensorError As Boolean = False
     Dim modeSelect As String
     Dim modeSelectSave As String
+    Dim errorHandled As Integer = 1
 
     'ISU Color Pallet
     Public GrowlGreyLight As Color = Color.FromArgb(230, 231, 232)
@@ -365,10 +366,10 @@ Public Class HvacControlForm
             AcOverrideButton.backcolor = GrowlGreyLight
         End If
         If TestBit(digitalinputs, 4) = True Then
-            differentialSensor = True
+            differentialSensorError = True
             DifferentialButton.BackColor = Roarange
         Else
-            differentialSensor = False
+            differentialSensorError = False
             DifferentialButton.BackColor = GrowlGreyLight
         End If
     End Sub
@@ -452,6 +453,21 @@ Public Class HvacControlForm
             ChangeMode(modeSelect)
             'Disable Normal Operation
             TempCheckTimer.Enabled = False
+        ElseIf differentialSensorError = True Then
+            'Differential Sensor Error Occurred Turn of System and Log Error
+            'Turn off System
+            ChangeMode("O")
+            'Disable Normal Operation
+            TempCheckTimer.Enabled = False
+
+            '***************************Only want to Run this Code once Until the Message Box is Clicked**************************************
+            If errorHandled = 1 Then
+                'Report to User the Error
+                errorHandled = MsgBox("There is an air deferential Error.  Check Fan or Sensor.", MsgBoxStyle.DefaultButton1)
+                '*********Log Error Here**********************
+            End If
+            '*********************************************************************************************************************************
+
         Else
             'No Interlocks enabled return to normal operation
             TempCheckTimer.Enabled = True
