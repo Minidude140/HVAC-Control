@@ -18,8 +18,6 @@ Public Class HvacControlForm
     Dim heaterOveride As Boolean = False
     Dim fanOverride As Boolean = False
     Dim differentialSensor As Boolean = False
-    'Used to check Mode Selection.  O is off, H is Heat, C is Cool
-    Dim modeSelect As String = "O"
 
     'ISU Color Pallet
     Public GrowlGreyLight As Color = Color.FromArgb(230, 231, 232)
@@ -364,10 +362,10 @@ Public Class HvacControlForm
     End Sub
 
     ''' <summary>
-    ''' Check mode select and Enable Heat, AC, Or Off modes with Fan delay
+    ''' Change Mode Based On input Argument O is off, H is Heat, C is Cool
     ''' </summary>
-    Sub ChangeMode()
-        Select Case modeSelect
+    Sub ChangeMode(modeselect As String)
+        Select Case modeselect
             Case = "O"
                 'Mode is Off
                 'Shut Down AC
@@ -502,6 +500,18 @@ Public Class HvacControlForm
         '***********Send Digital Output Signal Fan OFF Here***************
     End Sub
 
+    Private Sub PowerUpTimer_Tick(sender As Object, e As EventArgs) Handles PowerUpTimer.Tick
+        PowerUpTimer.Enabled = False
+        Select Case modeSelect
+            Case = "H"
+                'Turn on Heater
+                HeaterControl(True)
+            Case = "C"
+                'Turn on Ac
+                AcControl(True)
+        End Select
+    End Sub
+
     Private Sub HeatRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles HeatRadioButton.CheckedChanged
         If HeatRadioButton.Checked = True Then
             'turn on heat mode
@@ -524,17 +534,7 @@ Public Class HvacControlForm
     End Sub
 
     Private Sub TempCheckTimer_Tick(sender As Object, e As EventArgs) Handles TempCheckTimer.Tick
+
     End Sub
 
-    Private Sub PowerUpTimer_Tick(sender As Object, e As EventArgs) Handles PowerUpTimer.Tick
-        PowerUpTimer.Enabled = False
-        Select Case modeSelect
-            Case = "H"
-                'Turn on Heater
-                HeaterControl(True)
-            Case = "C"
-                'Turn on Ac
-                AcControl(True)
-        End Select
-    End Sub
 End Class
