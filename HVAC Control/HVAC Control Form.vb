@@ -199,6 +199,21 @@ Public Class HvacControlForm
     End Function
 
     ''' <summary>
+    ''' Write the Given Byte to the Digital Output Pins
+    ''' </summary>
+    ''' <param name="output"></param>
+    Sub Qy_DigitalWrite(output As Byte)
+        'command to QY board to Write Output Byte Digital Inputs
+        Dim command(1) As Byte
+        'Digital Write Command
+        command(0) = &B100000
+        'Byte to Write Out
+        command(1) = output
+        'Send Data to Qy@ Board
+        COMSerialPort.Write(command, 0, 2)
+    End Sub
+
+    ''' <summary>
     ''' Convert the Input Data to Degrees F
     ''' </summary>
     ''' <param name="inputData"></param>
