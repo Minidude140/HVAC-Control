@@ -32,6 +32,8 @@ Public Class HvacControlForm
     ''' Fill Combo Box With Available COM Ports
     ''' </summary>
     Sub PopulateCOMSelect()
+        'Clear any Previous List Items
+        COMSelectToolStripComboBox.Items.Clear()
         For Each portName In COMSerialPort.GetPortNames
             'add available Com Ports to combo box
             COMSelectToolStripComboBox.Items.Add(portName)
@@ -427,6 +429,20 @@ Public Class HvacControlForm
         ConnectCOM()
     End Sub
 
+
+    Private Sub DisconnetToolStripButton_Click(sender As Object, e As EventArgs) Handles DisconnetToolStripButton.Click
+        'Disable COM Timer
+        COMTimer.Enabled = False
+        'Close COM Port
+        COMSerialPort.Close()
+        'Disable Disconnect Button
+        DisconnetToolStripButton.Enabled = False
+        'Enable Connect Button
+        ConnectCOMToolStripButton.Enabled = True
+    End Sub
+    Private Sub RefreshCOMToolStripButton_Click(sender As Object, e As EventArgs) Handles RefreshCOMToolStripButton.Click
+        PopulateCOMSelect()
+    End Sub
     Private Sub COMTimer_Tick(sender As Object, e As EventArgs) Handles COMTimer.Tick
         'Update Ambient Temp Sensor Data
         ambientTempSensor = Qy_AnalogReadA1()
@@ -439,18 +455,6 @@ Public Class HvacControlForm
         'Update Form Output Labels
         UpdateLabels()
     End Sub
-
-    Private Sub DisconnetToolStripButton_Click(sender As Object, e As EventArgs) Handles DisconnetToolStripButton.Click
-        'Disable COM Timer
-        COMTimer.Enabled = False
-        'Close COM Port
-        COMSerialPort.Close()
-        'Disable Disconnect Button
-        DisconnetToolStripButton.Enabled = False
-        'Enable Connect Button
-        ConnectCOMToolStripButton.Enabled = True
-    End Sub
-
     Private Sub LowTempUpButton_Click(sender As Object, e As EventArgs) Handles LowTempUpButton.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
@@ -551,5 +555,6 @@ Public Class HvacControlForm
             ChangeMode(modeSelect)
         End If
     End Sub
+
 
 End Class
