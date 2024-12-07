@@ -16,6 +16,13 @@ Public Class HvacControlForm
     'Used to check Mode Selection.  O is off, H is Heat, C is Cool
     Dim modeSelect As String = "O"
 
+    'ISU Color Pallet
+    Public GrowlGreyLight As Color = Color.FromArgb(230, 231, 232)
+    Public GrowlGreyMed As Color = Color.FromArgb(167, 167, 167)
+    Public GrowlGrey As Color = Color.FromArgb(130, 130, 130)
+    Public Roarange As Color = Color.FromArgb(244, 121, 32)
+    Public RoarangeL As Color = Color.FromArgb(246, 146, 64)
+    Public BengalBlack As Color = Color.FromArgb(0, 0, 0)
     '**********************************************Custom Methods*******************************************
     ''' <summary>
     ''' Fill Combo Box With Available COM Ports
