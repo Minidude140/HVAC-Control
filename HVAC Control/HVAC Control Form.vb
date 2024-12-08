@@ -330,7 +330,7 @@ Public Class HvacControlForm
             'Test if Heater is already off
             If TestBit(currentOutputData, 1) = False Then
                     currentOutputData = FlipBit(currentOutputData, 1)
-                ''Send Digital Output OFF Signal
+                'Send Digital Output OFF Signal
                 Qy_DigitalWrite(currentOutputData)
                 End If
             End If
@@ -470,6 +470,16 @@ Public Class HvacControlForm
             ChangeMode("O")
             'Disable Normal Operation
             TempCheckTimer.Enabled = False
+            'Test if Interlock LED is already ON
+            If TestBit(currentOutputData, 0) = True Then
+                'Flip Interlock LEd On Bit
+                currentOutputData = FlipBit(currentOutputData, 0)
+                'Send Digital Output ON Signal
+                Qy_DigitalWrite(currentOutputData)
+            Else
+                'LED Already On
+            End If
+
             '***************Log Error Here*********************************
         ElseIf heaterOveride = True Then
             'Heater Override Turn on Heater Mode
@@ -504,6 +514,12 @@ Public Class HvacControlForm
             Else
                 'Return to Checking Temp in in Heat or Cool Mode
                 TempCheckTimer.Enabled = True
+            End If
+            'Turn off Interlock LED if not already off
+            If TestBit(currentOutputData, 0) = False Then
+                currentOutputData = FlipBit(currentOutputData, 0)
+                'Send Digital Output OFF Signal
+                Qy_DigitalWrite(currentOutputData)
             End If
         End If
     End Sub
