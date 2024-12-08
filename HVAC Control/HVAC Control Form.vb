@@ -647,6 +647,27 @@ Public Class HvacControlForm
         Return currentData
     End Function
 
+    ''' <summary>
+    ''' Saves the Current Set temperatures to a text file
+    ''' </summary>
+    Sub SaveSettings()
+        'Name file and open
+        Dim fileName As String = "..\..\..\HVAC Settings.txt"
+        Dim fileNumber As Integer = FreeFile()
+        FileOpen(fileNumber, fileName, OpenMode.Output)
+        Write(fileNumber, "HVACSETTINGS")
+        WriteLine(fileNumber)
+        Write(fileNumber, "LOW")
+        Write(fileNumber, LowTempTextBox.Text)
+        WriteLine(fileNumber)
+        Write(fileNumber, "HIGH")
+        Write(fileNumber, HighTempTextBox.Text)
+        WriteLine(fileNumber)
+        FileClose(fileNumber)
+        'Prompt user that the Settings have been saved
+        MsgBox("Temperature settings have been saved.")
+    End Sub
+
     '**********************************************Event Handlers*******************************************
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Fill Com Select Combo Box Options
@@ -817,5 +838,7 @@ Public Class HvacControlForm
         CheckDifferentialStatus()
     End Sub
 
-
+    Private Sub SaveSettingsToolStripButton_Click(sender As Object, e As EventArgs) Handles SaveSettingsToolStripButton.Click
+        SaveSettings()
+    End Sub
 End Class
