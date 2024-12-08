@@ -15,7 +15,7 @@ Public Class HvacControlForm
     Dim controlSystemTempSensor As Integer
     Dim digitalinputs As Byte
     Dim shutdownInterlock As Boolean = False
-    Dim heaterOveride As Boolean = False
+    Dim heaterOverride As Boolean = False
     Dim fanOverride As Boolean = False
     Dim acOverride As Boolean = False
     Dim differentialSensorError As Boolean = False
@@ -394,10 +394,10 @@ Public Class HvacControlForm
             SafetyInterlockButton.BackColor = GrowlGreyLight
         End If
         If TestBit(digitalinputs, 1) = True Then
-            heaterOveride = True
+            heaterOverride = True
             HeaterOverrideButton.BackColor = Roarange
         Else
-            heaterOveride = False
+            heaterOverride = False
             HeaterOverrideButton.BackColor = GrowlGreyLight
         End If
         If TestBit(digitalinputs, 2) = True Then
@@ -492,7 +492,7 @@ Public Class HvacControlForm
             Else
                 'LED Already On
             End If
-        ElseIf heaterOveride = True Then
+        ElseIf heaterOverride = True Then
             'Heater Override Turn on Heater Mode
             modeSelect = "H"
             'Mode Select is changed and used to keep the Heater On Delay After the Fan turns on
@@ -542,7 +542,7 @@ Public Class HvacControlForm
         If differentialSensorError = True Then
             'Report to User the Error
             MsgBox("There is an air deferential Error.  Check Fan or Sensor.")
-            '*********Log Error Here**********************
+            LogError("Pressure Differential Error")
         End If
     End Sub
 
@@ -737,7 +737,7 @@ Public Class HvacControlForm
         'Turn off all outputs
         Qy_DigitalWrite(CByte(&H0))
         'Start Checking For Interlock Errors
-        InterlockDelayTimer.Enabled = True
+        ErrorLogDelayTimer.Enabled = True
     End Sub
     Private Sub DisconnetToolStripButton_Click(sender As Object, e As EventArgs) Handles DisconnetToolStripButton.Click
         'Disable COM Timer
@@ -888,7 +888,7 @@ Public Class HvacControlForm
         Else
             'System/Ambient Temp Check Fail Do not Turn on System
             MsgBox("There is a Temperature Difference Error")
-            '***************LOG Error HERE***************************
+            LogError("Temperature Differential Error")
         End If
         'Check test differential pressure sensor and report to user
         CheckDifferentialStatus()
@@ -898,9 +898,18 @@ Public Class HvacControlForm
         SaveSettings()
     End Sub
 
-    Private Sub InterlockDelayTimer_Tick(sender As Object, e As EventArgs) Handles InterlockDelayTimer.Tick
+    Private Sub ErrorLogDelayTimer_Tick(sender As Object, e As EventArgs) Handles ErrorLogDelayTimer.Tick
         If shutdownInterlock = True Then
-            LogError("ShutDown Interlock")
+            LogError("ShutDown Interlock Engaged")
+        End If
+        If heaterOverride = True Then
+            LogError("Heater Override Engaged")
+        End If
+        If fanOverride = True Then
+            LogError("Fan Override Engaged")
+        End If
+        If acOverride = True Then
+            LogError("AC Override Engaged")
         End If
     End Sub
 End Class

@@ -80,7 +80,7 @@ Partial Class HvacControlForm
         Me.DifferentialLabel = New System.Windows.Forms.Label()
         Me.AcOverrideButton = New System.Windows.Forms.Button()
         Me.AcOverideLabel = New System.Windows.Forms.Label()
-        Me.InterlockDelayTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.ErrorLogDelayTimer = New System.Windows.Forms.Timer(Me.components)
         Me.ControlsToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -549,9 +549,9 @@ Partial Class HvacControlForm
         Me.AcOverideLabel.Text = "AC" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Override" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.AcOverideLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'InterlockDelayTimer
+        'ErrorLogDelayTimer
         '
-        Me.InterlockDelayTimer.Interval = 10000
+        Me.ErrorLogDelayTimer.Interval = 5000
         '
         'HvacControlForm
         '
@@ -660,5 +660,5 @@ Partial Class HvacControlForm
     Friend WithEvents AcOverrideButton As Button
     Friend WithEvents AcOverideLabel As Label
     Friend WithEvents TempCheckTimer As Timer
-    Friend WithEvents InterlockDelayTimer As Timer
+    Friend WithEvents ErrorLogDelayTimer As Timer
 End Class
