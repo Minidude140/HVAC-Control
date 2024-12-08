@@ -655,12 +655,15 @@ Public Class HvacControlForm
         Dim fileName As String = "..\..\..\HVAC Settings.txt"
         Dim fileNumber As Integer = FreeFile()
         FileOpen(fileNumber, fileName, OpenMode.Output)
+        'Write Program Key as the first record
         Write(fileNumber, "HVACSETTINGS")
         WriteLine(fileNumber)
         Write(fileNumber, "LOW")
+        'Write Low set Value As Record Right After LOW
         Write(fileNumber, LowTempTextBox.Text)
         WriteLine(fileNumber)
         Write(fileNumber, "HIGH")
+        'Write High Set Value as Record Right After HIGH
         Write(fileNumber, HighTempTextBox.Text)
         WriteLine(fileNumber)
         FileClose(fileNumber)
@@ -703,6 +706,17 @@ Public Class HvacControlForm
         Catch ex As Exception
             MsgBox("Sorry an Error Occurred While Reading the File")
         End Try
+    End Sub
+
+    Sub LogError(errormessage As String)
+        'Name file and open
+        Dim fileName As String = "..\..\..\HVAC system log.txt"
+        Dim fileNumber As Integer = FreeFile()
+        FileOpen(fileNumber, fileName, OpenMode.Append)
+        'Write the Error Message
+        Write(fileNumber, errormessage & "     ")
+        'Log the Time
+        Write(fileNumber, "Time: " & DateTime.Now.ToString("yyMMddhhmmssff"))
     End Sub
 
     '**********************************************Event Handlers*******************************************
