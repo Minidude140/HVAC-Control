@@ -21,6 +21,7 @@ Public Class HvacControlForm
     Dim differentialSensorError As Boolean = False
     Dim modeSelect As String
     Dim modeSelectSave As String
+    Dim currentOutputData As Byte
 
     'ISU Color Pallet
     Public GrowlGreyLight As Color = Color.FromArgb(230, 231, 232)
@@ -289,10 +290,18 @@ Public Class HvacControlForm
             'turn on GUI indicator
             FanProgressBar.Value = 1
             PowerUpTimer.Enabled = True
-            '***********Send Digital Output Signal Fan ON Here***************
+            'Test if Fan is already on
+            If TestBit(currentOutputData, 2) = True Then
+                'Turn On Fan Output and Send to Qy@t Board
+                currentOutputData = FlipBit(currentOutputData, 2)
+                Qy_DigitalWrite(currentOutputData)
+            Else
+                'Fan Already On
+            End If
+
         ElseIf turnOn = False Then
-            'Begin Fan ShutDown (Wait 5s before Shutting Off)
-            FanShutDownTimer.Enabled = True
+                'Begin Fan ShutDown (Wait 5s before Shutting Off)
+                FanShutDownTimer.Enabled = True
         End If
     End Sub
 
@@ -333,7 +342,7 @@ Public Class HvacControlForm
     End Sub
 
     ''' <summary>
-    ''' Test a given byte at a given index return true if high.  Return False if low.
+    ''' Test a given byte at a given index return true if low.  Return False if high.
     ''' </summary>
     ''' <param name="data"></param>
     ''' <param name="index"></param>
@@ -476,9 +485,11 @@ Public Class HvacControlForm
             'No Interlocks enabled return to normal operation
             'Return Mode Select to Previous State (Radio buttons only Update mode select on change)
             modeSelect = modeSelectSave
-            'Unless Currently OFF Turn on Temp check Timer
             If modeSelect = "O" Then
+                'Turn Off All outputs if Off mode
+                ChangeMode("O")
             Else
+                'Return to Checking Temp in in Heat or Cool Mode
                 TempCheckTimer.Enabled = True
             End If
         End If
@@ -606,6 +617,8 @@ Public Class HvacControlForm
 
     Private Sub ConnectCOMToolStripButton_Click(sender As Object, e As EventArgs) Handles ConnectCOMToolStripButton.Click
         ConnectCOM()
+        'Turn off all outputs
+        Qy_DigitalWrite(CByte(&H0))
     End Sub
     Private Sub DisconnetToolStripButton_Click(sender As Object, e As EventArgs) Handles DisconnetToolStripButton.Click
         'Disable COM Timer
@@ -704,7 +717,10 @@ Public Class HvacControlForm
         FanShutDownTimer.Enabled = False
         'turn off GUI indicator
         FanProgressBar.Value = 0
-        '***********Send Digital Output Signal Fan OFF Here***************
+        If TestBit(currentOutputData, 2) = False Then
+            currentOutputData = FlipBit(currentOutputData, 2)
+            Qy_DigitalWrite(currentOutputData)
+        End If
     End Sub
 
     Private Sub HeatRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles HeatRadioButton.CheckedChanged
