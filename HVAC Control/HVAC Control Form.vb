@@ -314,13 +314,26 @@ Public Class HvacControlForm
             'Turn on Heater
             'turn on GUI indicator
             HeaterProgressBar.Value = 1
-            '***********Send Digital Output Signal Heater ON Here***************
+            'Test if Heater is already on
+            If TestBit(currentOutputData, 1) = True Then
+                'Flip Heater On Bit
+                currentOutputData = FlipBit(currentOutputData, 1)
+                'Send Digital Output ON Signal
+                Qy_DigitalWrite(currentOutputData)
+            Else
+                'Heater Already On
+            End If
         ElseIf turnOn = False Then
             'Turn off Heater
             'turn on GUI indicator
             HeaterProgressBar.Value = 0
-            '***********Send Digital Output Signal Heater OFF Here***************
-        End If
+            'Test if Heater is already off
+            If TestBit(currentOutputData, 1) = False Then
+                    currentOutputData = FlipBit(currentOutputData, 1)
+                ''Send Digital Output OFF Signal
+                Qy_DigitalWrite(currentOutputData)
+                End If
+            End If
     End Sub
 
     ''' <summary>
@@ -717,6 +730,7 @@ Public Class HvacControlForm
         FanShutDownTimer.Enabled = False
         'turn off GUI indicator
         FanProgressBar.Value = 0
+        'Send Digital Output OFF Signal if not already off
         If TestBit(currentOutputData, 2) = False Then
             currentOutputData = FlipBit(currentOutputData, 2)
             Qy_DigitalWrite(currentOutputData)
