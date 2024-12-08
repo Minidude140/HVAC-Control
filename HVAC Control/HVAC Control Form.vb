@@ -668,10 +668,48 @@ Public Class HvacControlForm
         MsgBox("Temperature settings have been saved.")
     End Sub
 
+    ''' <summary>
+    ''' Load HVAC Setting File and Update Set Temperatures
+    ''' </summary>
+    Sub ImportSettings()
+        Dim fileNumber As Integer = FreeFile()
+        Dim currentRecord As String
+        Dim splitRecord(2) As String
+        Try
+            Dim fileName As String = "..\..\..\HVAC Settings.txt"
+            FileOpen(fileNumber, fileName, OpenMode.Input)
+            'input the current record
+            Input(fileNumber, currentRecord)
+            If currentRecord = "HVACSETTINGS" Then
+                'Text File is from this application continue to save data
+
+                'Input Low setting
+                Input(fileNumber, currentRecord)
+                Input(fileNumber, currentRecord)
+                Input(fileNumber, currentRecord)
+                LowTempTextBox.Text = currentRecord
+                'Input High Settings
+                Input(fileNumber, currentRecord)
+                Input(fileNumber, currentRecord)
+                Input(fileNumber, currentRecord)
+                HighTempTextBox.Text = currentRecord
+            Else
+                'Text file not recognized load default temps
+                LowTempTextBox.Text = "65"
+                HighTempTextBox.Text = "70"
+            End If
+            'Close File
+            FileClose(fileNumber)
+        Catch ex As Exception
+            MsgBox("Sorry an Error Occurred While Reading the File")
+        End Try
+    End Sub
+
     '**********************************************Event Handlers*******************************************
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Fill Com Select Combo Box Options
         PopulateCOMSelect()
+        ImportSettings()
     End Sub
     Private Sub QuitProgramToolStripButton_Click(sender As Object, e As EventArgs) Handles QuitProgramToolStripButton.Click
         'Exit the program
