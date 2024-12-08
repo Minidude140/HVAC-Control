@@ -492,8 +492,6 @@ Public Class HvacControlForm
             Else
                 'LED Already On
             End If
-
-            '***************Log Error Here*********************************
         ElseIf heaterOveride = True Then
             'Heater Override Turn on Heater Mode
             modeSelect = "H"
@@ -708,15 +706,19 @@ Public Class HvacControlForm
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Saves given error message and logs the time to HVAC system log
+    ''' </summary>
+    ''' <param name="errormessage"></param>
     Sub LogError(errormessage As String)
         'Name file and open
         Dim fileName As String = "..\..\..\HVAC system log.txt"
         Dim fileNumber As Integer = FreeFile()
         FileOpen(fileNumber, fileName, OpenMode.Append)
-        'Write the Error Message
-        Write(fileNumber, errormessage & "     ")
-        'Log the Time
-        Write(fileNumber, "Time: " & DateTime.Now.ToString("yyMMddhhmmssff"))
+        'Write the Error Message and log the time
+        Write(fileNumber, errormessage & "Time: " & DateTime.Now.ToString("yyMMddhhmmssff"))
+        WriteLine(fileNumber)
+        FileClose(fileNumber)
     End Sub
 
     '**********************************************Event Handlers*******************************************
@@ -734,6 +736,8 @@ Public Class HvacControlForm
         ConnectCOM()
         'Turn off all outputs
         Qy_DigitalWrite(CByte(&H0))
+        'Start Checking For Interlock Errors
+        InterlockDelayTimer.Enabled = True
     End Sub
     Private Sub DisconnetToolStripButton_Click(sender As Object, e As EventArgs) Handles DisconnetToolStripButton.Click
         'Disable COM Timer
@@ -892,5 +896,11 @@ Public Class HvacControlForm
 
     Private Sub SaveSettingsToolStripButton_Click(sender As Object, e As EventArgs) Handles SaveSettingsToolStripButton.Click
         SaveSettings()
+    End Sub
+
+    Private Sub InterlockDelayTimer_Tick(sender As Object, e As EventArgs) Handles InterlockDelayTimer.Tick
+        If shutdownInterlock = True Then
+            LogError("ShutDown Interlock")
+        End If
     End Sub
 End Class
