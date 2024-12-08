@@ -345,12 +345,25 @@ Public Class HvacControlForm
             'Turn on AC
             'turn on GUI indicator
             AcProgressBar.Value = 1
-            '***********Send Digital Output Signal Ac ON Here***************
+            'Test if Ac is already On
+            If TestBit(currentOutputData, 3) = True Then
+                'Flip AC On Bit
+                currentOutputData = FlipBit(currentOutputData, 3)
+                'Send Digital Output ON Signal
+                Qy_DigitalWrite(currentOutputData)
+            Else
+                'Ac Already On
+            End If
         ElseIf turnOn = False Then
             'Turn off AC
             'turn on GUI indicator
             AcProgressBar.Value = 0
-            '***********Send Digital Output Signal Ac OFF Here***************
+            'Test if Ac is already off
+            If TestBit(currentOutputData, 3) = False Then
+                currentOutputData = FlipBit(currentOutputData, 3)
+                'Send Digital Output OFF Signal
+                Qy_DigitalWrite(currentOutputData)
+            End If
         End If
     End Sub
 
