@@ -102,6 +102,9 @@ Partial Class HvacControlForm
         Me.ConnectCOMMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DisconnectMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RefreshMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProgramMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveTempSettingsMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitProgramMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControlsToolStrip.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
@@ -610,7 +613,7 @@ Partial Class HvacControlForm
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControlDropdownMenuItem, Me.ConnectionMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControlDropdownMenuItem, Me.ConnectionMenuItem, Me.ProgramMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(800, 24)
@@ -713,6 +716,25 @@ Partial Class HvacControlForm
         Me.RefreshMenuItem.Name = "RefreshMenuItem"
         Me.RefreshMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RefreshMenuItem.Text = "Refresh"
+        '
+        'ProgramMenuItem
+        '
+        Me.ProgramMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveTempSettingsMenuItem, Me.ExitProgramMenuItem})
+        Me.ProgramMenuItem.Name = "ProgramMenuItem"
+        Me.ProgramMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.ProgramMenuItem.Text = "Program"
+        '
+        'SaveTempSettingsMenuItem
+        '
+        Me.SaveTempSettingsMenuItem.Name = "SaveTempSettingsMenuItem"
+        Me.SaveTempSettingsMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.SaveTempSettingsMenuItem.Text = "Save Temperature Settings"
+        '
+        'ExitProgramMenuItem
+        '
+        Me.ExitProgramMenuItem.Name = "ExitProgramMenuItem"
+        Me.ExitProgramMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.ExitProgramMenuItem.Text = "Exit Program"
         '
         'HvacControlForm
         '
@@ -850,4 +872,7 @@ Partial Class HvacControlForm
     Friend WithEvents ConnectCOMMenuItem As ToolStripMenuItem
     Friend WithEvents DisconnectMenuItem As ToolStripMenuItem
     Friend WithEvents RefreshMenuItem As ToolStripMenuItem
+    Friend WithEvents ProgramMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveTempSettingsMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitProgramMenuItem As ToolStripMenuItem
 End Class

@@ -737,7 +737,8 @@ Public Class HvacControlForm
         ImportSettings()
 
     End Sub
-    Private Sub QuitProgramToolStripButton_Click(sender As Object, e As EventArgs) Handles QuitProgramToolStripButton.Click
+    Private Sub QuitProgramToolStripButton_Click(sender As Object, e As EventArgs) Handles QuitProgramToolStripButton.Click,
+                                                                                           ExitProgramMenuItem.Click
         'Exit the program
         Me.Close()
     End Sub
@@ -959,7 +960,8 @@ Public Class HvacControlForm
         CheckDifferentialStatus()
     End Sub
 
-    Private Sub SaveSettingsToolStripButton_Click(sender As Object, e As EventArgs) Handles SaveSettingsToolStripButton.Click
+    Private Sub SaveSettingsToolStripButton_Click(sender As Object, e As EventArgs) Handles SaveSettingsToolStripButton.Click,
+                                                                                            SaveTempSettingsMenuItem.Click
         SaveSettings()
     End Sub
 
