@@ -94,6 +94,10 @@ Partial Class HvacControlForm
         Me.SetLowTemperatureMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LowTempUpMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LowTempDownMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChangeModeMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HeatMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OffMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CoolMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControlsToolStrip.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
@@ -611,7 +615,7 @@ Partial Class HvacControlForm
         '
         'ControlDropdownMenuItem
         '
-        Me.ControlDropdownMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetHighTemperatureMenuItem, Me.SetLowTemperatureMenuItem})
+        Me.ControlDropdownMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetHighTemperatureMenuItem, Me.SetLowTemperatureMenuItem, Me.ChangeModeMenuItem})
         Me.ControlDropdownMenuItem.Name = "ControlDropdownMenuItem"
         Me.ControlDropdownMenuItem.Size = New System.Drawing.Size(59, 20)
         Me.ControlDropdownMenuItem.Text = "Control"
@@ -653,6 +657,32 @@ Partial Class HvacControlForm
         Me.LowTempDownMenuItem.Name = "LowTempDownMenuItem"
         Me.LowTempDownMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.LowTempDownMenuItem.Text = "Low Temp Down"
+        '
+        'ChangeModeMenuItem
+        '
+        Me.ChangeModeMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HeatMenuItem, Me.OffMenuItem, Me.CoolMenuItem})
+        Me.ChangeModeMenuItem.Name = "ChangeModeMenuItem"
+        Me.ChangeModeMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.ChangeModeMenuItem.Text = "Change Mode"
+        '
+        'HeatMenuItem
+        '
+        Me.HeatMenuItem.Name = "HeatMenuItem"
+        Me.HeatMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HeatMenuItem.Text = "Heat"
+        '
+        'OffMenuItem
+        '
+        Me.OffMenuItem.Enabled = False
+        Me.OffMenuItem.Name = "OffMenuItem"
+        Me.OffMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OffMenuItem.Text = "Off"
+        '
+        'CoolMenuItem
+        '
+        Me.CoolMenuItem.Name = "CoolMenuItem"
+        Me.CoolMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CoolMenuItem.Text = "Cool"
         '
         'HvacControlForm
         '
@@ -782,4 +812,8 @@ Partial Class HvacControlForm
     Friend WithEvents SetLowTemperatureMenuItem As ToolStripMenuItem
     Friend WithEvents LowTempUpMenuItem As ToolStripMenuItem
     Friend WithEvents LowTempDownMenuItem As ToolStripMenuItem
+    Friend WithEvents ChangeModeMenuItem As ToolStripMenuItem
+    Friend WithEvents HeatMenuItem As ToolStripMenuItem
+    Friend WithEvents OffMenuItem As ToolStripMenuItem
+    Friend WithEvents CoolMenuItem As ToolStripMenuItem
 End Class

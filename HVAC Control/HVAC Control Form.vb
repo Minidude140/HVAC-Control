@@ -859,6 +859,11 @@ Public Class HvacControlForm
             modeSelect = "H"
             'Enable Temp Checking
             TempCheckTimer.Enabled = True
+            'Disable Heat Menu Button
+            HeatMenuItem.Enabled = False
+            'Enable Other Buttons
+            OffMenuItem.Enabled = True
+            CoolRadioButton.Enabled = True
         End If
         'Save Mode Select sate for When we change mode Select in Override
         modeSelectSave = modeSelect
@@ -870,6 +875,13 @@ Public Class HvacControlForm
             ChangeMode(modeSelect)
             'Disable Temp Checking
             TempCheckTimer.Enabled = False
+            'Check Off Button
+            OffRadioButton.Checked = True
+            'Disable Off Menu Button
+            OffMenuItem.Enabled = False
+            'Enable other Menu Buttons
+            HeatMenuItem.Enabled = True
+            CoolMenuItem.Enabled = True
         End If
         'Save Mode Select sate for When we change mode Select in Override
         modeSelectSave = modeSelect
@@ -880,9 +892,43 @@ Public Class HvacControlForm
             modeSelect = "C"
             'Enable Temp Checking
             TempCheckTimer.Enabled = True
+            'Check Cool Radio Button
+            CoolRadioButton.Checked = True
+            'Disable Cool Menu Button
+            CoolMenuItem.Enabled = False
+            'Enable Other Menu Buttons
+            HeatMenuItem.Enabled = True
+            OffMenuItem.Enabled = True
         End If
         'Save Mode Select sate for When we change mode Select in Override
         modeSelectSave = modeSelect
+    End Sub
+    Private Sub HeatMenuItem_Click(sender As Object, e As EventArgs) Handles HeatMenuItem.Click
+        'Check Heat Button
+        HeatRadioButton.Checked = True
+        'Disable Heat Menu Button
+        HeatMenuItem.Enabled = False
+        'Enable Other Buttons
+        OffMenuItem.Enabled = True
+        CoolRadioButton.Enabled = True
+    End Sub
+    Private Sub OffMenuItem_Click(sender As Object, e As EventArgs) Handles OffMenuItem.Click
+        'Check Off Button
+        OffRadioButton.Checked = True
+        'Disable Off Menu Button
+        OffMenuItem.Enabled = False
+        'Enable other Menu Buttons
+        HeatMenuItem.Enabled = True
+        CoolMenuItem.Enabled = True
+    End Sub
+    Private Sub CoolMenuItem_Click(sender As Object, e As EventArgs) Handles CoolMenuItem.Click
+        'Check Cool Radio Button
+        CoolRadioButton.Checked = True
+        'Disable Cool Menu Button
+        CoolMenuItem.Enabled = False
+        'Enable Other Menu Buttons
+        HeatMenuItem.Enabled = True
+        OffMenuItem.Enabled = True
     End Sub
 
     Private Sub TempCheckTimer_Tick(sender As Object, e As EventArgs) Handles TempCheckTimer.Tick
