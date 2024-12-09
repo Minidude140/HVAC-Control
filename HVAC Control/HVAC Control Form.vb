@@ -455,7 +455,6 @@ Public Class HvacControlForm
                     'Turn on Fan
                     FanControl(True)
                 End If
-
             Case = "C"
                 'Mode is Cool
                 'Disable any previous shut down routine
@@ -984,9 +983,5 @@ Public Class HvacControlForm
         Dim currentTime As String
         currentTime = FormatDateTime(TimeOfDay)
         TimeStatusStripLabel.Text = currentTime
-    End Sub
-
-    Private Sub HighTempTextBox_TextChanged(sender As Object, e As EventArgs) Handles HighTempTextBox.TextChanged
-
     End Sub
 End Class
