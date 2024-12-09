@@ -64,6 +64,12 @@ Public Class HvacControlForm
                 DisconnetToolStripButton.Enabled = True
                 'Disable Connect Button
                 ConnectCOMToolStripButton.Enabled = False
+                'Turn off all outputs
+                Qy_DigitalWrite(CByte(&H0))
+                'Start Checking For Interlock Errors
+                ErrorLogDelayTimer.Enabled = True
+                'Update Status Strip Connection Status
+                COMStatusStripLabel.Text = "Currently Connected to: " & COMSerialPort.PortName
             Else
                 'Not a QY@t Board Close COM
                 MsgBox("Selected COM Port is not a QY@ Board")
@@ -725,6 +731,7 @@ Public Class HvacControlForm
     Private Sub HvacControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Fill Com Select Combo Box Options
         PopulateCOMSelect()
+        'Load Previous Temperature Settings
         ImportSettings()
     End Sub
     Private Sub QuitProgramToolStripButton_Click(sender As Object, e As EventArgs) Handles QuitProgramToolStripButton.Click
@@ -734,10 +741,6 @@ Public Class HvacControlForm
 
     Private Sub ConnectCOMToolStripButton_Click(sender As Object, e As EventArgs) Handles ConnectCOMToolStripButton.Click
         ConnectCOM()
-        'Turn off all outputs
-        Qy_DigitalWrite(CByte(&H0))
-        'Start Checking For Interlock Errors
-        ErrorLogDelayTimer.Enabled = True
     End Sub
     Private Sub DisconnetToolStripButton_Click(sender As Object, e As EventArgs) Handles DisconnetToolStripButton.Click
         'Disable COM Timer
@@ -748,6 +751,8 @@ Public Class HvacControlForm
         DisconnetToolStripButton.Enabled = False
         'Enable Connect Button
         ConnectCOMToolStripButton.Enabled = True
+        'Update Status Strip Connection Status
+        COMStatusStripLabel.Text = "Not Connected"
     End Sub
     Private Sub RefreshCOMToolStripButton_Click(sender As Object, e As EventArgs) Handles RefreshCOMToolStripButton.Click
         PopulateCOMSelect()
