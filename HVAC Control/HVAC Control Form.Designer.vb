@@ -98,6 +98,10 @@ Partial Class HvacControlForm
         Me.HeatMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OffMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CoolMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConnectionMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConnectCOMMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DisconnectMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RefreshMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControlsToolStrip.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
@@ -606,7 +610,7 @@ Partial Class HvacControlForm
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControlDropdownMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControlDropdownMenuItem, Me.ConnectionMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(800, 24)
@@ -630,13 +634,13 @@ Partial Class HvacControlForm
         'HighTempUpMenuItem
         '
         Me.HighTempUpMenuItem.Name = "HighTempUpMenuItem"
-        Me.HighTempUpMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HighTempUpMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.HighTempUpMenuItem.Text = "High Temp Up"
         '
         'HighTempDownMenuItem
         '
         Me.HighTempDownMenuItem.Name = "HighTempDownMenuItem"
-        Me.HighTempDownMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HighTempDownMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.HighTempDownMenuItem.Text = "High Temp Down"
         '
         'SetLowTemperatureMenuItem
@@ -668,21 +672,47 @@ Partial Class HvacControlForm
         'HeatMenuItem
         '
         Me.HeatMenuItem.Name = "HeatMenuItem"
-        Me.HeatMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HeatMenuItem.Size = New System.Drawing.Size(99, 22)
         Me.HeatMenuItem.Text = "Heat"
         '
         'OffMenuItem
         '
         Me.OffMenuItem.Enabled = False
         Me.OffMenuItem.Name = "OffMenuItem"
-        Me.OffMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OffMenuItem.Size = New System.Drawing.Size(99, 22)
         Me.OffMenuItem.Text = "Off"
         '
         'CoolMenuItem
         '
         Me.CoolMenuItem.Name = "CoolMenuItem"
-        Me.CoolMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CoolMenuItem.Size = New System.Drawing.Size(99, 22)
         Me.CoolMenuItem.Text = "Cool"
+        '
+        'ConnectionMenuItem
+        '
+        Me.ConnectionMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConnectCOMMenuItem, Me.DisconnectMenuItem, Me.RefreshMenuItem})
+        Me.ConnectionMenuItem.Name = "ConnectionMenuItem"
+        Me.ConnectionMenuItem.Size = New System.Drawing.Size(81, 20)
+        Me.ConnectionMenuItem.Text = "Connection"
+        '
+        'ConnectCOMMenuItem
+        '
+        Me.ConnectCOMMenuItem.Name = "ConnectCOMMenuItem"
+        Me.ConnectCOMMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ConnectCOMMenuItem.Text = "Connect"
+        '
+        'DisconnectMenuItem
+        '
+        Me.DisconnectMenuItem.Enabled = False
+        Me.DisconnectMenuItem.Name = "DisconnectMenuItem"
+        Me.DisconnectMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DisconnectMenuItem.Text = "Disconnect"
+        '
+        'RefreshMenuItem
+        '
+        Me.RefreshMenuItem.Name = "RefreshMenuItem"
+        Me.RefreshMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RefreshMenuItem.Text = "Refresh"
         '
         'HvacControlForm
         '
@@ -816,4 +846,8 @@ Partial Class HvacControlForm
     Friend WithEvents HeatMenuItem As ToolStripMenuItem
     Friend WithEvents OffMenuItem As ToolStripMenuItem
     Friend WithEvents CoolMenuItem As ToolStripMenuItem
+    Friend WithEvents ConnectionMenuItem As ToolStripMenuItem
+    Friend WithEvents ConnectCOMMenuItem As ToolStripMenuItem
+    Friend WithEvents DisconnectMenuItem As ToolStripMenuItem
+    Friend WithEvents RefreshMenuItem As ToolStripMenuItem
 End Class

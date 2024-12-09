@@ -60,10 +60,12 @@ Public Class HvacControlForm
                 MsgBox("Successfully Connected to Selected COM Port.  Verified QY@ Board Input")
                 'Enable COM Timer
                 COMTimer.Enabled = True
-                'Enable Disconnect button
+                'Enable Disconnect Button and Menu Button
                 DisconnetToolStripButton.Enabled = True
-                'Disable Connect Button
+                DisconnectMenuItem.Enabled = True
+                'Disable Connect Button and Menu Button
                 ConnectCOMToolStripButton.Enabled = False
+                ConnectCOMMenuItem.Enabled = False
                 'Turn off all outputs
                 Qy_DigitalWrite(CByte(&H0))
                 'Start Checking For Interlock Errors
@@ -740,22 +742,29 @@ Public Class HvacControlForm
         Me.Close()
     End Sub
 
-    Private Sub ConnectCOMToolStripButton_Click(sender As Object, e As EventArgs) Handles ConnectCOMToolStripButton.Click
+    Private Sub ConnectCOMToolStripButton_Click(sender As Object, e As EventArgs) Handles ConnectCOMToolStripButton.Click,
+                                                                                          ConnectCOMMenuItem.Click
         ConnectCOM()
     End Sub
-    Private Sub DisconnetToolStripButton_Click(sender As Object, e As EventArgs) Handles DisconnetToolStripButton.Click
+    Private Sub DisconnetToolStripButton_Click(sender As Object, e As EventArgs) Handles DisconnetToolStripButton.Click,
+                                                                                         DisconnectMenuItem.Click
         'Disable COM Timer
         COMTimer.Enabled = False
+        'Turn Off all Outputs
+        Qy_DigitalWrite(CByte(&H0))
         'Close COM Port
         COMSerialPort.Close()
-        'Disable Disconnect Button
+        'Disable Disconnect Button and Menu Button
         DisconnetToolStripButton.Enabled = False
-        'Enable Connect Button
+        DisconnectMenuItem.Enabled = False
+        'Enable Connect Button and Menu Button
         ConnectCOMToolStripButton.Enabled = True
+        ConnectCOMMenuItem.Enabled = True
         'Update Status Strip Connection Status
         COMStatusStripLabel.Text = "Not Connected"
     End Sub
-    Private Sub RefreshCOMToolStripButton_Click(sender As Object, e As EventArgs) Handles RefreshCOMToolStripButton.Click
+    Private Sub RefreshCOMToolStripButton_Click(sender As Object, e As EventArgs) Handles RefreshCOMToolStripButton.Click,
+                                                                                          RefreshMenuItem.Click
         PopulateCOMSelect()
     End Sub
     Private Sub COMTimer_Tick(sender As Object, e As EventArgs) Handles COMTimer.Tick
