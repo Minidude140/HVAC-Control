@@ -984,4 +984,8 @@ Public Class HvacControlForm
         currentTime = FormatDateTime(TimeOfDay)
         TimeStatusStripLabel.Text = currentTime
     End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        HvacControlAboutForm.Show()
+    End Sub
 End Class

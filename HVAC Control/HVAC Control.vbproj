@@ -80,6 +80,12 @@
       <DependentUpon>HVAC Control Form.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HvacControlAboutForm.Designer.vb">
+      <DependentUpon>HvacControlAboutForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HvacControlAboutForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -99,6 +105,9 @@
   <ItemGroup>
     <EmbeddedResource Include="HVAC Control Form.resx">
       <DependentUpon>HVAC Control Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HvacControlAboutForm.resx">
+      <DependentUpon>HvacControlAboutForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

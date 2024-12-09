@@ -25,14 +25,19 @@ Partial Class HvacControlForm
         Me.components = New System.ComponentModel.Container()
         Me.ControlsToolStrip = New System.Windows.Forms.ToolStrip()
         Me.COMSelectToolStripComboBox = New System.Windows.Forms.ToolStripComboBox()
+        Me.ConnectCOMToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.DisconnetToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RefreshCOMToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.BlankToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SaveSettingsToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.BlankToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.QuitProgramToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.OffRadioButton = New System.Windows.Forms.RadioButton()
@@ -110,11 +115,7 @@ Partial Class HvacControlForm
         Me.OutputStatusGroupBox = New System.Windows.Forms.GroupBox()
         Me.InterlockIndicatorsGroupBox = New System.Windows.Forms.GroupBox()
         Me.ISULogoPictureBox = New System.Windows.Forms.PictureBox()
-        Me.ConnectCOMToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.DisconnetToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.RefreshCOMToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.SaveSettingsToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.QuitProgramToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControlsToolStrip.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
@@ -142,15 +143,51 @@ Partial Class HvacControlForm
         Me.COMSelectToolStripComboBox.Name = "COMSelectToolStripComboBox"
         Me.COMSelectToolStripComboBox.Size = New System.Drawing.Size(121, 25)
         '
+        'ConnectCOMToolStripButton
+        '
+        Me.ConnectCOMToolStripButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.ConnectCOMToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ConnectCOMToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_usb_connector_30
+        Me.ConnectCOMToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ConnectCOMToolStripButton.Name = "ConnectCOMToolStripButton"
+        Me.ConnectCOMToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.ConnectCOMToolStripButton.Text = "ToolStripButton1"
+        Me.ConnectCOMToolStripButton.ToolTipText = "Attempt Connection to Device"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
         '
+        'DisconnetToolStripButton
+        '
+        Me.DisconnetToolStripButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.DisconnetToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.DisconnetToolStripButton.Enabled = False
+        Me.DisconnetToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DisconnetToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_disconnect_30
+        Me.DisconnetToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.DisconnetToolStripButton.Name = "DisconnetToolStripButton"
+        Me.DisconnetToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.DisconnetToolStripButton.Text = "Disconnect"
+        Me.DisconnetToolStripButton.ToolTipText = "Disconnect Current Connection"
+        '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 25)
+        '
+        'RefreshCOMToolStripButton
+        '
+        Me.RefreshCOMToolStripButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.RefreshCOMToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.RefreshCOMToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RefreshCOMToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_refresh_24
+        Me.RefreshCOMToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.RefreshCOMToolStripButton.Name = "RefreshCOMToolStripButton"
+        Me.RefreshCOMToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.RefreshCOMToolStripButton.Text = "ToolStripButton1"
+        Me.RefreshCOMToolStripButton.ToolTipText = "Refresh Connection List"
         '
         'ToolStripSeparator7
         '
@@ -168,6 +205,18 @@ Partial Class HvacControlForm
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
         '
+        'SaveSettingsToolStripButton
+        '
+        Me.SaveSettingsToolStripButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.SaveSettingsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.SaveSettingsToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaveSettingsToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_save_30
+        Me.SaveSettingsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.SaveSettingsToolStripButton.Name = "SaveSettingsToolStripButton"
+        Me.SaveSettingsToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.SaveSettingsToolStripButton.Text = "ToolStripButton1"
+        Me.SaveSettingsToolStripButton.ToolTipText = "Save Current Temp Settings"
+        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
@@ -184,6 +233,18 @@ Partial Class HvacControlForm
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 25)
+        '
+        'QuitProgramToolStripButton
+        '
+        Me.QuitProgramToolStripButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.QuitProgramToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.QuitProgramToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.QuitProgramToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_quit_50
+        Me.QuitProgramToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.QuitProgramToolStripButton.Name = "QuitProgramToolStripButton"
+        Me.QuitProgramToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.QuitProgramToolStripButton.Text = "ToolStripButton1"
+        Me.QuitProgramToolStripButton.ToolTipText = "Quit the Program"
         '
         'ToolStripSeparator5
         '
@@ -611,7 +672,7 @@ Partial Class HvacControlForm
         'MenuStrip
         '
         Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(130, Byte), Integer), CType(CType(130, Byte), Integer))
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControlDropdownMenuItem, Me.ConnectionMenuItem, Me.ProgramMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControlDropdownMenuItem, Me.ConnectionMenuItem, Me.ProgramMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(800, 24)
@@ -931,65 +992,13 @@ Partial Class HvacControlForm
         Me.ISULogoPictureBox.TabIndex = 52
         Me.ISULogoPictureBox.TabStop = False
         '
-        'ConnectCOMToolStripButton
+        'AboutToolStripMenuItem
         '
-        Me.ConnectCOMToolStripButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.ConnectCOMToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ConnectCOMToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_usb_connector_30
-        Me.ConnectCOMToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ConnectCOMToolStripButton.Name = "ConnectCOMToolStripButton"
-        Me.ConnectCOMToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.ConnectCOMToolStripButton.Text = "ToolStripButton1"
-        Me.ConnectCOMToolStripButton.ToolTipText = "Attempt Connection to Device"
-        '
-        'DisconnetToolStripButton
-        '
-        Me.DisconnetToolStripButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.DisconnetToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.DisconnetToolStripButton.Enabled = False
-        Me.DisconnetToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DisconnetToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_disconnect_30
-        Me.DisconnetToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.DisconnetToolStripButton.Name = "DisconnetToolStripButton"
-        Me.DisconnetToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.DisconnetToolStripButton.Text = "Disconnect"
-        Me.DisconnetToolStripButton.ToolTipText = "Disconnect Current Connection"
-        '
-        'RefreshCOMToolStripButton
-        '
-        Me.RefreshCOMToolStripButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.RefreshCOMToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.RefreshCOMToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RefreshCOMToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_refresh_24
-        Me.RefreshCOMToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.RefreshCOMToolStripButton.Name = "RefreshCOMToolStripButton"
-        Me.RefreshCOMToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.RefreshCOMToolStripButton.Text = "ToolStripButton1"
-        Me.RefreshCOMToolStripButton.ToolTipText = "Refresh Connection List"
-        '
-        'SaveSettingsToolStripButton
-        '
-        Me.SaveSettingsToolStripButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.SaveSettingsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.SaveSettingsToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveSettingsToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_save_30
-        Me.SaveSettingsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.SaveSettingsToolStripButton.Name = "SaveSettingsToolStripButton"
-        Me.SaveSettingsToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.SaveSettingsToolStripButton.Text = "ToolStripButton1"
-        Me.SaveSettingsToolStripButton.ToolTipText = "Save Current Temp Settings"
-        '
-        'QuitProgramToolStripButton
-        '
-        Me.QuitProgramToolStripButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.QuitProgramToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.QuitProgramToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.QuitProgramToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_quit_50
-        Me.QuitProgramToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.QuitProgramToolStripButton.Name = "QuitProgramToolStripButton"
-        Me.QuitProgramToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.QuitProgramToolStripButton.Text = "ToolStripButton1"
-        Me.QuitProgramToolStripButton.ToolTipText = "Quit the Program"
+        Me.AboutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(167, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(167, Byte), Integer))
+        Me.AboutToolStripMenuItem.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
+        Me.AboutToolStripMenuItem.Text = "About"
         '
         'HvacControlForm
         '
@@ -1013,6 +1022,7 @@ Partial Class HvacControlForm
         Me.MainMenuStrip = Me.MenuStrip
         Me.MinimumSize = New System.Drawing.Size(816, 439)
         Me.Name = "HvacControlForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "HVAC Control"
         Me.ControlsToolStrip.ResumeLayout(False)
         Me.ControlsToolStrip.PerformLayout()
@@ -1126,4 +1136,5 @@ Partial Class HvacControlForm
     Friend WithEvents OutputStatusGroupBox As GroupBox
     Friend WithEvents InterlockIndicatorsGroupBox As GroupBox
     Friend WithEvents ISULogoPictureBox As PictureBox
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
 End Class
