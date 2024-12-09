@@ -82,16 +82,16 @@ Partial Class HvacControlForm
         Me.AcOverideLabel = New System.Windows.Forms.Label()
         Me.ErrorLogDelayTimer = New System.Windows.Forms.Timer(Me.components)
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.COMStatusStripLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TimeStatusStripLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.BlankStatusStripLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.COMStatusStripLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ClockTimer = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ControlDropdownMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetHighTemperatureMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SetLowTemperatureMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HighTempUpMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HighTempDownMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetLowTemperatureMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LowTempUpMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LowTempDownMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OverridesMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -582,12 +582,6 @@ Partial Class HvacControlForm
         Me.StatusStrip1.TabIndex = 38
         Me.StatusStrip1.Text = "StatusStrip1"
         '
-        'COMStatusStripLabel
-        '
-        Me.COMStatusStripLabel.Name = "COMStatusStripLabel"
-        Me.COMStatusStripLabel.Size = New System.Drawing.Size(91, 17)
-        Me.COMStatusStripLabel.Text = "Not Connected "
-        '
         'TimeStatusStripLabel
         '
         Me.TimeStatusStripLabel.Name = "TimeStatusStripLabel"
@@ -599,6 +593,12 @@ Partial Class HvacControlForm
         Me.BlankStatusStripLabel.Name = "BlankStatusStripLabel"
         Me.BlankStatusStripLabel.Size = New System.Drawing.Size(166, 17)
         Me.BlankStatusStripLabel.Text = "                                                     "
+        '
+        'COMStatusStripLabel
+        '
+        Me.COMStatusStripLabel.Name = "COMStatusStripLabel"
+        Me.COMStatusStripLabel.Size = New System.Drawing.Size(91, 17)
+        Me.COMStatusStripLabel.Text = "Not Connected "
         '
         'ClockTimer
         '
@@ -628,13 +628,6 @@ Partial Class HvacControlForm
         Me.SetHighTemperatureMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.SetHighTemperatureMenuItem.Text = "Set High Temperature"
         '
-        'SetLowTemperatureMenuItem
-        '
-        Me.SetLowTemperatureMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LowTempUpMenuItem, Me.LowTempDownMenuItem})
-        Me.SetLowTemperatureMenuItem.Name = "SetLowTemperatureMenuItem"
-        Me.SetLowTemperatureMenuItem.Size = New System.Drawing.Size(188, 22)
-        Me.SetLowTemperatureMenuItem.Text = "Set Low Temperature"
-        '
         'HighTempUpMenuItem
         '
         Me.HighTempUpMenuItem.Name = "HighTempUpMenuItem"
@@ -647,16 +640,23 @@ Partial Class HvacControlForm
         Me.HighTempDownMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.HighTempDownMenuItem.Text = "High Temp Down"
         '
+        'SetLowTemperatureMenuItem
+        '
+        Me.SetLowTemperatureMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LowTempUpMenuItem, Me.LowTempDownMenuItem})
+        Me.SetLowTemperatureMenuItem.Name = "SetLowTemperatureMenuItem"
+        Me.SetLowTemperatureMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.SetLowTemperatureMenuItem.Text = "Set Low Temperature"
+        '
         'LowTempUpMenuItem
         '
         Me.LowTempUpMenuItem.Name = "LowTempUpMenuItem"
-        Me.LowTempUpMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LowTempUpMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.LowTempUpMenuItem.Text = "Low Temp Up"
         '
         'LowTempDownMenuItem
         '
         Me.LowTempDownMenuItem.Name = "LowTempDownMenuItem"
-        Me.LowTempDownMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LowTempDownMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.LowTempDownMenuItem.Text = "Low Temp Down"
         '
         'OverridesMenuItem

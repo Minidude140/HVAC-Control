@@ -772,7 +772,8 @@ Public Class HvacControlForm
         UpdateLabels()
     End Sub
 
-    Private Sub LowTempUpButton_Click(sender As Object, e As EventArgs) Handles LowTempUpButton.Click
+    Private Sub LowTempUpButton_Click(sender As Object, e As EventArgs) Handles LowTempUpButton.Click,
+                                                                                LowTempUpMenuItem.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
         currentSetPoint = CDbl(LowTempTextBox.Text)
@@ -784,7 +785,8 @@ Public Class HvacControlForm
             LowTempTextBox.Text = CStr(currentSetPoint)
         End If
     End Sub
-    Private Sub LowTempDownButton_Click(sender As Object, e As EventArgs) Handles LowTempDownButton.Click
+    Private Sub LowTempDownButton_Click(sender As Object, e As EventArgs) Handles LowTempDownButton.Click,
+                                                                                  LowTempDownMenuItem.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
         currentSetPoint = CDbl(LowTempTextBox.Text)
@@ -796,7 +798,8 @@ Public Class HvacControlForm
             LowTempTextBox.Text = CStr(currentSetPoint)
         End If
     End Sub
-    Private Sub HighTempUpButton_Click(sender As Object, e As EventArgs) Handles HighTempUpButton.Click
+    Private Sub HighTempUpButton_Click(sender As Object, e As EventArgs) Handles HighTempUpButton.Click,
+                                                                                 HighTempUpMenuItem.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
         currentSetPoint = CDbl(HighTempTextBox.Text)
@@ -808,7 +811,8 @@ Public Class HvacControlForm
             HighTempTextBox.Text = CStr(currentSetPoint)
         End If
     End Sub
-    Private Sub HighTempDownButton_Click(sender As Object, e As EventArgs) Handles HighTempDownButton.Click
+    Private Sub HighTempDownButton_Click(sender As Object, e As EventArgs) Handles HighTempDownButton.Click,
+                                                                                   HighTempDownMenuItem.Click
         'Create Variable For Current Value
         Dim currentSetPoint As Double
         currentSetPoint = CDbl(HighTempTextBox.Text)
@@ -923,4 +927,5 @@ Public Class HvacControlForm
         currentTime = FormatDateTime(TimeOfDay)
         TimeStatusStripLabel.Text = currentTime
     End Sub
+
 End Class
