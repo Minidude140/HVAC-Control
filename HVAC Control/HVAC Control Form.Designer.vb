@@ -105,6 +105,11 @@ Partial Class HvacControlForm
         Me.HeaterStatusButton = New System.Windows.Forms.Button()
         Me.FanStatusButton = New System.Windows.Forms.Button()
         Me.AcStatusButton = New System.Windows.Forms.Button()
+        Me.GrowlGreyLightLabel = New System.Windows.Forms.Label()
+        Me.GrowlGreyMLabel = New System.Windows.Forms.Label()
+        Me.GrowlGreyLabel = New System.Windows.Forms.Label()
+        Me.RoarangeLabel = New System.Windows.Forms.Label()
+        Me.RoarangeLLabel = New System.Windows.Forms.Label()
         Me.ControlsToolStrip.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
@@ -396,7 +401,7 @@ Partial Class HvacControlForm
         '
         Me.SetLowLabel.AutoSize = True
         Me.SetLowLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SetLowLabel.Location = New System.Drawing.Point(370, 189)
+        Me.SetLowLabel.Location = New System.Drawing.Point(18, 256)
         Me.SetLowLabel.Name = "SetLowLabel"
         Me.SetLowLabel.Size = New System.Drawing.Size(97, 15)
         Me.SetLowLabel.TabIndex = 18
@@ -406,7 +411,7 @@ Partial Class HvacControlForm
         '
         Me.SetHighLabel.AutoSize = True
         Me.SetHighLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SetHighLabel.Location = New System.Drawing.Point(555, 189)
+        Me.SetHighLabel.Location = New System.Drawing.Point(203, 256)
         Me.SetHighLabel.Name = "SetHighLabel"
         Me.SetHighLabel.Size = New System.Drawing.Size(102, 15)
         Me.SetHighLabel.TabIndex = 19
@@ -415,7 +420,7 @@ Partial Class HvacControlForm
         'LowTempTextBox
         '
         Me.LowTempTextBox.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LowTempTextBox.Location = New System.Drawing.Point(383, 207)
+        Me.LowTempTextBox.Location = New System.Drawing.Point(31, 274)
         Me.LowTempTextBox.Name = "LowTempTextBox"
         Me.LowTempTextBox.Size = New System.Drawing.Size(84, 23)
         Me.LowTempTextBox.TabIndex = 20
@@ -425,7 +430,7 @@ Partial Class HvacControlForm
         'HighTempTextBox
         '
         Me.HighTempTextBox.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HighTempTextBox.Location = New System.Drawing.Point(572, 207)
+        Me.HighTempTextBox.Location = New System.Drawing.Point(220, 274)
         Me.HighTempTextBox.Name = "HighTempTextBox"
         Me.HighTempTextBox.Size = New System.Drawing.Size(84, 23)
         Me.HighTempTextBox.TabIndex = 21
@@ -434,19 +439,21 @@ Partial Class HvacControlForm
         '
         'LowTempUpButton
         '
-        Me.LowTempUpButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LowTempUpButton.Location = New System.Drawing.Point(473, 183)
+        Me.LowTempUpButton.BackColor = System.Drawing.SystemColors.Control
+        Me.LowTempUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LowTempUpButton.Font = New System.Drawing.Font("Museo Slab 500", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LowTempUpButton.Location = New System.Drawing.Point(121, 250)
         Me.LowTempUpButton.Name = "LowTempUpButton"
-        Me.LowTempUpButton.Size = New System.Drawing.Size(14, 33)
+        Me.LowTempUpButton.Size = New System.Drawing.Size(30, 33)
         Me.LowTempUpButton.TabIndex = 22
         Me.LowTempUpButton.Text = "↑"
         Me.ToolTip.SetToolTip(Me.LowTempUpButton, "Increment Low Set Temp by 0.5°")
-        Me.LowTempUpButton.UseVisualStyleBackColor = True
+        Me.LowTempUpButton.UseVisualStyleBackColor = False
         '
         'LowTempDownButton
         '
         Me.LowTempDownButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LowTempDownButton.Location = New System.Drawing.Point(473, 222)
+        Me.LowTempDownButton.Location = New System.Drawing.Point(121, 289)
         Me.LowTempDownButton.Name = "LowTempDownButton"
         Me.LowTempDownButton.Size = New System.Drawing.Size(14, 33)
         Me.LowTempDownButton.TabIndex = 23
@@ -457,7 +464,7 @@ Partial Class HvacControlForm
         'HighTempDownButton
         '
         Me.HighTempDownButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HighTempDownButton.Location = New System.Drawing.Point(662, 222)
+        Me.HighTempDownButton.Location = New System.Drawing.Point(310, 289)
         Me.HighTempDownButton.Name = "HighTempDownButton"
         Me.HighTempDownButton.Size = New System.Drawing.Size(14, 33)
         Me.HighTempDownButton.TabIndex = 25
@@ -468,7 +475,7 @@ Partial Class HvacControlForm
         'HighTempUpButton
         '
         Me.HighTempUpButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HighTempUpButton.Location = New System.Drawing.Point(662, 183)
+        Me.HighTempUpButton.Location = New System.Drawing.Point(310, 250)
         Me.HighTempUpButton.Name = "HighTempUpButton"
         Me.HighTempUpButton.Size = New System.Drawing.Size(14, 33)
         Me.HighTempUpButton.TabIndex = 24
@@ -792,11 +799,77 @@ Partial Class HvacControlForm
         Me.AcStatusButton.TabIndex = 42
         Me.AcStatusButton.UseVisualStyleBackColor = False
         '
+        'GrowlGreyLightLabel
+        '
+        Me.GrowlGreyLightLabel.AutoSize = True
+        Me.GrowlGreyLightLabel.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.GrowlGreyLightLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GrowlGreyLightLabel.Location = New System.Drawing.Point(629, 210)
+        Me.GrowlGreyLightLabel.Name = "GrowlGreyLightLabel"
+        Me.GrowlGreyLightLabel.Size = New System.Drawing.Size(89, 15)
+        Me.GrowlGreyLightLabel.TabIndex = 43
+        Me.GrowlGreyLightLabel.Text = "Growl Grey L"
+        Me.GrowlGreyLightLabel.Visible = False
+        '
+        'GrowlGreyMLabel
+        '
+        Me.GrowlGreyMLabel.AutoSize = True
+        Me.GrowlGreyMLabel.BackColor = System.Drawing.Color.FromArgb(CType(CType(167, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(167, Byte), Integer))
+        Me.GrowlGreyMLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GrowlGreyMLabel.Location = New System.Drawing.Point(629, 225)
+        Me.GrowlGreyMLabel.Name = "GrowlGreyMLabel"
+        Me.GrowlGreyMLabel.Size = New System.Drawing.Size(93, 15)
+        Me.GrowlGreyMLabel.TabIndex = 44
+        Me.GrowlGreyMLabel.Text = "Growl Grey M"
+        Me.GrowlGreyMLabel.Visible = False
+        '
+        'GrowlGreyLabel
+        '
+        Me.GrowlGreyLabel.AutoSize = True
+        Me.GrowlGreyLabel.BackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(130, Byte), Integer), CType(CType(130, Byte), Integer))
+        Me.GrowlGreyLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GrowlGreyLabel.Location = New System.Drawing.Point(629, 240)
+        Me.GrowlGreyLabel.Name = "GrowlGreyLabel"
+        Me.GrowlGreyLabel.Size = New System.Drawing.Size(78, 15)
+        Me.GrowlGreyLabel.TabIndex = 45
+        Me.GrowlGreyLabel.Text = "Growl Grey"
+        Me.GrowlGreyLabel.Visible = False
+        '
+        'RoarangeLabel
+        '
+        Me.RoarangeLabel.AutoSize = True
+        Me.RoarangeLabel.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(121, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.RoarangeLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RoarangeLabel.Location = New System.Drawing.Point(629, 255)
+        Me.RoarangeLabel.Name = "RoarangeLabel"
+        Me.RoarangeLabel.Size = New System.Drawing.Size(67, 15)
+        Me.RoarangeLabel.TabIndex = 46
+        Me.RoarangeLabel.Text = "Roarange"
+        Me.RoarangeLabel.Visible = False
+        '
+        'RoarangeLLabel
+        '
+        Me.RoarangeLLabel.AutoSize = True
+        Me.RoarangeLLabel.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.RoarangeLLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RoarangeLLabel.Location = New System.Drawing.Point(628, 270)
+        Me.RoarangeLLabel.Name = "RoarangeLLabel"
+        Me.RoarangeLLabel.Size = New System.Drawing.Size(78, 15)
+        Me.RoarangeLLabel.TabIndex = 47
+        Me.RoarangeLLabel.Text = "Roarange L"
+        Me.RoarangeLLabel.Visible = False
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.RoarangeLLabel)
+        Me.Controls.Add(Me.RoarangeLabel)
+        Me.Controls.Add(Me.GrowlGreyLabel)
+        Me.Controls.Add(Me.GrowlGreyMLabel)
+        Me.Controls.Add(Me.GrowlGreyLightLabel)
+        Me.Controls.Add(Me.LowTempUpButton)
         Me.Controls.Add(Me.AcStatusButton)
         Me.Controls.Add(Me.FanStatusButton)
         Me.Controls.Add(Me.HeaterStatusButton)
@@ -814,7 +887,6 @@ Partial Class HvacControlForm
         Me.Controls.Add(Me.HighTempDownButton)
         Me.Controls.Add(Me.HighTempUpButton)
         Me.Controls.Add(Me.LowTempDownButton)
-        Me.Controls.Add(Me.LowTempUpButton)
         Me.Controls.Add(Me.HighTempTextBox)
         Me.Controls.Add(Me.LowTempTextBox)
         Me.Controls.Add(Me.SetHighLabel)
@@ -931,4 +1003,9 @@ Partial Class HvacControlForm
     Friend WithEvents HeaterStatusButton As Button
     Friend WithEvents FanStatusButton As Button
     Friend WithEvents AcStatusButton As Button
+    Friend WithEvents GrowlGreyLightLabel As Label
+    Friend WithEvents GrowlGreyMLabel As Label
+    Friend WithEvents GrowlGreyLabel As Label
+    Friend WithEvents RoarangeLabel As Label
+    Friend WithEvents RoarangeLLabel As Label
 End Class
