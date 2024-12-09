@@ -140,5 +140,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-refresh-24.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RCET Horizontal.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

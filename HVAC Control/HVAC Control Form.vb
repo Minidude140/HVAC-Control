@@ -985,4 +985,8 @@ Public Class HvacControlForm
         currentTime = FormatDateTime(TimeOfDay)
         TimeStatusStripLabel.Text = currentTime
     End Sub
+
+    Private Sub HighTempTextBox_TextChanged(sender As Object, e As EventArgs) Handles HighTempTextBox.TextChanged
+
+    End Sub
 End Class
