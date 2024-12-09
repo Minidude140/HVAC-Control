@@ -86,14 +86,28 @@ Partial Class HvacControlForm
         Me.TimeStatusStripLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.BlankStatusStripLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ClockTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.ControlDropdownMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetHighTemperatureMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetLowTemperatureMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HighTempUpMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HighTempDownMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LowTempUpMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LowTempDownMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OverridesMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToggleSafetyInterlockMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToggleHeaterOverrideMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToggleFanOverrideMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToggleACOverrideMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControlsToolStrip.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
+        Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'ControlsToolStrip
         '
         Me.ControlsToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.COMSelectToolStripComboBox, Me.ConnectCOMToolStripButton, Me.ToolStripSeparator1, Me.DisconnetToolStripButton, Me.ToolStripSeparator6, Me.RefreshCOMToolStripButton, Me.ToolStripSeparator7, Me.BlankToolStripLabel1, Me.ToolStripSeparator2, Me.SaveSettingsToolStripButton, Me.ToolStripSeparator3, Me.BlankToolStripLabel2, Me.ToolStripSeparator4, Me.QuitProgramToolStripButton, Me.ToolStripSeparator5})
-        Me.ControlsToolStrip.Location = New System.Drawing.Point(0, 0)
+        Me.ControlsToolStrip.Location = New System.Drawing.Point(0, 24)
         Me.ControlsToolStrip.Name = "ControlsToolStrip"
         Me.ControlsToolStrip.Size = New System.Drawing.Size(800, 25)
         Me.ControlsToolStrip.TabIndex = 0
@@ -591,6 +605,91 @@ Partial Class HvacControlForm
         Me.ClockTimer.Enabled = True
         Me.ClockTimer.Interval = 1000
         '
+        'MenuStrip
+        '
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControlDropdownMenuItem})
+        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip.Name = "MenuStrip"
+        Me.MenuStrip.Size = New System.Drawing.Size(800, 24)
+        Me.MenuStrip.TabIndex = 39
+        Me.MenuStrip.Text = "MenuStrip1"
+        '
+        'ControlDropdownMenuItem
+        '
+        Me.ControlDropdownMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetHighTemperatureMenuItem, Me.SetLowTemperatureMenuItem, Me.OverridesMenuItem})
+        Me.ControlDropdownMenuItem.Name = "ControlDropdownMenuItem"
+        Me.ControlDropdownMenuItem.Size = New System.Drawing.Size(59, 20)
+        Me.ControlDropdownMenuItem.Text = "Control"
+        '
+        'SetHighTemperatureMenuItem
+        '
+        Me.SetHighTemperatureMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HighTempUpMenuItem, Me.HighTempDownMenuItem})
+        Me.SetHighTemperatureMenuItem.Name = "SetHighTemperatureMenuItem"
+        Me.SetHighTemperatureMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.SetHighTemperatureMenuItem.Text = "Set High Temperature"
+        '
+        'SetLowTemperatureMenuItem
+        '
+        Me.SetLowTemperatureMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LowTempUpMenuItem, Me.LowTempDownMenuItem})
+        Me.SetLowTemperatureMenuItem.Name = "SetLowTemperatureMenuItem"
+        Me.SetLowTemperatureMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.SetLowTemperatureMenuItem.Text = "Set Low Temperature"
+        '
+        'HighTempUpMenuItem
+        '
+        Me.HighTempUpMenuItem.Name = "HighTempUpMenuItem"
+        Me.HighTempUpMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HighTempUpMenuItem.Text = "High Temp Up"
+        '
+        'HighTempDownMenuItem
+        '
+        Me.HighTempDownMenuItem.Name = "HighTempDownMenuItem"
+        Me.HighTempDownMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HighTempDownMenuItem.Text = "High Temp Down"
+        '
+        'LowTempUpMenuItem
+        '
+        Me.LowTempUpMenuItem.Name = "LowTempUpMenuItem"
+        Me.LowTempUpMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LowTempUpMenuItem.Text = "Low Temp Up"
+        '
+        'LowTempDownMenuItem
+        '
+        Me.LowTempDownMenuItem.Name = "LowTempDownMenuItem"
+        Me.LowTempDownMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LowTempDownMenuItem.Text = "Low Temp Down"
+        '
+        'OverridesMenuItem
+        '
+        Me.OverridesMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToggleSafetyInterlockMenuItem, Me.ToggleHeaterOverrideMenuItem, Me.ToggleFanOverrideMenuItem, Me.ToggleACOverrideMenuItem})
+        Me.OverridesMenuItem.Name = "OverridesMenuItem"
+        Me.OverridesMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.OverridesMenuItem.Text = "Overrides"
+        '
+        'ToggleSafetyInterlockMenuItem
+        '
+        Me.ToggleSafetyInterlockMenuItem.Name = "ToggleSafetyInterlockMenuItem"
+        Me.ToggleSafetyInterlockMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.ToggleSafetyInterlockMenuItem.Text = "Toggle Safety Interlock"
+        '
+        'ToggleHeaterOverrideMenuItem
+        '
+        Me.ToggleHeaterOverrideMenuItem.Name = "ToggleHeaterOverrideMenuItem"
+        Me.ToggleHeaterOverrideMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.ToggleHeaterOverrideMenuItem.Text = "Toggle Heater Override"
+        '
+        'ToggleFanOverrideMenuItem
+        '
+        Me.ToggleFanOverrideMenuItem.Name = "ToggleFanOverrideMenuItem"
+        Me.ToggleFanOverrideMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.ToggleFanOverrideMenuItem.Text = "Toggle Fan Override"
+        '
+        'ToggleACOverrideMenuItem
+        '
+        Me.ToggleACOverrideMenuItem.Name = "ToggleACOverrideMenuItem"
+        Me.ToggleACOverrideMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.ToggleACOverrideMenuItem.Text = "Toggle AC Override"
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -633,12 +732,16 @@ Partial Class HvacControlForm
         Me.Controls.Add(Me.AnalogInput2TestLabel)
         Me.Controls.Add(Me.AnalogInput1TestLabel)
         Me.Controls.Add(Me.ControlsToolStrip)
+        Me.Controls.Add(Me.MenuStrip)
+        Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "HvacControlForm"
         Me.Text = "HVAC Control"
         Me.ControlsToolStrip.ResumeLayout(False)
         Me.ControlsToolStrip.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        Me.MenuStrip.ResumeLayout(False)
+        Me.MenuStrip.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -707,4 +810,17 @@ Partial Class HvacControlForm
     Friend WithEvents BlankStatusStripLabel As ToolStripStatusLabel
     Friend WithEvents COMStatusStripLabel As ToolStripStatusLabel
     Friend WithEvents ClockTimer As Timer
+    Friend WithEvents MenuStrip As MenuStrip
+    Friend WithEvents ControlDropdownMenuItem As ToolStripMenuItem
+    Friend WithEvents SetHighTemperatureMenuItem As ToolStripMenuItem
+    Friend WithEvents HighTempUpMenuItem As ToolStripMenuItem
+    Friend WithEvents HighTempDownMenuItem As ToolStripMenuItem
+    Friend WithEvents SetLowTemperatureMenuItem As ToolStripMenuItem
+    Friend WithEvents LowTempUpMenuItem As ToolStripMenuItem
+    Friend WithEvents LowTempDownMenuItem As ToolStripMenuItem
+    Friend WithEvents OverridesMenuItem As ToolStripMenuItem
+    Friend WithEvents ToggleSafetyInterlockMenuItem As ToolStripMenuItem
+    Friend WithEvents ToggleHeaterOverrideMenuItem As ToolStripMenuItem
+    Friend WithEvents ToggleFanOverrideMenuItem As ToolStripMenuItem
+    Friend WithEvents ToggleACOverrideMenuItem As ToolStripMenuItem
 End Class
