@@ -377,6 +377,7 @@ Partial Class HvacControlForm
         '
         Me.AmbientTempFLabel.AutoSize = True
         Me.AmbientTempFLabel.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.AmbientTempFLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AmbientTempFLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AmbientTempFLabel.Location = New System.Drawing.Point(66, 54)
         Me.AmbientTempFLabel.Name = "AmbientTempFLabel"
@@ -475,6 +476,7 @@ Partial Class HvacControlForm
         'SetLowLabel
         '
         Me.SetLowLabel.AutoSize = True
+        Me.SetLowLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SetLowLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SetLowLabel.Location = New System.Drawing.Point(30, 17)
         Me.SetLowLabel.Name = "SetLowLabel"
@@ -495,6 +497,7 @@ Partial Class HvacControlForm
         'LowTempTextBox
         '
         Me.LowTempTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.LowTempTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.LowTempTextBox.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LowTempTextBox.Location = New System.Drawing.Point(36, 62)
         Me.LowTempTextBox.Name = "LowTempTextBox"
@@ -542,6 +545,8 @@ Partial Class HvacControlForm
         'SafetyInterlockButton
         '
         Me.SafetyInterlockButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.SafetyInterlockButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.SafetyInterlockButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SafetyInterlockButton.Location = New System.Drawing.Point(45, 59)
         Me.SafetyInterlockButton.Name = "SafetyInterlockButton"
         Me.SafetyInterlockButton.Size = New System.Drawing.Size(20, 20)
@@ -551,6 +556,8 @@ Partial Class HvacControlForm
         'HeaterOverrideButton
         '
         Me.HeaterOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.HeaterOverrideButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.HeaterOverrideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.HeaterOverrideButton.Location = New System.Drawing.Point(108, 59)
         Me.HeaterOverrideButton.Name = "HeaterOverrideButton"
         Me.HeaterOverrideButton.Size = New System.Drawing.Size(20, 20)
@@ -571,6 +578,8 @@ Partial Class HvacControlForm
         'FanOverrideButton
         '
         Me.FanOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FanOverrideButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.FanOverrideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FanOverrideButton.Location = New System.Drawing.Point(176, 58)
         Me.FanOverrideButton.Name = "FanOverrideButton"
         Me.FanOverrideButton.Size = New System.Drawing.Size(20, 20)
@@ -591,6 +600,8 @@ Partial Class HvacControlForm
         'DifferentialButton
         '
         Me.DifferentialButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.DifferentialButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.DifferentialButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DifferentialButton.Location = New System.Drawing.Point(334, 59)
         Me.DifferentialButton.Name = "DifferentialButton"
         Me.DifferentialButton.Size = New System.Drawing.Size(20, 20)
@@ -611,6 +622,8 @@ Partial Class HvacControlForm
         'AcOverrideButton
         '
         Me.AcOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.AcOverrideButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.AcOverrideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AcOverrideButton.Location = New System.Drawing.Point(247, 59)
         Me.AcOverrideButton.Name = "AcOverrideButton"
         Me.AcOverrideButton.Size = New System.Drawing.Size(20, 20)
@@ -823,6 +836,8 @@ Partial Class HvacControlForm
         'HeaterStatusButton
         '
         Me.HeaterStatusButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.HeaterStatusButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.HeaterStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.HeaterStatusButton.Location = New System.Drawing.Point(27, 49)
         Me.HeaterStatusButton.Name = "HeaterStatusButton"
         Me.HeaterStatusButton.Size = New System.Drawing.Size(20, 20)
@@ -832,6 +847,8 @@ Partial Class HvacControlForm
         'FanStatusButton
         '
         Me.FanStatusButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FanStatusButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.FanStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.FanStatusButton.Location = New System.Drawing.Point(83, 49)
         Me.FanStatusButton.Name = "FanStatusButton"
         Me.FanStatusButton.Size = New System.Drawing.Size(20, 20)
@@ -841,6 +858,8 @@ Partial Class HvacControlForm
         'AcStatusButton
         '
         Me.AcStatusButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.AcStatusButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.AcStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AcStatusButton.Location = New System.Drawing.Point(139, 49)
         Me.AcStatusButton.Name = "AcStatusButton"
         Me.AcStatusButton.Size = New System.Drawing.Size(20, 20)
