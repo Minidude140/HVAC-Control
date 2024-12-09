@@ -296,7 +296,7 @@ Public Class HvacControlForm
         If turnOn = True Then
             'Turn on Fan
             'turn on GUI indicator
-            FanProgressBar.Value = 1
+            FanStatusButton.BackColor = Roarange
             PowerUpTimer.Enabled = True
             'Test if Fan is already on
             If TestBit(currentOutputData, 2) = True Then
@@ -352,7 +352,7 @@ Public Class HvacControlForm
         If turnOn = True Then
             'Turn on AC
             'turn on GUI indicator
-            AcProgressBar.Value = 1
+            AcStatusButton.BackColor = Roarange
             'Test if Ac is already On
             If TestBit(currentOutputData, 3) = True Then
                 'Flip AC On Bit
@@ -365,7 +365,7 @@ Public Class HvacControlForm
         ElseIf turnOn = False Then
             'Turn off AC
             'turn on GUI indicator
-            AcProgressBar.Value = 0
+            AcStatusButton.BackColor = GrowlGreyLight
             'Test if Ac is already off
             If TestBit(currentOutputData, 3) = False Then
                 currentOutputData = FlipBit(currentOutputData, 3)
@@ -461,7 +461,7 @@ Public Class HvacControlForm
                 'Disable any previous shut down routine
                 FanShutDownTimer.Enabled = False
                 'Only Enable is not already on
-                If AcProgressBar.Value = 0 Then
+                If AcStatusButton.BackColor = GrowlGreyLight Then
                     'Shut Down Heater
                     HeaterControl(False)
                     'Turn on Fan
@@ -855,7 +855,7 @@ Public Class HvacControlForm
         'Turn off Fan Shutdown Timer
         FanShutDownTimer.Enabled = False
         'turn off GUI indicator
-        FanProgressBar.Value = 0
+        FanStatusButton.BackColor = GrowlGreyLight
         'Send Digital Output OFF Signal if not already off
         If TestBit(currentOutputData, 2) = False Then
             currentOutputData = FlipBit(currentOutputData, 2)

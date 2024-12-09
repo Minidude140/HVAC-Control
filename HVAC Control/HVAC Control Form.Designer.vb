@@ -56,7 +56,6 @@ Partial Class HvacControlForm
         Me.HeatOnLabel = New System.Windows.Forms.Label()
         Me.FanOnLabel = New System.Windows.Forms.Label()
         Me.AcOnLabel = New System.Windows.Forms.Label()
-        Me.AcProgressBar = New System.Windows.Forms.ProgressBar()
         Me.SetLowLabel = New System.Windows.Forms.Label()
         Me.SetHighLabel = New System.Windows.Forms.Label()
         Me.LowTempTextBox = New System.Windows.Forms.TextBox()
@@ -67,7 +66,6 @@ Partial Class HvacControlForm
         Me.HighTempUpButton = New System.Windows.Forms.Button()
         Me.FanShutDownTimer = New System.Windows.Forms.Timer(Me.components)
         Me.TempCheckTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.FanProgressBar = New System.Windows.Forms.ProgressBar()
         Me.PowerUpTimer = New System.Windows.Forms.Timer(Me.components)
         Me.InterlockLabel = New System.Windows.Forms.Label()
         Me.SafetyInterlockButton = New System.Windows.Forms.Button()
@@ -105,6 +103,8 @@ Partial Class HvacControlForm
         Me.SaveTempSettingsMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitProgramMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HeaterStatusButton = New System.Windows.Forms.Button()
+        Me.FanStatusButton = New System.Windows.Forms.Button()
+        Me.AcStatusButton = New System.Windows.Forms.Button()
         Me.ControlsToolStrip.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
@@ -374,7 +374,7 @@ Partial Class HvacControlForm
         '
         Me.FanOnLabel.AutoSize = True
         Me.FanOnLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FanOnLabel.Location = New System.Drawing.Point(517, 95)
+        Me.FanOnLabel.Location = New System.Drawing.Point(520, 91)
         Me.FanOnLabel.Name = "FanOnLabel"
         Me.FanOnLabel.Size = New System.Drawing.Size(47, 30)
         Me.FanOnLabel.TabIndex = 15
@@ -391,14 +391,6 @@ Partial Class HvacControlForm
         Me.AcOnLabel.TabIndex = 17
         Me.AcOnLabel.Text = "AC " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Status" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.AcOnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'AcProgressBar
-        '
-        Me.AcProgressBar.Location = New System.Drawing.Point(581, 126)
-        Me.AcProgressBar.Maximum = 1
-        Me.AcProgressBar.Name = "AcProgressBar"
-        Me.AcProgressBar.Size = New System.Drawing.Size(20, 14)
-        Me.AcProgressBar.TabIndex = 16
         '
         'SetLowLabel
         '
@@ -491,14 +483,6 @@ Partial Class HvacControlForm
         'TempCheckTimer
         '
         Me.TempCheckTimer.Interval = 10000
-        '
-        'FanProgressBar
-        '
-        Me.FanProgressBar.Location = New System.Drawing.Point(524, 126)
-        Me.FanProgressBar.Maximum = 1
-        Me.FanProgressBar.Name = "FanProgressBar"
-        Me.FanProgressBar.Size = New System.Drawing.Size(20, 14)
-        Me.FanProgressBar.TabIndex = 26
         '
         'PowerUpTimer
         '
@@ -790,11 +774,31 @@ Partial Class HvacControlForm
         Me.HeaterStatusButton.TabIndex = 40
         Me.HeaterStatusButton.UseVisualStyleBackColor = False
         '
+        'FanStatusButton
+        '
+        Me.FanStatusButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FanStatusButton.Location = New System.Drawing.Point(532, 124)
+        Me.FanStatusButton.Name = "FanStatusButton"
+        Me.FanStatusButton.Size = New System.Drawing.Size(20, 20)
+        Me.FanStatusButton.TabIndex = 41
+        Me.FanStatusButton.UseVisualStyleBackColor = False
+        '
+        'AcStatusButton
+        '
+        Me.AcStatusButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.AcStatusButton.Location = New System.Drawing.Point(588, 128)
+        Me.AcStatusButton.Name = "AcStatusButton"
+        Me.AcStatusButton.Size = New System.Drawing.Size(20, 20)
+        Me.AcStatusButton.TabIndex = 42
+        Me.AcStatusButton.UseVisualStyleBackColor = False
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.AcStatusButton)
+        Me.Controls.Add(Me.FanStatusButton)
         Me.Controls.Add(Me.HeaterStatusButton)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.AcOverrideButton)
@@ -807,7 +811,6 @@ Partial Class HvacControlForm
         Me.Controls.Add(Me.HeaterOverrideLabel)
         Me.Controls.Add(Me.SafetyInterlockButton)
         Me.Controls.Add(Me.InterlockLabel)
-        Me.Controls.Add(Me.FanProgressBar)
         Me.Controls.Add(Me.HighTempDownButton)
         Me.Controls.Add(Me.HighTempUpButton)
         Me.Controls.Add(Me.LowTempDownButton)
@@ -817,7 +820,6 @@ Partial Class HvacControlForm
         Me.Controls.Add(Me.SetHighLabel)
         Me.Controls.Add(Me.SetLowLabel)
         Me.Controls.Add(Me.AcOnLabel)
-        Me.Controls.Add(Me.AcProgressBar)
         Me.Controls.Add(Me.FanOnLabel)
         Me.Controls.Add(Me.HeatOnLabel)
         Me.Controls.Add(Me.CoolRadioButton)
@@ -878,7 +880,6 @@ Partial Class HvacControlForm
     Friend WithEvents HeatOnLabel As Label
     Friend WithEvents FanOnLabel As Label
     Friend WithEvents AcOnLabel As Label
-    Friend WithEvents AcProgressBar As ProgressBar
     Friend WithEvents SetLowLabel As Label
     Friend WithEvents SetHighLabel As Label
     Friend WithEvents LowTempTextBox As TextBox
@@ -888,7 +889,6 @@ Partial Class HvacControlForm
     Friend WithEvents HighTempDownButton As Button
     Friend WithEvents HighTempUpButton As Button
     Friend WithEvents FanShutDownTimer As Timer
-    Friend WithEvents FanProgressBar As ProgressBar
     Friend WithEvents PowerUpTimer As Timer
     Friend WithEvents InterlockLabel As Label
     Friend WithEvents SafetyInterlockButton As Button
@@ -929,4 +929,6 @@ Partial Class HvacControlForm
     Friend WithEvents SaveTempSettingsMenuItem As ToolStripMenuItem
     Friend WithEvents ExitProgramMenuItem As ToolStripMenuItem
     Friend WithEvents HeaterStatusButton As Button
+    Friend WithEvents FanStatusButton As Button
+    Friend WithEvents AcStatusButton As Button
 End Class
