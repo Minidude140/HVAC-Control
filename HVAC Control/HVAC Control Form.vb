@@ -912,4 +912,10 @@ Public Class HvacControlForm
             LogError("AC Override Engaged")
         End If
     End Sub
+
+    Private Sub ClockTimer_Tick(sender As Object, e As EventArgs) Handles ClockTimer.Tick
+        Dim currentTime As String
+        currentTime = FormatDateTime(TimeOfDay)
+        TimeStatusStripLabel.Text = currentTime
+    End Sub
 End Class

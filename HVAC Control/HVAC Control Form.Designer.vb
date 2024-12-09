@@ -81,7 +81,13 @@ Partial Class HvacControlForm
         Me.AcOverrideButton = New System.Windows.Forms.Button()
         Me.AcOverideLabel = New System.Windows.Forms.Label()
         Me.ErrorLogDelayTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.COMStatusStripLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TimeStatusStripLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.BlankStatusStripLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ClockTimer = New System.Windows.Forms.Timer(Me.components)
         Me.ControlsToolStrip.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ControlsToolStrip
@@ -457,7 +463,7 @@ Partial Class HvacControlForm
         'InterlockLabel
         '
         Me.InterlockLabel.AutoSize = True
-        Me.InterlockLabel.Location = New System.Drawing.Point(26, 379)
+        Me.InterlockLabel.Location = New System.Drawing.Point(26, 365)
         Me.InterlockLabel.Name = "InterlockLabel"
         Me.InterlockLabel.Size = New System.Drawing.Size(48, 26)
         Me.InterlockLabel.TabIndex = 28
@@ -467,7 +473,7 @@ Partial Class HvacControlForm
         'SafetyInterlockButton
         '
         Me.SafetyInterlockButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.SafetyInterlockButton.Location = New System.Drawing.Point(39, 408)
+        Me.SafetyInterlockButton.Location = New System.Drawing.Point(39, 394)
         Me.SafetyInterlockButton.Name = "SafetyInterlockButton"
         Me.SafetyInterlockButton.Size = New System.Drawing.Size(20, 20)
         Me.SafetyInterlockButton.TabIndex = 29
@@ -476,7 +482,7 @@ Partial Class HvacControlForm
         'HeaterOverrideButton
         '
         Me.HeaterOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.HeaterOverrideButton.Location = New System.Drawing.Point(93, 408)
+        Me.HeaterOverrideButton.Location = New System.Drawing.Point(93, 394)
         Me.HeaterOverrideButton.Name = "HeaterOverrideButton"
         Me.HeaterOverrideButton.Size = New System.Drawing.Size(20, 20)
         Me.HeaterOverrideButton.TabIndex = 31
@@ -485,7 +491,7 @@ Partial Class HvacControlForm
         'HeaterOverrideLabel
         '
         Me.HeaterOverrideLabel.AutoSize = True
-        Me.HeaterOverrideLabel.Location = New System.Drawing.Point(80, 379)
+        Me.HeaterOverrideLabel.Location = New System.Drawing.Point(80, 365)
         Me.HeaterOverrideLabel.Name = "HeaterOverrideLabel"
         Me.HeaterOverrideLabel.Size = New System.Drawing.Size(47, 26)
         Me.HeaterOverrideLabel.TabIndex = 30
@@ -495,7 +501,7 @@ Partial Class HvacControlForm
         'FanOverrideButton
         '
         Me.FanOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.FanOverrideButton.Location = New System.Drawing.Point(146, 408)
+        Me.FanOverrideButton.Location = New System.Drawing.Point(146, 394)
         Me.FanOverrideButton.Name = "FanOverrideButton"
         Me.FanOverrideButton.Size = New System.Drawing.Size(20, 20)
         Me.FanOverrideButton.TabIndex = 33
@@ -504,7 +510,7 @@ Partial Class HvacControlForm
         'FanOverrideLabel
         '
         Me.FanOverrideLabel.AutoSize = True
-        Me.FanOverrideLabel.Location = New System.Drawing.Point(133, 379)
+        Me.FanOverrideLabel.Location = New System.Drawing.Point(133, 365)
         Me.FanOverrideLabel.Name = "FanOverrideLabel"
         Me.FanOverrideLabel.Size = New System.Drawing.Size(47, 26)
         Me.FanOverrideLabel.TabIndex = 32
@@ -514,7 +520,7 @@ Partial Class HvacControlForm
         'DifferentialButton
         '
         Me.DifferentialButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.DifferentialButton.Location = New System.Drawing.Point(266, 408)
+        Me.DifferentialButton.Location = New System.Drawing.Point(266, 394)
         Me.DifferentialButton.Name = "DifferentialButton"
         Me.DifferentialButton.Size = New System.Drawing.Size(20, 20)
         Me.DifferentialButton.TabIndex = 35
@@ -523,7 +529,7 @@ Partial Class HvacControlForm
         'DifferentialLabel
         '
         Me.DifferentialLabel.AutoSize = True
-        Me.DifferentialLabel.Location = New System.Drawing.Point(244, 379)
+        Me.DifferentialLabel.Location = New System.Drawing.Point(244, 365)
         Me.DifferentialLabel.Name = "DifferentialLabel"
         Me.DifferentialLabel.Size = New System.Drawing.Size(73, 26)
         Me.DifferentialLabel.TabIndex = 34
@@ -533,7 +539,7 @@ Partial Class HvacControlForm
         'AcOverrideButton
         '
         Me.AcOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.AcOverrideButton.Location = New System.Drawing.Point(198, 408)
+        Me.AcOverrideButton.Location = New System.Drawing.Point(198, 394)
         Me.AcOverrideButton.Name = "AcOverrideButton"
         Me.AcOverrideButton.Size = New System.Drawing.Size(20, 20)
         Me.AcOverrideButton.TabIndex = 37
@@ -542,7 +548,7 @@ Partial Class HvacControlForm
         'AcOverideLabel
         '
         Me.AcOverideLabel.AutoSize = True
-        Me.AcOverideLabel.Location = New System.Drawing.Point(186, 379)
+        Me.AcOverideLabel.Location = New System.Drawing.Point(186, 365)
         Me.AcOverideLabel.Name = "AcOverideLabel"
         Me.AcOverideLabel.Size = New System.Drawing.Size(47, 26)
         Me.AcOverideLabel.TabIndex = 36
@@ -553,11 +559,44 @@ Partial Class HvacControlForm
         '
         Me.ErrorLogDelayTimer.Interval = 5000
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TimeStatusStripLabel, Me.BlankStatusStripLabel, Me.COMStatusStripLabel})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 428)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(800, 22)
+        Me.StatusStrip1.TabIndex = 38
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'COMStatusStripLabel
+        '
+        Me.COMStatusStripLabel.Name = "COMStatusStripLabel"
+        Me.COMStatusStripLabel.Size = New System.Drawing.Size(91, 17)
+        Me.COMStatusStripLabel.Text = "Not Connected "
+        '
+        'TimeStatusStripLabel
+        '
+        Me.TimeStatusStripLabel.Name = "TimeStatusStripLabel"
+        Me.TimeStatusStripLabel.Size = New System.Drawing.Size(60, 17)
+        Me.TimeStatusStripLabel.Text = "Date Time"
+        '
+        'BlankStatusStripLabel
+        '
+        Me.BlankStatusStripLabel.Name = "BlankStatusStripLabel"
+        Me.BlankStatusStripLabel.Size = New System.Drawing.Size(166, 17)
+        Me.BlankStatusStripLabel.Text = "                                                     "
+        '
+        'ClockTimer
+        '
+        Me.ClockTimer.Enabled = True
+        Me.ClockTimer.Interval = 1000
+        '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.AcOverrideButton)
         Me.Controls.Add(Me.AcOverideLabel)
         Me.Controls.Add(Me.DifferentialButton)
@@ -598,6 +637,8 @@ Partial Class HvacControlForm
         Me.Text = "HVAC Control"
         Me.ControlsToolStrip.ResumeLayout(False)
         Me.ControlsToolStrip.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -661,4 +702,9 @@ Partial Class HvacControlForm
     Friend WithEvents AcOverideLabel As Label
     Friend WithEvents TempCheckTimer As Timer
     Friend WithEvents ErrorLogDelayTimer As Timer
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents TimeStatusStripLabel As ToolStripStatusLabel
+    Friend WithEvents BlankStatusStripLabel As ToolStripStatusLabel
+    Friend WithEvents COMStatusStripLabel As ToolStripStatusLabel
+    Friend WithEvents ClockTimer As Timer
 End Class
