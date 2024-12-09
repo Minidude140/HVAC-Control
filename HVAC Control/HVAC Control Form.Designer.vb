@@ -105,6 +105,7 @@ Partial Class HvacControlForm
         Me.ProgramMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveTempSettingsMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitProgramMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HeaterStatusButton = New System.Windows.Forms.Button()
         Me.ControlsToolStrip.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
@@ -361,7 +362,7 @@ Partial Class HvacControlForm
         '
         'HeaterProgressBar
         '
-        Me.HeaterProgressBar.Location = New System.Drawing.Point(467, 126)
+        Me.HeaterProgressBar.Location = New System.Drawing.Point(406, 126)
         Me.HeaterProgressBar.Maximum = 1
         Me.HeaterProgressBar.Name = "HeaterProgressBar"
         Me.HeaterProgressBar.Size = New System.Drawing.Size(20, 14)
@@ -635,7 +636,7 @@ Partial Class HvacControlForm
         'BlankStatusStripLabel
         '
         Me.BlankStatusStripLabel.Name = "BlankStatusStripLabel"
-        Me.BlankStatusStripLabel.Size = New System.Drawing.Size(166, 17)
+        Me.BlankStatusStripLabel.Size = New System.Drawing.Size(166, 19)
         Me.BlankStatusStripLabel.Text = "                                                     "
         '
         'COMStatusStripLabel
@@ -753,20 +754,20 @@ Partial Class HvacControlForm
         'ConnectCOMMenuItem
         '
         Me.ConnectCOMMenuItem.Name = "ConnectCOMMenuItem"
-        Me.ConnectCOMMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.ConnectCOMMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ConnectCOMMenuItem.Text = "Connect"
         '
         'DisconnectMenuItem
         '
         Me.DisconnectMenuItem.Enabled = False
         Me.DisconnectMenuItem.Name = "DisconnectMenuItem"
-        Me.DisconnectMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.DisconnectMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DisconnectMenuItem.Text = "Disconnect"
         '
         'RefreshMenuItem
         '
         Me.RefreshMenuItem.Name = "RefreshMenuItem"
-        Me.RefreshMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.RefreshMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RefreshMenuItem.Text = "Refresh"
         '
         'ProgramMenuItem
@@ -780,20 +781,30 @@ Partial Class HvacControlForm
         'SaveTempSettingsMenuItem
         '
         Me.SaveTempSettingsMenuItem.Name = "SaveTempSettingsMenuItem"
-        Me.SaveTempSettingsMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.SaveTempSettingsMenuItem.Size = New System.Drawing.Size(244, 22)
         Me.SaveTempSettingsMenuItem.Text = "Save Temperature Settings"
         '
         'ExitProgramMenuItem
         '
         Me.ExitProgramMenuItem.Name = "ExitProgramMenuItem"
-        Me.ExitProgramMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.ExitProgramMenuItem.Size = New System.Drawing.Size(244, 22)
         Me.ExitProgramMenuItem.Text = "Exit Program"
+        '
+        'HeaterStatusButton
+        '
+        Me.HeaterStatusButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.HeaterStatusButton.Location = New System.Drawing.Point(467, 124)
+        Me.HeaterStatusButton.Name = "HeaterStatusButton"
+        Me.HeaterStatusButton.Size = New System.Drawing.Size(20, 20)
+        Me.HeaterStatusButton.TabIndex = 40
+        Me.HeaterStatusButton.UseVisualStyleBackColor = False
         '
         'HvacControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.HeaterStatusButton)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.AcOverrideButton)
         Me.Controls.Add(Me.AcOverideLabel)
@@ -928,4 +939,5 @@ Partial Class HvacControlForm
     Friend WithEvents ProgramMenuItem As ToolStripMenuItem
     Friend WithEvents SaveTempSettingsMenuItem As ToolStripMenuItem
     Friend WithEvents ExitProgramMenuItem As ToolStripMenuItem
+    Friend WithEvents HeaterStatusButton As Button
 End Class
