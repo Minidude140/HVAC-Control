@@ -985,5 +985,4 @@ Public Class HvacControlForm
         currentTime = FormatDateTime(TimeOfDay)
         TimeStatusStripLabel.Text = currentTime
     End Sub
-
 End Class

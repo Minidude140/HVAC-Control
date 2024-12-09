@@ -143,6 +143,7 @@ Partial Class HvacControlForm
         '
         Me.DisconnetToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.DisconnetToolStripButton.Enabled = False
+        Me.DisconnetToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DisconnetToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_disconnect_30
         Me.DisconnetToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.DisconnetToolStripButton.Name = "DisconnetToolStripButton"
@@ -158,6 +159,7 @@ Partial Class HvacControlForm
         'RefreshCOMToolStripButton
         '
         Me.RefreshCOMToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.RefreshCOMToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RefreshCOMToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_refresh_24
         Me.RefreshCOMToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.RefreshCOMToolStripButton.Name = "RefreshCOMToolStripButton"
@@ -184,6 +186,7 @@ Partial Class HvacControlForm
         'SaveSettingsToolStripButton
         '
         Me.SaveSettingsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.SaveSettingsToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveSettingsToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_save_30
         Me.SaveSettingsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.SaveSettingsToolStripButton.Name = "SaveSettingsToolStripButton"
@@ -211,6 +214,7 @@ Partial Class HvacControlForm
         'QuitProgramToolStripButton
         '
         Me.QuitProgramToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.QuitProgramToolStripButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.QuitProgramToolStripButton.Image = Global.HVAC_Control.My.Resources.Resources.icons8_quit_50
         Me.QuitProgramToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.QuitProgramToolStripButton.Name = "QuitProgramToolStripButton"
@@ -235,107 +239,123 @@ Partial Class HvacControlForm
         'AnalogInput1TestLabel
         '
         Me.AnalogInput1TestLabel.AutoSize = True
-        Me.AnalogInput1TestLabel.Location = New System.Drawing.Point(102, 143)
+        Me.AnalogInput1TestLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AnalogInput1TestLabel.Location = New System.Drawing.Point(135, 106)
         Me.AnalogInput1TestLabel.Name = "AnalogInput1TestLabel"
-        Me.AnalogInput1TestLabel.Size = New System.Drawing.Size(39, 13)
+        Me.AnalogInput1TestLabel.Size = New System.Drawing.Size(33, 15)
         Me.AnalogInput1TestLabel.TabIndex = 1
-        Me.AnalogInput1TestLabel.Text = "Label1"
+        Me.AnalogInput1TestLabel.Text = "AN1"
+        Me.AnalogInput1TestLabel.Visible = False
         '
         'AnalogInput2TestLabel
         '
         Me.AnalogInput2TestLabel.AutoSize = True
-        Me.AnalogInput2TestLabel.Location = New System.Drawing.Point(252, 143)
+        Me.AnalogInput2TestLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AnalogInput2TestLabel.Location = New System.Drawing.Point(292, 106)
         Me.AnalogInput2TestLabel.Name = "AnalogInput2TestLabel"
-        Me.AnalogInput2TestLabel.Size = New System.Drawing.Size(39, 13)
+        Me.AnalogInput2TestLabel.Size = New System.Drawing.Size(35, 15)
         Me.AnalogInput2TestLabel.TabIndex = 2
-        Me.AnalogInput2TestLabel.Text = "Label1"
+        Me.AnalogInput2TestLabel.Text = "AN2"
+        Me.AnalogInput2TestLabel.Visible = False
         '
         'AmbientTempFLabel
         '
         Me.AmbientTempFLabel.AutoSize = True
-        Me.AmbientTempFLabel.Location = New System.Drawing.Point(106, 172)
+        Me.AmbientTempFLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AmbientTempFLabel.Location = New System.Drawing.Point(103, 138)
         Me.AmbientTempFLabel.Name = "AmbientTempFLabel"
-        Me.AmbientTempFLabel.Size = New System.Drawing.Size(29, 13)
+        Me.AmbientTempFLabel.Size = New System.Drawing.Size(34, 15)
         Me.AmbientTempFLabel.TabIndex = 3
         Me.AmbientTempFLabel.Text = "0 ° F"
         '
         'AmbientTempCLabel
         '
         Me.AmbientTempCLabel.AutoSize = True
-        Me.AmbientTempCLabel.Location = New System.Drawing.Point(106, 198)
+        Me.AmbientTempCLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AmbientTempCLabel.Location = New System.Drawing.Point(103, 164)
         Me.AmbientTempCLabel.Name = "AmbientTempCLabel"
-        Me.AmbientTempCLabel.Size = New System.Drawing.Size(30, 13)
+        Me.AmbientTempCLabel.Size = New System.Drawing.Size(36, 15)
         Me.AmbientTempCLabel.TabIndex = 4
         Me.AmbientTempCLabel.Text = "0 ° C"
         '
         'ControlSytemTempFLabel
         '
         Me.ControlSytemTempFLabel.AutoSize = True
-        Me.ControlSytemTempFLabel.Location = New System.Drawing.Point(257, 172)
+        Me.ControlSytemTempFLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ControlSytemTempFLabel.Location = New System.Drawing.Point(257, 138)
         Me.ControlSytemTempFLabel.Name = "ControlSytemTempFLabel"
-        Me.ControlSytemTempFLabel.Size = New System.Drawing.Size(29, 13)
+        Me.ControlSytemTempFLabel.Size = New System.Drawing.Size(34, 15)
         Me.ControlSytemTempFLabel.TabIndex = 5
         Me.ControlSytemTempFLabel.Text = "0 ° F"
         '
         'ControlSystemTempCLabel
         '
         Me.ControlSystemTempCLabel.AutoSize = True
-        Me.ControlSystemTempCLabel.Location = New System.Drawing.Point(256, 198)
+        Me.ControlSystemTempCLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ControlSystemTempCLabel.Location = New System.Drawing.Point(256, 164)
         Me.ControlSystemTempCLabel.Name = "ControlSystemTempCLabel"
-        Me.ControlSystemTempCLabel.Size = New System.Drawing.Size(30, 13)
+        Me.ControlSystemTempCLabel.Size = New System.Drawing.Size(36, 15)
         Me.ControlSystemTempCLabel.TabIndex = 6
         Me.ControlSystemTempCLabel.Text = "0 ° C"
         '
         'AmbientTempLabel
         '
         Me.AmbientTempLabel.AutoSize = True
-        Me.AmbientTempLabel.Location = New System.Drawing.Point(80, 108)
+        Me.AmbientTempLabel.Font = New System.Drawing.Font("Museo Slab 500", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AmbientTempLabel.Location = New System.Drawing.Point(69, 119)
         Me.AmbientTempLabel.Name = "AmbientTempLabel"
-        Me.AmbientTempLabel.Size = New System.Drawing.Size(82, 26)
+        Me.AmbientTempLabel.Size = New System.Drawing.Size(105, 19)
         Me.AmbientTempLabel.TabIndex = 7
-        Me.AmbientTempLabel.Text = "Ambient Temp" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Analog Input 1)"
+        Me.AmbientTempLabel.Text = "Room Temp"
         Me.AmbientTempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ControlSystemTempLabel
         '
         Me.ControlSystemTempLabel.AutoSize = True
-        Me.ControlSystemTempLabel.Location = New System.Drawing.Point(218, 108)
+        Me.ControlSystemTempLabel.Font = New System.Drawing.Font("Museo Slab 500", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ControlSystemTempLabel.Location = New System.Drawing.Point(216, 119)
         Me.ControlSystemTempLabel.Name = "ControlSystemTempLabel"
-        Me.ControlSystemTempLabel.Size = New System.Drawing.Size(107, 26)
+        Me.ControlSystemTempLabel.Size = New System.Drawing.Size(115, 19)
         Me.ControlSystemTempLabel.TabIndex = 8
-        Me.ControlSystemTempLabel.Text = "Control System Temp" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Analog Input 2)"
+        Me.ControlSystemTempLabel.Text = "System Temp" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.ControlSystemTempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'OffRadioButton
         '
         Me.OffRadioButton.AutoSize = True
         Me.OffRadioButton.Checked = True
-        Me.OffRadioButton.Location = New System.Drawing.Point(188, 267)
+        Me.OffRadioButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OffRadioButton.Location = New System.Drawing.Point(178, 207)
         Me.OffRadioButton.Name = "OffRadioButton"
-        Me.OffRadioButton.Size = New System.Drawing.Size(39, 17)
+        Me.OffRadioButton.Size = New System.Drawing.Size(45, 19)
         Me.OffRadioButton.TabIndex = 9
         Me.OffRadioButton.TabStop = True
         Me.OffRadioButton.Text = "Off"
+        Me.ToolTip.SetToolTip(Me.OffRadioButton, "Turn the System Off")
         Me.OffRadioButton.UseVisualStyleBackColor = True
         '
         'HeatRadioButton
         '
         Me.HeatRadioButton.AutoSize = True
-        Me.HeatRadioButton.Location = New System.Drawing.Point(106, 267)
+        Me.HeatRadioButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HeatRadioButton.Location = New System.Drawing.Point(96, 207)
         Me.HeatRadioButton.Name = "HeatRadioButton"
-        Me.HeatRadioButton.Size = New System.Drawing.Size(48, 17)
+        Me.HeatRadioButton.Size = New System.Drawing.Size(55, 19)
         Me.HeatRadioButton.TabIndex = 10
         Me.HeatRadioButton.Text = "Heat"
+        Me.ToolTip.SetToolTip(Me.HeatRadioButton, "Enable Heating Mode")
         Me.HeatRadioButton.UseVisualStyleBackColor = True
         '
         'CoolRadioButton
         '
         Me.CoolRadioButton.AutoSize = True
-        Me.CoolRadioButton.Location = New System.Drawing.Point(250, 267)
+        Me.CoolRadioButton.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CoolRadioButton.Location = New System.Drawing.Point(240, 207)
         Me.CoolRadioButton.Name = "CoolRadioButton"
-        Me.CoolRadioButton.Size = New System.Drawing.Size(46, 17)
+        Me.CoolRadioButton.Size = New System.Drawing.Size(55, 19)
         Me.CoolRadioButton.TabIndex = 11
         Me.CoolRadioButton.Text = "Cool"
+        Me.ToolTip.SetToolTip(Me.CoolRadioButton, "Enable Ac ")
         Me.CoolRadioButton.UseVisualStyleBackColor = True
         '
         'HeaterProgressBar
@@ -349,9 +369,10 @@ Partial Class HvacControlForm
         'HeatOnLabel
         '
         Me.HeatOnLabel.AutoSize = True
-        Me.HeatOnLabel.Location = New System.Drawing.Point(459, 95)
+        Me.HeatOnLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HeatOnLabel.Location = New System.Drawing.Point(453, 91)
         Me.HeatOnLabel.Name = "HeatOnLabel"
-        Me.HeatOnLabel.Size = New System.Drawing.Size(39, 26)
+        Me.HeatOnLabel.Size = New System.Drawing.Size(49, 30)
         Me.HeatOnLabel.TabIndex = 13
         Me.HeatOnLabel.Text = "Heater" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Status" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.HeatOnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -359,9 +380,10 @@ Partial Class HvacControlForm
         'FanOnLabel
         '
         Me.FanOnLabel.AutoSize = True
+        Me.FanOnLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FanOnLabel.Location = New System.Drawing.Point(517, 95)
         Me.FanOnLabel.Name = "FanOnLabel"
-        Me.FanOnLabel.Size = New System.Drawing.Size(37, 26)
+        Me.FanOnLabel.Size = New System.Drawing.Size(47, 30)
         Me.FanOnLabel.TabIndex = 15
         Me.FanOnLabel.Text = "Fan" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Status" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.FanOnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -369,9 +391,10 @@ Partial Class HvacControlForm
         'AcOnLabel
         '
         Me.AcOnLabel.AutoSize = True
+        Me.AcOnLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AcOnLabel.Location = New System.Drawing.Point(573, 95)
         Me.AcOnLabel.Name = "AcOnLabel"
-        Me.AcOnLabel.Size = New System.Drawing.Size(37, 26)
+        Me.AcOnLabel.Size = New System.Drawing.Size(47, 30)
         Me.AcOnLabel.TabIndex = 17
         Me.AcOnLabel.Text = "AC " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Status" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.AcOnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -387,35 +410,39 @@ Partial Class HvacControlForm
         'SetLowLabel
         '
         Me.SetLowLabel.AutoSize = True
-        Me.SetLowLabel.Location = New System.Drawing.Point(411, 252)
+        Me.SetLowLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SetLowLabel.Location = New System.Drawing.Point(370, 189)
         Me.SetLowLabel.Name = "SetLowLabel"
-        Me.SetLowLabel.Size = New System.Drawing.Size(76, 13)
+        Me.SetLowLabel.Size = New System.Drawing.Size(97, 15)
         Me.SetLowLabel.TabIndex = 18
         Me.SetLowLabel.Text = "Set Low Temp"
         '
         'SetHighLabel
         '
         Me.SetHighLabel.AutoSize = True
-        Me.SetHighLabel.Location = New System.Drawing.Point(589, 252)
+        Me.SetHighLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SetHighLabel.Location = New System.Drawing.Point(555, 189)
         Me.SetHighLabel.Name = "SetHighLabel"
-        Me.SetHighLabel.Size = New System.Drawing.Size(78, 13)
+        Me.SetHighLabel.Size = New System.Drawing.Size(102, 15)
         Me.SetHighLabel.TabIndex = 19
         Me.SetHighLabel.Text = "Set High Temp"
         '
         'LowTempTextBox
         '
-        Me.LowTempTextBox.Location = New System.Drawing.Point(403, 291)
+        Me.LowTempTextBox.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LowTempTextBox.Location = New System.Drawing.Point(383, 207)
         Me.LowTempTextBox.Name = "LowTempTextBox"
-        Me.LowTempTextBox.Size = New System.Drawing.Size(84, 20)
+        Me.LowTempTextBox.Size = New System.Drawing.Size(84, 23)
         Me.LowTempTextBox.TabIndex = 20
         Me.LowTempTextBox.Text = "65"
         Me.LowTempTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'HighTempTextBox
         '
-        Me.HighTempTextBox.Location = New System.Drawing.Point(592, 291)
+        Me.HighTempTextBox.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HighTempTextBox.Location = New System.Drawing.Point(572, 207)
         Me.HighTempTextBox.Name = "HighTempTextBox"
-        Me.HighTempTextBox.Size = New System.Drawing.Size(84, 20)
+        Me.HighTempTextBox.Size = New System.Drawing.Size(84, 23)
         Me.HighTempTextBox.TabIndex = 21
         Me.HighTempTextBox.Text = "70"
         Me.HighTempTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -423,41 +450,45 @@ Partial Class HvacControlForm
         'LowTempUpButton
         '
         Me.LowTempUpButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LowTempUpButton.Location = New System.Drawing.Point(493, 267)
+        Me.LowTempUpButton.Location = New System.Drawing.Point(473, 183)
         Me.LowTempUpButton.Name = "LowTempUpButton"
         Me.LowTempUpButton.Size = New System.Drawing.Size(14, 33)
         Me.LowTempUpButton.TabIndex = 22
         Me.LowTempUpButton.Text = "↑"
+        Me.ToolTip.SetToolTip(Me.LowTempUpButton, "Increment Low Set Temp by 0.5°")
         Me.LowTempUpButton.UseVisualStyleBackColor = True
         '
         'LowTempDownButton
         '
         Me.LowTempDownButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LowTempDownButton.Location = New System.Drawing.Point(493, 306)
+        Me.LowTempDownButton.Location = New System.Drawing.Point(473, 222)
         Me.LowTempDownButton.Name = "LowTempDownButton"
         Me.LowTempDownButton.Size = New System.Drawing.Size(14, 33)
         Me.LowTempDownButton.TabIndex = 23
         Me.LowTempDownButton.Text = "↓"
+        Me.ToolTip.SetToolTip(Me.LowTempDownButton, "Decrement Low Set Temp by 0.5°")
         Me.LowTempDownButton.UseVisualStyleBackColor = True
         '
         'HighTempDownButton
         '
         Me.HighTempDownButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HighTempDownButton.Location = New System.Drawing.Point(682, 306)
+        Me.HighTempDownButton.Location = New System.Drawing.Point(662, 222)
         Me.HighTempDownButton.Name = "HighTempDownButton"
         Me.HighTempDownButton.Size = New System.Drawing.Size(14, 33)
         Me.HighTempDownButton.TabIndex = 25
         Me.HighTempDownButton.Text = "↓"
+        Me.ToolTip.SetToolTip(Me.HighTempDownButton, "Decrement High Set Temp by 0.5°")
         Me.HighTempDownButton.UseVisualStyleBackColor = True
         '
         'HighTempUpButton
         '
         Me.HighTempUpButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HighTempUpButton.Location = New System.Drawing.Point(682, 267)
+        Me.HighTempUpButton.Location = New System.Drawing.Point(662, 183)
         Me.HighTempUpButton.Name = "HighTempUpButton"
         Me.HighTempUpButton.Size = New System.Drawing.Size(14, 33)
         Me.HighTempUpButton.TabIndex = 24
         Me.HighTempUpButton.Text = "↑"
+        Me.ToolTip.SetToolTip(Me.HighTempUpButton, "Increment High Set Temp by 0.5°")
         Me.HighTempUpButton.UseVisualStyleBackColor = True
         '
         'FanShutDownTimer
@@ -483,9 +514,10 @@ Partial Class HvacControlForm
         'InterlockLabel
         '
         Me.InterlockLabel.AutoSize = True
-        Me.InterlockLabel.Location = New System.Drawing.Point(26, 365)
+        Me.InterlockLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InterlockLabel.Location = New System.Drawing.Point(348, 335)
         Me.InterlockLabel.Name = "InterlockLabel"
-        Me.InterlockLabel.Size = New System.Drawing.Size(48, 26)
+        Me.InterlockLabel.Size = New System.Drawing.Size(65, 30)
         Me.InterlockLabel.TabIndex = 28
         Me.InterlockLabel.Text = "Safety" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Interlock" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.InterlockLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -493,7 +525,7 @@ Partial Class HvacControlForm
         'SafetyInterlockButton
         '
         Me.SafetyInterlockButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.SafetyInterlockButton.Location = New System.Drawing.Point(39, 394)
+        Me.SafetyInterlockButton.Location = New System.Drawing.Point(375, 368)
         Me.SafetyInterlockButton.Name = "SafetyInterlockButton"
         Me.SafetyInterlockButton.Size = New System.Drawing.Size(20, 20)
         Me.SafetyInterlockButton.TabIndex = 29
@@ -502,7 +534,7 @@ Partial Class HvacControlForm
         'HeaterOverrideButton
         '
         Me.HeaterOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.HeaterOverrideButton.Location = New System.Drawing.Point(93, 394)
+        Me.HeaterOverrideButton.Location = New System.Drawing.Point(438, 368)
         Me.HeaterOverrideButton.Name = "HeaterOverrideButton"
         Me.HeaterOverrideButton.Size = New System.Drawing.Size(20, 20)
         Me.HeaterOverrideButton.TabIndex = 31
@@ -511,9 +543,10 @@ Partial Class HvacControlForm
         'HeaterOverrideLabel
         '
         Me.HeaterOverrideLabel.AutoSize = True
-        Me.HeaterOverrideLabel.Location = New System.Drawing.Point(80, 365)
+        Me.HeaterOverrideLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HeaterOverrideLabel.Location = New System.Drawing.Point(419, 335)
         Me.HeaterOverrideLabel.Name = "HeaterOverrideLabel"
-        Me.HeaterOverrideLabel.Size = New System.Drawing.Size(47, 26)
+        Me.HeaterOverrideLabel.Size = New System.Drawing.Size(62, 30)
         Me.HeaterOverrideLabel.TabIndex = 30
         Me.HeaterOverrideLabel.Text = "Heater" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Override" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.HeaterOverrideLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -521,7 +554,7 @@ Partial Class HvacControlForm
         'FanOverrideButton
         '
         Me.FanOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.FanOverrideButton.Location = New System.Drawing.Point(146, 394)
+        Me.FanOverrideButton.Location = New System.Drawing.Point(506, 367)
         Me.FanOverrideButton.Name = "FanOverrideButton"
         Me.FanOverrideButton.Size = New System.Drawing.Size(20, 20)
         Me.FanOverrideButton.TabIndex = 33
@@ -530,9 +563,10 @@ Partial Class HvacControlForm
         'FanOverrideLabel
         '
         Me.FanOverrideLabel.AutoSize = True
-        Me.FanOverrideLabel.Location = New System.Drawing.Point(133, 365)
+        Me.FanOverrideLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FanOverrideLabel.Location = New System.Drawing.Point(487, 335)
         Me.FanOverrideLabel.Name = "FanOverrideLabel"
-        Me.FanOverrideLabel.Size = New System.Drawing.Size(47, 26)
+        Me.FanOverrideLabel.Size = New System.Drawing.Size(62, 30)
         Me.FanOverrideLabel.TabIndex = 32
         Me.FanOverrideLabel.Text = "Fan" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Override" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.FanOverrideLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -540,7 +574,7 @@ Partial Class HvacControlForm
         'DifferentialButton
         '
         Me.DifferentialButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.DifferentialButton.Location = New System.Drawing.Point(266, 394)
+        Me.DifferentialButton.Location = New System.Drawing.Point(664, 368)
         Me.DifferentialButton.Name = "DifferentialButton"
         Me.DifferentialButton.Size = New System.Drawing.Size(20, 20)
         Me.DifferentialButton.TabIndex = 35
@@ -549,9 +583,10 @@ Partial Class HvacControlForm
         'DifferentialLabel
         '
         Me.DifferentialLabel.AutoSize = True
-        Me.DifferentialLabel.Location = New System.Drawing.Point(244, 365)
+        Me.DifferentialLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DifferentialLabel.Location = New System.Drawing.Point(629, 335)
         Me.DifferentialLabel.Name = "DifferentialLabel"
-        Me.DifferentialLabel.Size = New System.Drawing.Size(73, 26)
+        Me.DifferentialLabel.Size = New System.Drawing.Size(94, 30)
         Me.DifferentialLabel.TabIndex = 34
         Me.DifferentialLabel.Text = "Differential" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Pressure Error" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.DifferentialLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -559,7 +594,7 @@ Partial Class HvacControlForm
         'AcOverrideButton
         '
         Me.AcOverrideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.AcOverrideButton.Location = New System.Drawing.Point(198, 394)
+        Me.AcOverrideButton.Location = New System.Drawing.Point(577, 368)
         Me.AcOverrideButton.Name = "AcOverrideButton"
         Me.AcOverrideButton.Size = New System.Drawing.Size(20, 20)
         Me.AcOverrideButton.TabIndex = 37
@@ -568,9 +603,10 @@ Partial Class HvacControlForm
         'AcOverideLabel
         '
         Me.AcOverideLabel.AutoSize = True
-        Me.AcOverideLabel.Location = New System.Drawing.Point(186, 365)
+        Me.AcOverideLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AcOverideLabel.Location = New System.Drawing.Point(555, 335)
         Me.AcOverideLabel.Name = "AcOverideLabel"
-        Me.AcOverideLabel.Size = New System.Drawing.Size(47, 26)
+        Me.AcOverideLabel.Size = New System.Drawing.Size(62, 30)
         Me.AcOverideLabel.TabIndex = 36
         Me.AcOverideLabel.Text = "AC" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Override" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.AcOverideLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -582,16 +618,17 @@ Partial Class HvacControlForm
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TimeStatusStripLabel, Me.BlankStatusStripLabel, Me.COMStatusStripLabel})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 428)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 426)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(800, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(800, 24)
         Me.StatusStrip1.TabIndex = 38
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'TimeStatusStripLabel
         '
+        Me.TimeStatusStripLabel.Font = New System.Drawing.Font("Museo Slab 500", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TimeStatusStripLabel.Name = "TimeStatusStripLabel"
-        Me.TimeStatusStripLabel.Size = New System.Drawing.Size(60, 17)
+        Me.TimeStatusStripLabel.Size = New System.Drawing.Size(90, 19)
         Me.TimeStatusStripLabel.Text = "Date Time"
         '
         'BlankStatusStripLabel
@@ -602,8 +639,9 @@ Partial Class HvacControlForm
         '
         'COMStatusStripLabel
         '
+        Me.COMStatusStripLabel.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.COMStatusStripLabel.Name = "COMStatusStripLabel"
-        Me.COMStatusStripLabel.Size = New System.Drawing.Size(91, 17)
+        Me.COMStatusStripLabel.Size = New System.Drawing.Size(107, 19)
         Me.COMStatusStripLabel.Text = "Not Connected "
         '
         'ClockTimer
@@ -623,105 +661,119 @@ Partial Class HvacControlForm
         'ControlDropdownMenuItem
         '
         Me.ControlDropdownMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetHighTemperatureMenuItem, Me.SetLowTemperatureMenuItem, Me.ChangeModeMenuItem})
+        Me.ControlDropdownMenuItem.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ControlDropdownMenuItem.Name = "ControlDropdownMenuItem"
-        Me.ControlDropdownMenuItem.Size = New System.Drawing.Size(59, 20)
+        Me.ControlDropdownMenuItem.Size = New System.Drawing.Size(68, 20)
         Me.ControlDropdownMenuItem.Text = "Control"
+        Me.ControlDropdownMenuItem.ToolTipText = "Control System Temperature"
         '
         'SetHighTemperatureMenuItem
         '
         Me.SetHighTemperatureMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HighTempUpMenuItem, Me.HighTempDownMenuItem})
         Me.SetHighTemperatureMenuItem.Name = "SetHighTemperatureMenuItem"
-        Me.SetHighTemperatureMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.SetHighTemperatureMenuItem.Size = New System.Drawing.Size(214, 22)
         Me.SetHighTemperatureMenuItem.Text = "Set High Temperature"
+        Me.SetHighTemperatureMenuItem.ToolTipText = "Change the High Temperature Set Point"
         '
         'HighTempUpMenuItem
         '
         Me.HighTempUpMenuItem.Name = "HighTempUpMenuItem"
-        Me.HighTempUpMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.HighTempUpMenuItem.Size = New System.Drawing.Size(187, 22)
         Me.HighTempUpMenuItem.Text = "High Temp Up"
+        Me.HighTempUpMenuItem.ToolTipText = "Increment High Set Temp by 0.5°"
         '
         'HighTempDownMenuItem
         '
         Me.HighTempDownMenuItem.Name = "HighTempDownMenuItem"
-        Me.HighTempDownMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.HighTempDownMenuItem.Size = New System.Drawing.Size(187, 22)
         Me.HighTempDownMenuItem.Text = "High Temp Down"
+        Me.HighTempDownMenuItem.ToolTipText = "Decrement High Set Temp by 0.5°"
         '
         'SetLowTemperatureMenuItem
         '
         Me.SetLowTemperatureMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LowTempUpMenuItem, Me.LowTempDownMenuItem})
         Me.SetLowTemperatureMenuItem.Name = "SetLowTemperatureMenuItem"
-        Me.SetLowTemperatureMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.SetLowTemperatureMenuItem.Size = New System.Drawing.Size(214, 22)
         Me.SetLowTemperatureMenuItem.Text = "Set Low Temperature"
+        Me.SetLowTemperatureMenuItem.ToolTipText = "Change the Low Set Temperature"
         '
         'LowTempUpMenuItem
         '
         Me.LowTempUpMenuItem.Name = "LowTempUpMenuItem"
-        Me.LowTempUpMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.LowTempUpMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.LowTempUpMenuItem.Text = "Low Temp Up"
+        Me.LowTempUpMenuItem.ToolTipText = "Increment Low Set Temp by 0.5°"
         '
         'LowTempDownMenuItem
         '
         Me.LowTempDownMenuItem.Name = "LowTempDownMenuItem"
-        Me.LowTempDownMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.LowTempDownMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.LowTempDownMenuItem.Text = "Low Temp Down"
+        Me.LowTempDownMenuItem.ToolTipText = "Decrement Low Set Temp by 0.5°"
         '
         'ChangeModeMenuItem
         '
         Me.ChangeModeMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HeatMenuItem, Me.OffMenuItem, Me.CoolMenuItem})
         Me.ChangeModeMenuItem.Name = "ChangeModeMenuItem"
-        Me.ChangeModeMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.ChangeModeMenuItem.Size = New System.Drawing.Size(214, 22)
         Me.ChangeModeMenuItem.Text = "Change Mode"
+        Me.ChangeModeMenuItem.ToolTipText = "Change the System Mode"
         '
         'HeatMenuItem
         '
         Me.HeatMenuItem.Name = "HeatMenuItem"
-        Me.HeatMenuItem.Size = New System.Drawing.Size(99, 22)
+        Me.HeatMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.HeatMenuItem.Text = "Heat"
+        Me.HeatMenuItem.ToolTipText = "Enable Heat"
         '
         'OffMenuItem
         '
         Me.OffMenuItem.Enabled = False
         Me.OffMenuItem.Name = "OffMenuItem"
-        Me.OffMenuItem.Size = New System.Drawing.Size(99, 22)
+        Me.OffMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OffMenuItem.Text = "Off"
+        Me.OffMenuItem.ToolTipText = "Turn the System Off"
         '
         'CoolMenuItem
         '
         Me.CoolMenuItem.Name = "CoolMenuItem"
-        Me.CoolMenuItem.Size = New System.Drawing.Size(99, 22)
+        Me.CoolMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CoolMenuItem.Text = "Cool"
+        Me.CoolMenuItem.ToolTipText = "Enable Ac "
         '
         'ConnectionMenuItem
         '
         Me.ConnectionMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConnectCOMMenuItem, Me.DisconnectMenuItem, Me.RefreshMenuItem})
+        Me.ConnectionMenuItem.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ConnectionMenuItem.Name = "ConnectionMenuItem"
-        Me.ConnectionMenuItem.Size = New System.Drawing.Size(81, 20)
+        Me.ConnectionMenuItem.Size = New System.Drawing.Size(95, 20)
         Me.ConnectionMenuItem.Text = "Connection"
         '
         'ConnectCOMMenuItem
         '
         Me.ConnectCOMMenuItem.Name = "ConnectCOMMenuItem"
-        Me.ConnectCOMMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ConnectCOMMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.ConnectCOMMenuItem.Text = "Connect"
         '
         'DisconnectMenuItem
         '
         Me.DisconnectMenuItem.Enabled = False
         Me.DisconnectMenuItem.Name = "DisconnectMenuItem"
-        Me.DisconnectMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DisconnectMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.DisconnectMenuItem.Text = "Disconnect"
         '
         'RefreshMenuItem
         '
         Me.RefreshMenuItem.Name = "RefreshMenuItem"
-        Me.RefreshMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RefreshMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.RefreshMenuItem.Text = "Refresh"
         '
         'ProgramMenuItem
         '
         Me.ProgramMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveTempSettingsMenuItem, Me.ExitProgramMenuItem})
+        Me.ProgramMenuItem.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ProgramMenuItem.Name = "ProgramMenuItem"
-        Me.ProgramMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.ProgramMenuItem.Size = New System.Drawing.Size(73, 20)
         Me.ProgramMenuItem.Text = "Program"
         '
         'SaveTempSettingsMenuItem
