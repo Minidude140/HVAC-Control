@@ -733,6 +733,7 @@ Public Class HvacControlForm
         PopulateCOMSelect()
         'Load Previous Temperature Settings
         ImportSettings()
+
     End Sub
     Private Sub QuitProgramToolStripButton_Click(sender As Object, e As EventArgs) Handles QuitProgramToolStripButton.Click
         'Exit the program
