@@ -121,6 +121,7 @@ Partial Class HvacControlForm
         '
         'COMSelectToolStripComboBox
         '
+        Me.COMSelectToolStripComboBox.Font = New System.Drawing.Font("Museo Slab 500", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.COMSelectToolStripComboBox.Name = "COMSelectToolStripComboBox"
         Me.COMSelectToolStripComboBox.Size = New System.Drawing.Size(121, 25)
         '
