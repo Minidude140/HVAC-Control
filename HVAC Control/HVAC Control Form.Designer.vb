@@ -53,7 +53,6 @@ Partial Class HvacControlForm
         Me.OffRadioButton = New System.Windows.Forms.RadioButton()
         Me.HeatRadioButton = New System.Windows.Forms.RadioButton()
         Me.CoolRadioButton = New System.Windows.Forms.RadioButton()
-        Me.HeaterProgressBar = New System.Windows.Forms.ProgressBar()
         Me.HeatOnLabel = New System.Windows.Forms.Label()
         Me.FanOnLabel = New System.Windows.Forms.Label()
         Me.AcOnLabel = New System.Windows.Forms.Label()
@@ -359,14 +358,6 @@ Partial Class HvacControlForm
         Me.CoolRadioButton.Text = "Cool"
         Me.ToolTip.SetToolTip(Me.CoolRadioButton, "Enable Ac ")
         Me.CoolRadioButton.UseVisualStyleBackColor = True
-        '
-        'HeaterProgressBar
-        '
-        Me.HeaterProgressBar.Location = New System.Drawing.Point(406, 126)
-        Me.HeaterProgressBar.Maximum = 1
-        Me.HeaterProgressBar.Name = "HeaterProgressBar"
-        Me.HeaterProgressBar.Size = New System.Drawing.Size(20, 14)
-        Me.HeaterProgressBar.TabIndex = 12
         '
         'HeatOnLabel
         '
@@ -829,7 +820,6 @@ Partial Class HvacControlForm
         Me.Controls.Add(Me.AcProgressBar)
         Me.Controls.Add(Me.FanOnLabel)
         Me.Controls.Add(Me.HeatOnLabel)
-        Me.Controls.Add(Me.HeaterProgressBar)
         Me.Controls.Add(Me.CoolRadioButton)
         Me.Controls.Add(Me.HeatRadioButton)
         Me.Controls.Add(Me.OffRadioButton)
@@ -885,7 +875,6 @@ Partial Class HvacControlForm
     Friend WithEvents OffRadioButton As RadioButton
     Friend WithEvents HeatRadioButton As RadioButton
     Friend WithEvents CoolRadioButton As RadioButton
-    Friend WithEvents HeaterProgressBar As ProgressBar
     Friend WithEvents HeatOnLabel As Label
     Friend WithEvents FanOnLabel As Label
     Friend WithEvents AcOnLabel As Label

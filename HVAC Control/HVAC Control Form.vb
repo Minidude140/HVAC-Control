@@ -321,7 +321,7 @@ Public Class HvacControlForm
         If turnOn = True Then
             'Turn on Heater
             'turn on GUI indicator
-            HeaterProgressBar.Value = 1
+            HeaterStatusButton.BackColor = Roarange
             'Test if Heater is already on
             If TestBit(currentOutputData, 1) = True Then
                 'Flip Heater On Bit
@@ -333,8 +333,8 @@ Public Class HvacControlForm
             End If
         ElseIf turnOn = False Then
             'Turn off Heater
-            'turn on GUI indicator
-            HeaterProgressBar.Value = 0
+            'turn off GUI indicator
+            HeaterStatusButton.BackColor = GrowlGreyLight
             'Test if Heater is already off
             If TestBit(currentOutputData, 1) = False Then
                     currentOutputData = FlipBit(currentOutputData, 1)
@@ -449,7 +449,7 @@ Public Class HvacControlForm
                 'Disable any previous shut down routine
                 FanShutDownTimer.Enabled = False
                 'Only Enable is not already on
-                If HeaterProgressBar.Value = 0 Then
+                If HeaterStatusButton.BackColor = GrowlGreyLight Then
                     'Shut Down AC
                     AcControl(False)
                     'Turn on Fan
